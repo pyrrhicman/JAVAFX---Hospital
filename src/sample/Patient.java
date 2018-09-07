@@ -2,12 +2,12 @@ package sample;
 
 import javafx.beans.property.SimpleStringProperty;
 
-public class PatientList {
+public class Patient {
     private SimpleStringProperty name;
     private SimpleStringProperty room;
     private SimpleStringProperty id;
 
-    PatientList(String name, String room, String id) {
+    Patient(String name, String room, String id) {
         this.name = new SimpleStringProperty(name);
         this.room = new SimpleStringProperty(room);
         this.id = new SimpleStringProperty(id);
