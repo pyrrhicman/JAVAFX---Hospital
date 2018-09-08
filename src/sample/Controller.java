@@ -3,29 +3,44 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import newPatientPagePackage.Newpatient;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 public class Controller implements Initializable {
-    ObservableList<Patient> patients = FXCollections.observableArrayList();
+     private static ObservableList<Patient> patients = FXCollections.observableArrayList();
     @FXML
     private TableView<Patient> mytable;
     @FXML
-    private TableColumn<Patient, String> c1;
+    private TableColumn<Patient, String> lastname;//Full name
     @FXML
-    private TableColumn<Patient, String> c2;
+    private TableColumn<Patient, String> firstname;//Social Id
     @FXML
-    private TableColumn<Patient, String> c3;
+    private TableColumn<Patient, String> socialid;//sex
     @FXML
-    private TableColumn<Patient, String> c4;
+    private TableColumn<Patient, String> sex;//
+    @FXML
+    private TableColumn<Patient, String> birthday;
+    @FXML
+    private TableColumn<Patient, String> dateofregistration;
+    @FXML
+    private TableColumn<Patient, String> phonenumber;
+    @FXML
+    private TableColumn<Patient, String> city;
+    @FXML
+    private TableColumn<Patient, String> address;
+
+
     @FXML
     private Button b1;
     @FXML
@@ -44,31 +59,28 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        c1.setCellValueFactory(new PropertyValueFactory<Patient, String>("name"));
-        c2.setCellValueFactory(new PropertyValueFactory<Patient,String>("room"));
-        c3.setCellValueFactory(new PropertyValueFactory<Patient, String>("id"));
-
+        lastname.setCellValueFactory(new PropertyValueFactory<Patient, String>("lastname"));
+        firstname.setCellValueFactory(new PropertyValueFactory<Patient, String>("firstname"));
+        socialid.setCellValueFactory(new PropertyValueFactory<Patient, String>("socialid"));
+        sex.setCellValueFactory(new PropertyValueFactory<Patient, String>("sex"));
+        birthday.setCellValueFactory(new PropertyValueFactory<Patient, String>("birthday"));
+        dateofregistration.setCellValueFactory(new PropertyValueFactory<Patient, String>("dateofregistration"));
+        phonenumber.setCellValueFactory(new PropertyValueFactory<Patient, String>("phonenumber"));
+        city.setCellValueFactory(new PropertyValueFactory<Patient, String>("city"));
+        address.setCellValueFactory(new PropertyValueFactory<Patient, String>("address"));
         mytable.setItems(getPatients());
-        /*mytable.setEditable(true);
-        c1.setCellFactory(TextFieldTableCell.forTableColumn());
-        c2.setCellFactory(TextFieldTableCell.forTableColumn());
-        c3.setCellFactory(TextFieldTableCell.forTableColumn());*/
-
     }
 
     public void newPatientButtonPressed() {
-        if (fieldsAreNotEmpty()) {
-
-            patients.add(new Patient(t1.getText(), t2.getText(), t3.getText()));
-            mytable.getItems();
-        }
-
+        newPatientForm();
+        //patients.add(new Patient(t1.getText(), t2.getText(), t3.getText()));
+        //mytable.getItems();
     }
 
     public void deleteExistedPatient() {
         if (!(t3.getText().isEmpty())) {
-            for (int j = patients.size()-1; j >= 0; j--) {
-                if (patients.get(j).getId().equals(t3.getText())) {
+            for (int j = patients.size() - 1; j >= 0; j--) {
+                if (patients.get(j).getSocialid().equals(t3.getText())) {
                     patients.remove(j);
                     mytable.getItems();
                 }
@@ -76,19 +88,48 @@ public class Controller implements Initializable {
         }
 
     }
+    public void exitButtonPressed() {
+        Stage stage =(Stage)this.b3.getScene().getWindow();
+        stage.close();
+        System.exit(0);
 
+    }
     public ObservableList<Patient> getPatients() {
 
-        patients.add(new Patient("Erik", "73", "23436676"));
+        patients.add(new Patient(
+                "Mohammad",
+                "Askari",
+                "210599-7156",
+                "Male",
+                "21/05/1999",
+                "09/09/2018",
+                "0465987829",
+                "Porvoo",
+                "Pormestarinkatu 14 C 89",
+                "06100"));
 
-        patients.add(new Patient("Mohas", "34", "23454657"));
-        patients.add(new Patient("Mob", "23", "243543534"));
-        patients.add(new Patient("Andrew", "12", "4634523"));
+        patients.add(new Patient(
+                "Danial",
+                "Musavi",
+                "130500-7235",
+                "Male",
+                "13/05/2000",
+                "09/09/2018",
+                "0465954219",
+                "Helsinki",
+                "Helsingintie 2 B 22",
+                "00100 "));
+
+
 
         return patients;
     }
 
-    public boolean fieldsAreNotEmpty() {
+    public static void getNewPatientAndSaveIt(Patient patient) {
+        patients.add(patient);
+    }
+
+    /*public boolean fieldsAreNotEmpty() {
         if (!(t1.getText().isEmpty())) {
             if (!(t2.getText().isEmpty())) {
                 if (!(t3.getText().isEmpty())) {
@@ -98,5 +139,43 @@ public class Controller implements Initializable {
         }
 
         return false;
+    }*/
+
+
+    public void newPatientForm() {
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+
+            InputStream inputStream = getClass().getResource("/newPatientPagePackage/newpatient.fxml").openStream();
+            Pane pane = (Pane) loader.load(inputStream);
+
+            Newpatient newpatient = (Newpatient) loader.getController();
+
+            Scene scene = new Scene(pane);
+            stage.setScene(scene);
+            stage.setTitle("New Patient");
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

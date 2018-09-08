@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="471.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newPatientPagePackage.Newpatient">
+   <children>
+      <VBox layoutX="14.0" layoutY="25.0" prefHeight="427.0" prefWidth="209.0">
+         <children>
+            <TextField fx:id="firstname" prefHeight="25.0" prefWidth="158.0" promptText="First Name">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="lastname" prefHeight="25.0" prefWidth="158.0" promptText="Last Name">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="socialid" prefHeight="25.0" prefWidth="158.0" promptText="Social ID">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <ComboBox fx:id="sex" prefWidth="150.0" promptText="Gender">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </ComboBox>
+            <DatePicker fx:id="dateofbirth" promptText="Date of Birth">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </DatePicker>
+            <DatePicker fx:id="dateofregistration" promptText="Date of Hospitalization">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </DatePicker>
+            <TextField fx:id="phonenumber" prefHeight="25.0" prefWidth="158.0" promptText="Phone Number">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="city" prefHeight="25.0" prefWidth="185.0" promptText="City">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="address" prefHeight="25.0" prefWidth="158.0" promptText="Address">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="postalcode" prefHeight="25.0" prefWidth="158.0" promptText="Postal Code">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+      <VBox layoutX="262.0" layoutY="38.0" prefHeight="343.0" prefWidth="128.0">
+         <children>
+            <Button fx:id="enter" mnemonicParsing="false" onAction="#enterButtonPressed" prefHeight="31.0" prefWidth="189.0" text="Enter">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancelButtonPressed" prefHeight="31.0" prefWidth="206.0" text="Cancel">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="5.0" right="5.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
