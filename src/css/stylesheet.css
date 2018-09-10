@@ -25,9 +25,10 @@
 }
 .text-field {
     -fx-background-color: transparent;
-    -fx-text-fill: #62929a;
-    -fx-prompt-text-fill: #62929a;
-
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: gray;
+    /*-fx-text-fill: #62929a;
+    -fx-prompt-text-fill: #62929a;*/
 
 }
 .combo-box{
