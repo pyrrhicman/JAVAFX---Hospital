@@ -43,7 +43,7 @@ public class Newpatient implements Initializable {
     private Text systext;
     private String formatString = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #AE3522; -fx-text-fill: white; -fx-font-size: 24";
     private String formatbutton = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #AE3522; -fx-text-fill: white; -fx-font-size: 24";
-    private String formatcomboBox = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #62929a; -fx-text-fill: 62929a; -fx-font-size: 24";
+    private String formatcomboBox = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #62929a; -fx-text-fill: #62929a; -fx-font-size: 24";
     public Newpatient() {
         //Controller controller = new Controller();
         //controller.newPatientForm();
