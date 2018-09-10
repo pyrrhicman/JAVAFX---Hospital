@@ -1,5 +1,7 @@
 .parent {
     -fx-background-color: #fff;
+    -fx-background-image: url(back.jpg);
+
 }
 .sidebar {
     -fx-background-color: #393232;
@@ -8,10 +10,17 @@
     -fx-background-color: #5c5757;
     -fx-text-fill: #efecec;
     -fx-background-radius: 45;
-
+    -fx-font-size: 17px;
+    /*-fx-font-family: "Segoe UI Light";
+    -fx-font-style: Regular;*/
 }
 .button:hover {
     -fx-background-color: #363434;
+}
+
+
+.hbox{
+    -fx-background-color: #4d4545;
 }
 
 .background{
@@ -21,17 +30,23 @@
     -fx-background-color: transparent;
     -fx-text-fill: #62929a;
     -fx-prompt-text-fill: #62929a;
-
-
-    -fx-font-size: 14px;
+    -fx-font-size: 22px;
 
 }
 .combo-box{
-    -fx-background-color: #5c5757 ;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
+    -fx-font-size: 22px;
+    /*-fx-font-family: "Segoe UI Light";
+    -fx-font-style: Regular;*/
+
+}
+.date-picker{
     -fx-background-color: transparent;
     -fx-text-fill: #62929a;
     -fx-prompt-text-fill: #62929a;
-
-    -fx-font-size: 14px;
-
+    -fx-font-size: 22px;
+    /*-fx-font-family: "Segoe UI Light";
+    -fx-font-style: Regular;*/
 }

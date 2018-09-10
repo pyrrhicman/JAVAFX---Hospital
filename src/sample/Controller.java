@@ -155,8 +155,9 @@ public class Controller implements Initializable {
 
             Scene scene = new Scene(pane);
             stage.setScene(scene);
+            scene.getStylesheets().add(Newpatient.class.getResource("/sample.css").toExternalForm());
             stage.setTitle("New Patient");
-            stage.setResizable(false);
+            stage.setResizable(true);
             stage.show();
 
         } catch (IOException ex) {
