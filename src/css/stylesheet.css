@@ -10,9 +10,6 @@
     -fx-background-color: #5c5757;
     -fx-text-fill: #efecec;
     -fx-background-radius: 45;
-    -fx-font-size: 17px;
-    -fx-font-family: "Segoe UI Light";
-    -fx-font-style: Regular;
 }
 .button:hover {
     -fx-background-color: #363434;
@@ -30,34 +27,25 @@
     -fx-background-color: transparent;
     -fx-text-fill: #62929a;
     -fx-prompt-text-fill: #62929a;
-    -fx-font-size: 22px;
+
 
 }
 .combo-box{
     -fx-background-color: transparent;
     -fx-text-fill: white;
     -fx-prompt-text-fill: white;
-    -fx-font-size: 22px;
-    -fx-font-family: "Segoe UI Light";
-    -fx-font-style: Regular;
 
 }
 .date-picker{
     -fx-background-color: transparent;
     -fx-text-fill: #62929a;
     -fx-prompt-text-fill: #62929a;
-    -fx-font-size: 22px;
-    -fx-font-family: "Segoe UI Light";
-    -fx-font-style: Regular;
 }
 
 .jfx-button {
     -fx-background-color: #5c5757;
     -fx-text-fill: #efecec;
     -fx-background-radius: 45;
-    -fx-font-size: 17px;
-    -fx-font-family: "Segoe UI Light";
-    -fx-font-style: Regular;
 }
 .jfx-button:hover {
     -fx-background-color: #363434;

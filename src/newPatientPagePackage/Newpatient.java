@@ -41,9 +41,9 @@ public class Newpatient implements Initializable {
     private JFXDatePicker dateofregistration;
     @FXML
     private Text systext;
-
-
-
+    private String formatString = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #AE3522; -fx-text-fill: white; -fx-font-size: 24";
+    private String formatbutton = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #AE3522; -fx-text-fill: white; -fx-font-size: 24";
+    private String formatcomboBox = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #62929a; -fx-text-fill: 62929a; -fx-font-size: 24";
     public Newpatient() {
         //Controller controller = new Controller();
         //controller.newPatientForm();
@@ -56,7 +56,24 @@ public class Newpatient implements Initializable {
         dateofbirth.setEditable(false);
         dateofregistration.setEditable(false);
 
+
+        address.setStyle(formatString);
+        firstname.setStyle(formatString);
+        lastname.setStyle(formatString);
+        socialid.setStyle(formatString);
+        sex.setStyle(formatcomboBox);
+        dateofbirth.setStyle(formatString);
+        dateofregistration.setStyle(formatString);
+        phonenumber.setStyle(formatString);
+        city.setStyle(formatString);
+        address.setStyle(formatString);
+        postalcode.setStyle(formatString);
+        systext.setText(formatString);
+        enter.setStyle(formatbutton);
+        cancel.setStyle(formatbutton);
+
     }
+
 
     public void cancelButtonPressed() {
         Stage stage = (Stage) this.cancel.getScene().getWindow();
@@ -70,15 +87,15 @@ public class Newpatient implements Initializable {
         if (fieldsAreNotEmpty()) {
             Patient patient = new Patient
                     (
-                            (firstname.getText(0, 1).toUpperCase() + firstname.getText(1, firstname.getText().length() - 1).toLowerCase()),
-                            (lastname.getText(0, 1).toUpperCase() + lastname.getText(1, lastname.getText().length() - 1).toLowerCase()),
+                            (firstname.getText(0, 1).toUpperCase() + firstname.getText(1, firstname.getText().length()).toLowerCase()),
+                            (lastname.getText(0, 1).toUpperCase() + lastname.getText(1, lastname.getText().length()).toLowerCase()),
                             socialid.getText(),
                             sex.getValue(),
                             dateofbirth.getValue().toString(),
                             dateofregistration.getValue().toString(),
                             phonenumber.getText(),
-                            (city.getText(0, 1).toUpperCase() + city.getText(1, city.getText().length() - 1).toLowerCase()),
-                            (address.getText(0, 1).toUpperCase() + address.getText(1, address.getText().length() - 1).toLowerCase()),
+                            (city.getText(0, 1).toUpperCase() + city.getText(1, city.getText().length()).toLowerCase()),
+                            (address.getText(0, 1).toUpperCase() + address.getText(1, address.getText().length()).toLowerCase()),
                             postalcode.getText()
                     );
 
