@@ -151,11 +151,11 @@ public class Controller implements Initializable {
             InputStream inputStream = getClass().getResource("/newPatientPagePackage/newpatient.fxml").openStream();
             Pane pane = (Pane) loader.load(inputStream);
 
-            Newpatient newpatient = (Newpatient) loader.getController();
+            //Newpatient newpatient = (Newpatient) loader.getController();
 
             Scene scene = new Scene(pane);
             stage.setScene(scene);
-            scene.getStylesheets().add(Newpatient.class.getResource("/sample.css").toExternalForm());
+            scene.getStylesheets().add("/css/stylesheet.css");
             stage.setTitle("New Patient");
             stage.setResizable(true);
             stage.show();

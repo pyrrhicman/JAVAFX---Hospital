@@ -13,13 +13,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="1000.0" prefWidth="600.0" styleClass="parent" stylesheets="@../sample.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newPatientPagePackage.Newpatient">
+<AnchorPane prefHeight="1000.0" prefWidth="600.0" styleClass="parent" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newPatientPagePackage.Newpatient">
    <children>
-      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" opacity="0.92" prefHeight="471.0" prefWidth="428.0" styleClass="hbox" stylesheets="@../sample.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" opacity="0.92" prefHeight="471.0" prefWidth="428.0" styleClass="hbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox prefHeight="800.0" prefWidth="550.0">
                <children>
-                  <JFXTextField fx:id="firstname" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="First Name" styleClass="text-field" stylesheets="@../sample.css">
+                  <JFXTextField fx:id="firstname" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="First Name" styleClass="text-field" stylesheets="@../css/stylesheet.css">
                      <unFocusColor>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -36,7 +36,7 @@
                         <Font name="Segoe UI Light" size="20.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="lastname" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Last Name" styleClass="text-field" stylesheets="@../sample.css">
+                  <JFXTextField fx:id="lastname" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Last Name" styleClass="text-field" stylesheets="@../css/stylesheet.css">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -53,7 +53,7 @@
                         <Font name="Segoe UI Light" size="20.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="socialid" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Social ID" styleClass="text-field" stylesheets="@../sample.css">
+                  <JFXTextField fx:id="socialid" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Social ID" styleClass="text-field" stylesheets="@../css/stylesheet.css">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -70,22 +70,22 @@
                         <Font name="Segoe UI Light" size="20.0" />
                      </font>
                   </JFXTextField>
-                  <JFXComboBox fx:id="sex" focusColor="#62929a" prefHeight="50.0" prefWidth="300.0" promptText="Gender" styleClass="combo-box" stylesheets="@../sample.css" unFocusColor="#62929a">
+                  <JFXComboBox fx:id="sex" focusColor="#62929a" prefHeight="50.0" prefWidth="300.0" promptText="Gender" styleClass="combo-box" stylesheets="@../css/stylesheet.css" unFocusColor="#62929a">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </JFXComboBox>
-                  <JFXDatePicker fx:id="dateofbirth" defaultColor="#62929a" editable="false" prefHeight="50.0" prefWidth="300.0" promptText="Date of Birth" showWeekNumbers="true" styleClass="datepicker" stylesheets="@../sample.css">
+                  <JFXDatePicker fx:id="dateofbirth" defaultColor="#62929a" editable="false" prefHeight="50.0" prefWidth="300.0" promptText="Date of Birth" showWeekNumbers="true" styleClass="date-picker" stylesheets="@../css/stylesheet.css">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </JFXDatePicker>
-                  <JFXDatePicker fx:id="dateofregistration" defaultColor="#62929a" editable="false" prefHeight="50.0" prefWidth="300.0" promptText="Date of Hospitalization" styleClass="datepicker" stylesheets="@../sample.css">
+                  <JFXDatePicker fx:id="dateofregistration" defaultColor="#62929a" editable="false" prefHeight="50.0" prefWidth="300.0" promptText="Date of Hospitalization" styleClass="date-picker" stylesheets="@../css/stylesheet.css">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </JFXDatePicker>
-                  <JFXTextField fx:id="phonenumber" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Phone Number" styleClass="text-field" stylesheets="@../sample.css" VBox.vgrow="ALWAYS">
+                  <JFXTextField fx:id="phonenumber" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Phone Number" styleClass="text-field" stylesheets="@../css/stylesheet.css" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -102,7 +102,7 @@
                         <Font name="Segoe UI Light" size="20.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="city" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="City" styleClass="text-field" stylesheets="@../sample.css">
+                  <JFXTextField fx:id="city" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="City" styleClass="text-field" stylesheets="@../css/stylesheet.css">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -119,7 +119,7 @@
                         <Font name="Segoe UI Light" size="20.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="address" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Address" styleClass="text-field" stylesheets="@../sample.css">
+                  <JFXTextField fx:id="address" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Address" styleClass="text-field" stylesheets="@../css/stylesheet.css">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -136,7 +136,7 @@
                         <Font name="Segoe UI Light" size="20.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="postalcode" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Postal Code" styleClass="text-field" stylesheets="@../sample.css">
+                  <JFXTextField fx:id="postalcode" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Postal Code" styleClass="text-field" stylesheets="@../css/stylesheet.css">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -162,7 +162,7 @@
             </VBox>
             <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefHeight="1000.0" prefWidth="303.0">
                <children>
-                  <JFXButton fx:id="enter" buttonType="RAISED" minWidth="60.0" onAction="#enterButtonPressed" prefHeight="30.0" prefWidth="150.0" ripplerFill="BLACK" text="Enter" textAlignment="CENTER">
+                  <JFXButton fx:id="enter" buttonType="RAISED" minWidth="60.0" onAction="#enterButtonPressed" prefHeight="30.0" prefWidth="150.0" ripplerFill="BLACK" styleClass="jfx-button" stylesheets="@../css/stylesheet.css" text="Enter" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
                      </VBox.margin>
@@ -170,7 +170,7 @@
                         <Font size="20.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="cancel" buttonType="RAISED" minWidth="60.0" onAction="#cancelButtonPressed" prefHeight="30.0" prefWidth="150.0" text="Cancel" textAlignment="CENTER">
+                  <JFXButton fx:id="cancel" buttonType="RAISED" minWidth="60.0" onAction="#cancelButtonPressed" prefHeight="30.0" prefWidth="150.0" styleClass="jfx-button" stylesheets="@../css/stylesheet.css" text="Cancel" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
