@@ -1,0 +1,53 @@
+.parent {
+    -fx-background-color: #fff;
+    -fx-background-image: url(back.jpg);
+
+}
+.sidebar {
+    -fx-background-color: #393232;
+}
+.button {
+    -fx-background-color: #5c5757;
+    -fx-text-fill: #efecec;
+    -fx-background-radius: 45;
+}
+.button:hover {
+    -fx-background-color: #363434;
+}
+
+
+.hbox{
+    -fx-background-color: #4d4545;
+}
+
+.background{
+    -fx-background-color: #efecec ;
+}
+.text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: gray;
+    /*-fx-text-fill: #62929a;
+    -fx-prompt-text-fill: #62929a;*/
+
+}
+.combo-box{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
+
+}
+.date-picker{
+    -fx-background-color: transparent;
+    -fx-text-fill: #62929a;
+    -fx-prompt-text-fill: #62929a;
+}
+
+.jfx-button {
+    -fx-background-color: #5c5757;
+    -fx-text-fill: #efecec;
+    -fx-background-radius: 45;
+}
+.jfx-button:hover {
+    -fx-background-color: #363434;
+}

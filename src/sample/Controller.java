@@ -12,6 +12,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import newPatientPagePackage.Newpatient;
+import com.jfoenix.controls.JFXButton;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -42,11 +43,11 @@ public class Controller implements Initializable {
 
 
     @FXML
-    private Button b1;
+    private JFXButton b1;
     @FXML
-    private Button b2;
+    private JFXButton b2;
     @FXML
-    private Button b3;
+    private JFXButton b3;
     @FXML
     private TextField t1;
     @FXML
@@ -101,8 +102,8 @@ public class Controller implements Initializable {
                 "Askari",
                 "210599-7156",
                 "Male",
-                "21/05/1999",
-                "09/09/2018",
+                "1999-21-05",
+                "2018-01-10",
                 "0465987829",
                 "Porvoo",
                 "Pormestarinkatu 14 C 89",
@@ -113,8 +114,8 @@ public class Controller implements Initializable {
                 "Musavi",
                 "130500-7235",
                 "Male",
-                "13/05/2000",
-                "09/09/2018",
+                "2000-09-20",
+                "2019-09-12",
                 "0465954219",
                 "Helsinki",
                 "Helsingintie 2 B 22",
@@ -150,12 +151,13 @@ public class Controller implements Initializable {
             InputStream inputStream = getClass().getResource("/newPatientPagePackage/newpatient.fxml").openStream();
             Pane pane = (Pane) loader.load(inputStream);
 
-            Newpatient newpatient = (Newpatient) loader.getController();
+            //Newpatient newpatient = (Newpatient) loader.getController();
 
             Scene scene = new Scene(pane);
             stage.setScene(scene);
+            scene.getStylesheets().add("/css/stylesheet.css");
             stage.setTitle("New Patient");
-            stage.setResizable(false);
+            stage.setResizable(true);
             stage.show();
 
         } catch (IOException ex) {

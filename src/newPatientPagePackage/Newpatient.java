@@ -1,48 +1,49 @@
 package newPatientPagePackage;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.Controller;
 import sample.Patient;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Newpatient implements Initializable {
     @FXML
-    private Button enter;
+    private JFXButton enter;
     @FXML
-    private Button cancel;
+    private JFXButton cancel;
     @FXML
-    private TextField lastname;
+    private JFXTextField lastname;
     @FXML
-    private TextField firstname;
+    private JFXTextField firstname;
     @FXML
-    private TextField socialid;
+    private JFXTextField socialid;
     @FXML
-    private TextField phonenumber;
+    private JFXTextField phonenumber;
     @FXML
-    private TextField city;
+    private JFXTextField city;
     @FXML
-    private TextField address;
+    private JFXTextField address;
     @FXML
-    private TextField postalcode;
+    private JFXTextField postalcode;
     @FXML
-    private ComboBox sex;
+    private JFXComboBox<String> sex = new JFXComboBox<String>();
     @FXML
-    private DatePicker dateofbirth;
+    private JFXDatePicker dateofbirth;
     @FXML
-    private DatePicker dateofregistration;
-
-
+    private JFXDatePicker dateofregistration;
+    @FXML
+    private Text systext;
+    private String formatString = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #AE3522; -fx-text-fill: white; -fx-font-size: 24";
+    private String formatbutton = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #AE3522; -fx-text-fill: white; -fx-font-size: 24";
+    private String formatcomboBox = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #62929a; -fx-text-fill: #62929a; -fx-font-size: 24";
     public Newpatient() {
         //Controller controller = new Controller();
         //controller.newPatientForm();
@@ -50,11 +51,32 @@ public class Newpatient implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources) {
 
+        sex.getItems().addAll("Male","Female");
+        sex.setValue("Male");
+        dateofbirth.setEditable(false);
+        dateofregistration.setEditable(false);
+
+
+        address.setStyle(formatString);
+        firstname.setStyle(formatString);
+        lastname.setStyle(formatString);
+        socialid.setStyle(formatString);
+        sex.setStyle(formatcomboBox);
+        dateofbirth.setStyle(formatString);
+        dateofregistration.setStyle(formatString);
+        phonenumber.setStyle(formatString);
+        city.setStyle(formatString);
+        address.setStyle(formatString);
+        postalcode.setStyle(formatString);
+        systext.setText(formatString);
+        enter.setStyle(formatbutton);
+        cancel.setStyle(formatbutton);
+
     }
 
 
     public void cancelButtonPressed() {
-        Stage stage =(Stage)this.cancel.getScene().getWindow();
+        Stage stage = (Stage) this.cancel.getScene().getWindow();
         stage.close();
         //newStageRun();
 
@@ -65,22 +87,32 @@ public class Newpatient implements Initializable {
         if (fieldsAreNotEmpty()) {
             Patient patient = new Patient
                     (
-                            firstname.getText(),
-                            lastname.getText(),
+                            (firstname.getText(0, 1).toUpperCase() + firstname.getText(1, firstname.getText().length()).toLowerCase()),
+                            (lastname.getText(0, 1).toUpperCase() + lastname.getText(1, lastname.getText().length()).toLowerCase()),
                             socialid.getText(),
-                            sex.getTypeSelector(),
-                            dateofbirth.getTypeSelector(),
-                            dateofregistration.getTypeSelector(),
+                            sex.getValue(),
+                            dateofbirth.getValue().toString(),
+                            dateofregistration.getValue().toString(),
                             phonenumber.getText(),
-                            city.getText(),
-                            address.getText(),
+                            (city.getText(0, 1).toUpperCase() + city.getText(1, city.getText().length()).toLowerCase()),
+                            (address.getText(0, 1).toUpperCase() + address.getText(1, address.getText().length()).toLowerCase()),
                             postalcode.getText()
                     );
 
             Controller.getNewPatientAndSaveIt(patient);
-            Stage stage =(Stage)this.cancel.getScene().getWindow();
+            Stage stage = (Stage) this.cancel.getScene().getWindow();
             stage.close();
+        } else {
+            systext.setText("Please Fill the Form Completely");
+
         }
+    }
+
+    public void firstnameentered() {
+        int longname = firstname.getText().length();
+        String newname = firstname.getText(0, 1).toUpperCase() + firstname.getText(1, firstname.getText().length() - 1).toLowerCase();
+        firstname.setText(newname);
+
     }
 
     public boolean fieldsAreNotEmpty() {
