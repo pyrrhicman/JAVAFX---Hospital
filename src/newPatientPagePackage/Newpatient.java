@@ -36,9 +36,9 @@ public class Newpatient implements Initializable {
     @FXML
     private JFXComboBox<String> sex = new JFXComboBox<String>();
     @FXML
-    private JFXDatePicker dateofbirth;
+    private JFXTextField dateofbirth;
     @FXML
-    private JFXDatePicker dateofregistration;
+    private JFXTextField dateofregistration;
     @FXML
     private Text systext;
     private String formatString = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #AE3522; -fx-text-fill: white; -fx-font-size: 24";
@@ -53,8 +53,8 @@ public class Newpatient implements Initializable {
 
         sex.getItems().addAll("Male","Female");
         sex.setValue("Male");
-        dateofbirth.setEditable(false);
-        dateofregistration.setEditable(false);
+        dateofbirth.setEditable(true);
+        dateofregistration.setEditable(true);
 
 
         address.setStyle(formatString);
@@ -91,8 +91,8 @@ public class Newpatient implements Initializable {
                             (lastname.getText(0, 1).toUpperCase() + lastname.getText(1, lastname.getText().length()).toLowerCase()),
                             socialid.getText(),
                             sex.getValue(),
-                            dateofbirth.getValue().toString(),
-                            dateofregistration.getValue().toString(),
+                            dateofbirth.getText(),
+                            dateofregistration.getText(),
                             phonenumber.getText(),
                             (city.getText(0, 1).toUpperCase() + city.getText(1, city.getText().length()).toLowerCase()),
                             (address.getText(0, 1).toUpperCase() + address.getText(1, address.getText().length()).toLowerCase()),
