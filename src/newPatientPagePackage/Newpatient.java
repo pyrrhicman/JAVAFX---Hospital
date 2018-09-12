@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.Controller;
+import sample.DatabaseClass;
 import sample.Patient;
 
 import java.net.URL;
@@ -47,7 +48,7 @@ public class Newpatient implements Initializable {
     private Text systext;
     private String formatString = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #AE3522; -fx-text-fill: white; -fx-font-size: 24";
     private String formatbutton = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #AE3522; -fx-text-fill: white; -fx-font-size: 24";
-    private String formatcomboBox = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #62929a; -fx-text-fill: #62929a; -fx-font-size: 24";
+    private String formatcomboBox="-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #62929a; -fx-text-fill: #62929a; -fx-font-size: 24";
     public Newpatient() {
         //Controller controller = new Controller();
         //controller.newPatientForm();
@@ -75,7 +76,6 @@ public class Newpatient implements Initializable {
         enter.setStyle(formatbutton);
         cancel.setStyle(formatbutton);
 
-
         firstname.setText("Andrew");
         lastname.setText("Aska");
         socialid.setText("210599-7111");
@@ -88,12 +88,9 @@ public class Newpatient implements Initializable {
 
     }
 
-
     public void cancelButtonPressed() {
         Stage stage = (Stage) this.cancel.getScene().getWindow();
         stage.close();
-        //newStageRun();
-
     }
 
     public void enterButtonPressed() {
@@ -117,7 +114,14 @@ public class Newpatient implements Initializable {
                                 postalcode.getText()
                         );
 
-                Controller.getNewPatientAndSaveIt(patient);
+                //Controller.getNewPatientAndSaveIt(patient);
+                DatabaseClass databaseClass = new DatabaseClass();
+
+
+                databaseClass.addNewPatient(patient);
+
+
+                //Controller.reloadTableData();
                 Stage stage = (Stage) this.cancel.getScene().getWindow();
                 stage.close();
             } else { systext.setText("Please Check the Phone Number"); }
@@ -128,7 +132,6 @@ public class Newpatient implements Initializable {
 
         }
     }
-
 
 
     public boolean fieldsAreNotEmpty() {
@@ -154,11 +157,10 @@ public class Newpatient implements Initializable {
         return false;
     }
 
-    public boolean phoneNumberIsFormatted(String string) { // true for a right Number and reformating and returning it
-                                    // false for a invalid number that contains alphabet and asking for anothe
+    public boolean phoneNumberIsFormatted(String string) {
         char[] inputPhoneNumber = string.toCharArray();
         String validPhoneNumber = "0123456789-+";
-        for (char c : inputPhoneNumber) { //0123456789-
+        for (char c : inputPhoneNumber) {
             if (validPhoneNumber.indexOf(c) == -1) {
                 return false;
             }

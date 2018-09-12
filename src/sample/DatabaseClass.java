@@ -68,35 +68,25 @@ public class DatabaseClass implements Initializable {
 
     }
 
-    public boolean addNewPatient(
-            String firstname,
-            String lastname,
-            String socialID,
-            String sex,
-            String dateofbirth,
-            String dateofregistration,
-            String phonenumber,
-            String city,
-            String address,
-            String postalcode) {
+    public boolean addNewPatient(Patient patient) {
 
         String sqlnewPatientInsert = "INSERT INTO PatientList(firstname,lastname,socialID,sex,dateofbirth,dateofregistration,phonenumber,city,address,postalcode) VALUES(?,?,?,?,?,?,?,?,?,?)";
 
         try {
             Connection connection = DatabaseConnection.getConnection();
-
             PreparedStatement preparedStatement = connection.prepareStatement(sqlnewPatientInsert);
-            preparedStatement.setString(1, firstname);
-            preparedStatement.setString(2, lastname);
-            preparedStatement.setString(3, socialID);
-            preparedStatement.setString(4, sex);
-            preparedStatement.setString(5, dateofbirth);
-            preparedStatement.setString(6, dateofregistration);
-            preparedStatement.setString(7, phonenumber);
-            preparedStatement.setString(8, city);
-            preparedStatement.setString(9, address);
-            preparedStatement.setString(10, postalcode);
+            preparedStatement.setString(1, patient.getFirstname());
+            preparedStatement.setString(2, patient.getLastname());
+            preparedStatement.setString(3, patient.getSocialid());
+            preparedStatement.setString(4, patient.getSex());
+            preparedStatement.setString(5, patient.getBirthday());
+            preparedStatement.setString(6, patient.getDateofregistration());
+            preparedStatement.setString(7, patient.getPhonenumber());
+            preparedStatement.setString(8, patient.getCity());
+            preparedStatement.setString(9, patient.getAddress());
+            preparedStatement.setString(10,patient.getPostalcode());
             preparedStatement.execute();
+            connection.close();
             connection.close();
 
         } catch (SQLException e) {
@@ -110,21 +100,25 @@ public class DatabaseClass implements Initializable {
         try {
             Connection connection = DatabaseConnection.getConnection();
             this.data = FXCollections.observableArrayList();
+
             ResultSet resultSet = connection.createStatement().executeQuery(patientsql);
 
             while (resultSet.next()) {
-                String rs10String = resultSet.getString(10);
-                String rs9String = resultSet.getString(9);
-                String rs8String = resultSet.getString(8);
-                String rs7String = resultSet.getString(7);
-                String rs6String = resultSet.getString(6);
-                String rs5String = resultSet.getString(5);
-                String rs4String = resultSet.getString(4);
-                String rs3String = resultSet.getString(3);
-                String rs2String = resultSet.getString(2);
-                String rs1String = resultSet.getString(1);
-                Controller.getNewPatientAndSaveIt(new Patient(rs1String,rs2String,rs3String,rs4String,rs5String,rs6String,rs7String,rs8String,rs9String,rs10String));
+                this.data.add(
+                        new Patient(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7),
+                        resultSet.getString(8),
+                        resultSet.getString(9),
+                        resultSet.getString(10)));
             }
+
+            Controller.getNewPatientsAndShowOnTable(this.data);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

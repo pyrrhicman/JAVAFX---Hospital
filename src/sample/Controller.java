@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,22 +11,30 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import newPatientPagePackage.Newpatient;
 import com.jfoenix.controls.JFXButton;
 
 import javax.xml.crypto.Data;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+
 public class Controller implements Initializable {
-     public static ObservableList<Patient> patients = FXCollections.observableArrayList();
+
+
+    private static ObservableList<Patient> patients = FXCollections.observableArrayList();
+
+    /////////////////////
+
     @FXML
     public TableView<Patient> mytable;
-
-
-
     @FXML
     private TableColumn<Patient, String> lastname;//Full name
     @FXML
@@ -44,8 +53,6 @@ public class Controller implements Initializable {
     private TableColumn<Patient, String> city;
     @FXML
     private TableColumn<Patient, String> address;
-
-
     @FXML
     private JFXButton b1;
     @FXML
@@ -53,17 +60,20 @@ public class Controller implements Initializable {
     @FXML
     private JFXButton b3;
     @FXML
+    private JFXButton b4;
+    @FXML
     private TextField t1;
     @FXML
     private TextField t2;
     @FXML
     private TextField t3;
     @FXML
-    private Text text;
-
-
+    private Text text;//FXML ELEMENTS///
+    /////////////////////
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        /////////////////////
+
         lastname.setCellValueFactory(new PropertyValueFactory<Patient, String>("lastname"));
         firstname.setCellValueFactory(new PropertyValueFactory<Patient, String>("firstname"));
         socialid.setCellValueFactory(new PropertyValueFactory<Patient, String>("socialid"));
@@ -72,17 +82,34 @@ public class Controller implements Initializable {
         dateofregistration.setCellValueFactory(new PropertyValueFactory<Patient, String>("dateofregistration"));
         phonenumber.setCellValueFactory(new PropertyValueFactory<Patient, String>("phonenumber"));
         city.setCellValueFactory(new PropertyValueFactory<Patient, String>("city"));
-        address.setCellValueFactory(new PropertyValueFactory<Patient, String>("address"));
+        address.setCellValueFactory(new PropertyValueFactory<Patient, String>("address"));//TABLE ELEMENTS//
+        /////////////////////
+        mytable.setItems(patients);
+        System.out.println("Code was here");
 
-        mytable.setItems(getPatients());
+        getDatafromDatabase();
+
+
+
+
+        patients.addListener(listChangeListener);
+
     }
+
+    ListChangeListener<Patient> listChangeListener = c -> {
+        if (c.next()) {
+
+
+            System.out.println("It Updated");
+            //mytable.getItems().removeAll(patients);
+
+        }
+    };
+
 
     public void newPatientButtonPressed() {
-        newPatientForm();
-        //patients.add(new Patient(t1.getText(), t2.getText(), t3.getText()));
-        //mytable.getItems();
+        newPatientFormOpener();
     }
-
     public void deleteExistedPatient() {
         if (!(t3.getText().isEmpty())) {
             for (int j = patients.size() - 1; j >= 0; j--) {
@@ -100,54 +127,28 @@ public class Controller implements Initializable {
         System.exit(0);
 
     }
-    public ObservableList<Patient> getPatients() {
-
-        //patients.add(new Patient("Mohammad", "Askari", "210599-7156", "Male", "1999-21-05", "2018-01-10", "0465987829", "Porvoo", "Pormestarinkatu 14 C 89", "06100"));
-        //patients.add(new Patient("Danial", "Musavi", "130500-7235", "Male", "2000-09-20", "2019-09-12", "0465954219", "Helsinki", "Helsingintie 2 B 22", "00100 "));
-
-
-
-        return patients;
-    }
-
-    public static void getNewPatientAndSaveIt(Patient patient) {
-
-        patients.add(patient);
-    }
-
-    /*public boolean fieldsAreNotEmpty() {
-        if (!(t1.getText().isEmpty())) {
-            if (!(t2.getText().isEmpty())) {
-                if (!(t3.getText().isEmpty())) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }*/
-
-
-    public void newPatientForm() {
+    public void newPatientFormOpener() {
         try {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader();
-
             InputStream inputStream = getClass().getResource("/newPatientPagePackage/newpatient.fxml").openStream();
             Pane pane = (Pane) loader.load(inputStream);
-
-            //Newpatient newpatient = (Newpatient) loader.getController();
 
             Scene scene = new Scene(pane);
             stage.setScene(scene);
             scene.getStylesheets().add("/css/stylesheet.css");
             stage.setTitle("New Patient");
             stage.setResizable(true);
-            stage.show();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
 
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public static void getNewPatientsAndShowOnTable(ObservableList<Patient> listofPatientinDatabase) {
+        patients.addAll(listofPatientinDatabase);
     }
 
 
@@ -157,6 +158,8 @@ public class Controller implements Initializable {
         databaseClass.loadPatientList();
 
     }
+
+
 }
 
 
