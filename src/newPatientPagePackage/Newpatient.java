@@ -36,9 +36,9 @@ public class Newpatient implements Initializable {
     @FXML
     private JFXComboBox<String> sex = new JFXComboBox<String>();
     @FXML
-    private JFXDatePicker dateofbirth;
+    private JFXTextField dateofbirth;
     @FXML
-    private JFXDatePicker dateofregistration;
+    private JFXTextField dateofregistration;
     @FXML
     private Text systext;
     private String formatString = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #AE3522; -fx-text-fill: white; -fx-font-size: 24";
@@ -53,11 +53,9 @@ public class Newpatient implements Initializable {
 
         sex.getItems().addAll("Male","Female");
         sex.setValue("Male");
-        dateofbirth.setEditable(false);
-        dateofregistration.setEditable(false);
+        dateofbirth.setEditable(true);
+        dateofregistration.setEditable(true);
 
-
-        address.setStyle(formatString);
         firstname.setStyle(formatString);
         lastname.setStyle(formatString);
         socialid.setStyle(formatString);
@@ -68,9 +66,21 @@ public class Newpatient implements Initializable {
         city.setStyle(formatString);
         address.setStyle(formatString);
         postalcode.setStyle(formatString);
+
         systext.setText(formatString);
         enter.setStyle(formatbutton);
         cancel.setStyle(formatbutton);
+
+
+        firstname.setText("Andrew");
+        lastname.setText("Aska");
+        socialid.setText("210599-7111");
+        dateofbirth.setText("21.05.1999");
+        dateofregistration.setText("11.09.1999");
+        phonenumber.setText("asdasdd");
+        city.setText("Porvoo");
+        address.setText("Pormestarinkatu 14C89");
+        postalcode.setText("06100");
 
     }
 
@@ -84,46 +94,76 @@ public class Newpatient implements Initializable {
 
     public void enterButtonPressed() {
 
-        if (fieldsAreNotEmpty()) {
-            Patient patient = new Patient
-                    (
-                            (firstname.getText(0, 1).toUpperCase() + firstname.getText(1, firstname.getText().length()).toLowerCase()),
-                            (lastname.getText(0, 1).toUpperCase() + lastname.getText(1, lastname.getText().length()).toLowerCase()),
-                            socialid.getText(),
-                            sex.getValue(),
-                            dateofbirth.getValue().toString(),
-                            dateofregistration.getValue().toString(),
-                            phonenumber.getText(),
-                            (city.getText(0, 1).toUpperCase() + city.getText(1, city.getText().length()).toLowerCase()),
-                            (address.getText(0, 1).toUpperCase() + address.getText(1, address.getText().length()).toLowerCase()),
-                            postalcode.getText()
-                    );
+        if (fieldsAreNotEmpty())
+        {
+            if (phoneNumberIsFormatted(phonenumber.getText())) {
 
-            Controller.getNewPatientAndSaveIt(patient);
-            Stage stage = (Stage) this.cancel.getScene().getWindow();
-            stage.close();
-        } else {
+
+                Patient patient = new Patient
+                        (
+                                (firstname.getText(0, 1).toUpperCase() + firstname.getText(1, firstname.getText().length()).toLowerCase()),
+                                (lastname.getText(0, 1).toUpperCase() + lastname.getText(1, lastname.getText().length()).toLowerCase()),
+                                socialid.getText(),
+                                sex.getValue(),
+                                dateofbirth.getText(),
+                                dateofregistration.getText(),
+                                phonenumber.getText(),
+                                (city.getText(0, 1).toUpperCase() + city.getText(1, city.getText().length()).toLowerCase()),
+                                (address.getText(0, 1).toUpperCase() + address.getText(1, address.getText().length()).toLowerCase()),
+                                postalcode.getText()
+                        );
+
+                Controller.getNewPatientAndSaveIt(patient);
+                Stage stage = (Stage) this.cancel.getScene().getWindow();
+                stage.close();
+            } else { systext.setText("Please Check the Phone Number"); }
+
+
+        }else {
             systext.setText("Please Fill the Form Completely");
 
         }
     }
 
-    public void firstnameentered() {
-        int longname = firstname.getText().length();
-        String newname = firstname.getText(0, 1).toUpperCase() + firstname.getText(1, firstname.getText().length() - 1).toLowerCase();
-        firstname.setText(newname);
 
-    }
 
     public boolean fieldsAreNotEmpty() {
         if (!(firstname.getText().isEmpty())) {
             if (!(lastname.getText().isEmpty())) {
                 if (!(socialid.getText().isEmpty())) {
-                    return true;
+                    if (!(dateofbirth.getText().isEmpty())) {
+                        if (!(dateofregistration.getText().isEmpty())) {
+                            if (!(phonenumber.getText().isEmpty())) {
+                                if (!(city.getText().isEmpty())) {
+                                    if (!(address.getText().isEmpty())) {
+                                        if (!(postalcode.getText().isEmpty())) {
+                                            return true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
         return false;
     }
+
+    public boolean phoneNumberIsFormatted(String string) { // true for a right Number and reformating and returning it
+                                    // false for a invalid number that contains alphabet and asking for anothe
+        char[] inputPhoneNumber = string.toCharArray();
+        String validPhoneNumber = "0123456789-+";
+        for (char c : inputPhoneNumber) { //0123456789-
+            if (validPhoneNumber.indexOf(c) == -1) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+
 
 }
