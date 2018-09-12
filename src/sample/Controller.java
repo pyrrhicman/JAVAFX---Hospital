@@ -14,14 +14,18 @@ import javafx.stage.Stage;
 import newPatientPagePackage.Newpatient;
 import com.jfoenix.controls.JFXButton;
 
+import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 public class Controller implements Initializable {
-     private static ObservableList<Patient> patients = FXCollections.observableArrayList();
+     public static ObservableList<Patient> patients = FXCollections.observableArrayList();
     @FXML
-    private TableView<Patient> mytable;
+    public TableView<Patient> mytable;
+
+
+
     @FXML
     private TableColumn<Patient, String> lastname;//Full name
     @FXML
@@ -69,6 +73,7 @@ public class Controller implements Initializable {
         phonenumber.setCellValueFactory(new PropertyValueFactory<Patient, String>("phonenumber"));
         city.setCellValueFactory(new PropertyValueFactory<Patient, String>("city"));
         address.setCellValueFactory(new PropertyValueFactory<Patient, String>("address"));
+
         mytable.setItems(getPatients());
     }
 
@@ -97,29 +102,8 @@ public class Controller implements Initializable {
     }
     public ObservableList<Patient> getPatients() {
 
-        patients.add(new Patient(
-                "Mohammad",
-                "Askari",
-                "210599-7156",
-                "Male",
-                "1999-21-05",
-                "2018-01-10",
-                "0465987829",
-                "Porvoo",
-                "Pormestarinkatu 14 C 89",
-                "06100"));
-
-        patients.add(new Patient(
-                "Danial",
-                "Musavi",
-                "130500-7235",
-                "Male",
-                "2000-09-20",
-                "2019-09-12",
-                "0465954219",
-                "Helsinki",
-                "Helsingintie 2 B 22",
-                "00100 "));
+        //patients.add(new Patient("Mohammad", "Askari", "210599-7156", "Male", "1999-21-05", "2018-01-10", "0465987829", "Porvoo", "Pormestarinkatu 14 C 89", "06100"));
+        //patients.add(new Patient("Danial", "Musavi", "130500-7235", "Male", "2000-09-20", "2019-09-12", "0465954219", "Helsinki", "Helsingintie 2 B 22", "00100 "));
 
 
 
@@ -127,6 +111,7 @@ public class Controller implements Initializable {
     }
 
     public static void getNewPatientAndSaveIt(Patient patient) {
+
         patients.add(patient);
     }
 
@@ -166,6 +151,12 @@ public class Controller implements Initializable {
     }
 
 
+    public void getDatafromDatabase() {
+        mytable.getItems().removeAll(patients);
+        DatabaseClass databaseClass = new DatabaseClass();
+        databaseClass.loadPatientList();
+
+    }
 }
 
 
