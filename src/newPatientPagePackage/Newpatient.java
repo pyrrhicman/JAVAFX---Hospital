@@ -2,22 +2,16 @@ package newPatientPagePackage;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
-import javafx.beans.InvalidationListener;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import sample.Controller;
 import sample.DatabaseClass;
 import sample.Patient;
 
 import java.net.URL;
-import java.util.*;
+import java.util.ResourceBundle;
 
 public class Newpatient implements Initializable {
     @FXML
@@ -46,6 +40,8 @@ public class Newpatient implements Initializable {
     private JFXTextField dateofregistration;
     @FXML
     private Text systext;
+
+
     private String formatString = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #AE3522; -fx-text-fill: white; -fx-font-size: 24";
     private String formatbutton = "-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #AE3522; -fx-text-fill: white; -fx-font-size: 24";
     private String formatcomboBox="-fx-font-family: Segoe UI Light; -fx-style: Regular; -fx-base: #62929a; -fx-text-fill: #62929a; -fx-font-size: 24";

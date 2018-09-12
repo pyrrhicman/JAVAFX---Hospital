@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/sample/TableData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientList.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/PatientList.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/newPatientPagePackage/Newpatient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/newPatientPagePackage/Newpatient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/sample/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/sample/DatabaseClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/sample/DatabaseClass.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/DatabaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/DatabaseClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,6 +23,20 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="DebuggerManager">
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
@@ -58,38 +76,11 @@
     <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="370">
-                    <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                      <element signature="method#initialize#0;class#Newpatient#0" />
-                      <element signature="method#cancelButtonPressed#0;class#Newpatient#0" />
-                      <element signature="method#enterButtonPressed#0;class#Newpatient#0" />
-                      <element signature="method#fieldsAreNotEmpty#0;class#Newpatient#0" />
-                      <element signature="method#phoneNumberIsFormatted#0;class#Newpatient#0" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="893405637">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="22" />
+          <entry key="project.closed" value="23" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.10" value="8" />
           <entry key="project.open.time.11" value="4" />
@@ -104,13 +95,13 @@
         <counts>
           <entry key="css" value="624" />
           <entry key="fxml" value="69" />
-          <entry key="java" value="7203" />
+          <entry key="java" value="7636" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="625" />
-          <entry key="JAVA" value="7202" />
+          <entry key="JAVA" value="7635" />
           <entry key="XML" value="69" />
         </counts>
       </usages-collector>
@@ -118,13 +109,13 @@
         <counts>
           <entry key="css" value="3" />
           <entry key="fxml" value="14" />
-          <entry key="java" value="30" />
+          <entry key="java" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="3" />
-          <entry key="JAVA" value="30" />
+          <entry key="JAVA" value="33" />
           <entry key="XML" value="14" />
         </counts>
       </usages-collector>
@@ -173,8 +164,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="204">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -185,7 +176,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Patient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60">
+            <state relative-caret-position="-860">
               <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
               <folding>
                 <element signature="e#2267#2268#0" expanded="true" />
@@ -195,19 +186,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-612">
-              <caret line="31" column="51" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="51" />
+            <state relative-caret-position="400">
+              <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3187#3188#0" expanded="true" />
-                <element signature="e#3225#3226#0" expanded="true" />
+                <element signature="method#initialize#0;class#Controller#0" />
                 <element signature="method#deleteExistedPatient#0;class#Controller#0" />
                 <element signature="method#exitButtonPressed#0;class#Controller#0" />
-                <marker date="1536785888771" expanded="true" signature="975:1891" ph="..." />
-                <marker date="1536785888771" expanded="false" signature="2049:2894" ph="..." />
+                <element signature="method#newPatientFormOpener#0;class#Controller#0" />
+                <element signature="method#getDatafromDatabase#0;class#Controller#0" />
+                <marker date="1536791298636" expanded="false" signature="632:1548" ph="..." />
+                <marker date="1536791298636" expanded="true" signature="1749:2594" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/TableData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="318">
+              <caret line="24" column="38" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#504#505#0" expanded="true" />
+                <element signature="e#549#550#0" expanded="true" />
+                <element signature="e#776#777#0" expanded="true" />
+                <element signature="e#814#815#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -216,22 +223,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/javafx.graphics/javafx/stage/Modality.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
+            <state relative-caret-position="238">
               <caret line="43" column="47" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/DatabaseClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="671">
-              <caret line="120" column="51" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="51" />
+            <state relative-caret-position="72">
+              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#806#807#0" expanded="true" />
-                <element signature="e#852#853#0" expanded="true" />
+                <element signature="method#DatabaseClass#0;class#DatabaseClass#0" />
+                <element signature="method#initialize#0;class#DatabaseClass#0" />
                 <element signature="method#patientSearch#0;class#DatabaseClass#0" />
+                <element signature="method#addNewPatient#0;class#DatabaseClass#0" />
               </folding>
             </state>
           </provider>
@@ -278,10 +285,11 @@
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/css/stylesheet.css" />
         <option value="$PROJECT_DIR$/src/loginpackage/dbUtil/DatabaseConnection.java" />
-        <option value="$PROJECT_DIR$/src/sample/DatabaseClass.java" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java" />
+        <option value="$PROJECT_DIR$/src/sample/TableData.java" />
+        <option value="$PROJECT_DIR$/src/sample/DatabaseClass.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
       </list>
     </option>
   </component>
@@ -292,9 +300,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1328" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="953" />
+    <option name="width" value="974" />
     <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -367,7 +375,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536786201744" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536791309732" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/sqlite-jdbc-3.21.0.jar!/" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -505,18 +513,18 @@
       <workItem from="1536764431640" duration="14000" />
       <workItem from="1536764538415" duration="20000" />
       <workItem from="1536764710638" duration="41000" />
-      <workItem from="1536764975842" duration="14681000" />
+      <workItem from="1536764975842" duration="19861000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77997000" />
+    <option name="totallyTimeSpent" value="83177000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1328" height="1057" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.16561514" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1119403" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -525,7 +533,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2822222" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27832782" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -537,13 +545,13 @@
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32936507" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.31666666" />
-      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Terminal" order="15" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="JetGradle" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Database" order="4" weight="0.3293687" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
@@ -694,29 +702,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DatabaseClass.java">
+    <entry file="file://$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="120" column="51" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="51" />
+        <state relative-caret-position="420">
+          <caret line="116" column="29" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#806#807#0" expanded="true" />
-            <element signature="e#852#853#0" expanded="true" />
-            <element signature="method#patientSearch#0;class#DatabaseClass#0" />
+            <element signature="method#initialize#0;class#Newpatient#0" />
+            <element signature="method#cancelButtonPressed#0;class#Newpatient#0" />
+            <element signature="method#fieldsAreNotEmpty#0;class#Newpatient#0" />
+            <element signature="method#phoneNumberIsFormatted#0;class#Newpatient#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/javafx.graphics/javafx/stage/Modality.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
+        <state relative-caret-position="238">
           <caret line="43" column="47" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/TableData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="24" column="38" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#504#505#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="true" />
+            <element signature="e#814#815#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
+        <state relative-caret-position="-860">
           <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
           <folding>
             <element signature="e#2267#2268#0" expanded="true" />
@@ -725,43 +758,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#initialize#0;class#Newpatient#0" />
-            <element signature="method#cancelButtonPressed#0;class#Newpatient#0" />
-            <element signature="method#enterButtonPressed#0;class#Newpatient#0" />
-            <element signature="method#fieldsAreNotEmpty#0;class#Newpatient#0" />
-            <element signature="method#phoneNumberIsFormatted#0;class#Newpatient#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612">
-          <caret line="31" column="51" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="51" />
+        <state relative-caret-position="400">
+          <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3187#3188#0" expanded="true" />
-            <element signature="e#3225#3226#0" expanded="true" />
+            <element signature="method#initialize#0;class#Controller#0" />
             <element signature="method#deleteExistedPatient#0;class#Controller#0" />
             <element signature="method#exitButtonPressed#0;class#Controller#0" />
-            <marker date="1536785888771" expanded="true" signature="975:1891" ph="..." />
-            <marker date="1536785888771" expanded="false" signature="2049:2894" ph="..." />
+            <element signature="method#newPatientFormOpener#0;class#Controller#0" />
+            <element signature="method#getDatafromDatabase#0;class#Controller#0" />
+            <marker date="1536791298636" expanded="false" signature="632:1548" ph="..." />
+            <marker date="1536791298636" expanded="true" signature="1749:2594" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/DatabaseClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="method#DatabaseClass#0;class#DatabaseClass#0" />
+            <element signature="method#initialize#0;class#DatabaseClass#0" />
+            <element signature="method#patientSearch#0;class#DatabaseClass#0" />
+            <element signature="method#addNewPatient#0;class#DatabaseClass#0" />
           </folding>
         </state>
       </provider>

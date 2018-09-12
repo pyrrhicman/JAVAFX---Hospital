@@ -1,25 +1,19 @@
 package sample;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import newPatientPagePackage.Newpatient;
-import com.jfoenix.controls.JFXButton;
 
-import javax.xml.crypto.Data;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -27,11 +21,6 @@ import java.util.ResourceBundle;
 
 
 public class Controller implements Initializable {
-
-
-    private static ObservableList<Patient> patients = FXCollections.observableArrayList();
-
-    /////////////////////
 
     @FXML
     public TableView<Patient> mytable;
@@ -70,6 +59,7 @@ public class Controller implements Initializable {
     @FXML
     private Text text;//FXML ELEMENTS///
     /////////////////////
+    TableData tableData = new TableData();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         /////////////////////
@@ -84,37 +74,18 @@ public class Controller implements Initializable {
         city.setCellValueFactory(new PropertyValueFactory<Patient, String>("city"));
         address.setCellValueFactory(new PropertyValueFactory<Patient, String>("address"));//TABLE ELEMENTS//
         /////////////////////
-        mytable.setItems(patients);
+        mytable.setItems(tableData.allPatientCahceList());
         System.out.println("Code was here");
-
         getDatafromDatabase();
-
-
-
-
-        patients.addListener(listChangeListener);
-
     }
-
-    ListChangeListener<Patient> listChangeListener = c -> {
-        if (c.next()) {
-
-
-            System.out.println("It Updated");
-            //mytable.getItems().removeAll(patients);
-
-        }
-    };
-
-
     public void newPatientButtonPressed() {
         newPatientFormOpener();
     }
     public void deleteExistedPatient() {
         if (!(t3.getText().isEmpty())) {
-            for (int j = patients.size() - 1; j >= 0; j--) {
-                if (patients.get(j).getSocialid().equals(t3.getText())) {
-                    patients.remove(j);
+            for (int j = tableData.allPatientCahceList().size() - 1; j >= 0; j--) {
+                if (tableData.allPatientCahceList().get(j).getSocialid().equals(t3.getText())) {
+                    tableData.allPatientCahceList().remove(j);
                     mytable.getItems();
                 }
             }
@@ -132,7 +103,7 @@ public class Controller implements Initializable {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             InputStream inputStream = getClass().getResource("/newPatientPagePackage/newpatient.fxml").openStream();
-            Pane pane = (Pane) loader.load(inputStream);
+            Pane pane = loader.load(inputStream);
 
             Scene scene = new Scene(pane);
             stage.setScene(scene);
@@ -141,22 +112,17 @@ public class Controller implements Initializable {
             stage.setResizable(true);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
+            getDatafromDatabase();
 
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        } catch (IOException ex) { ex.printStackTrace(); }
     }
-
-    public static void getNewPatientsAndShowOnTable(ObservableList<Patient> listofPatientinDatabase) {
-        patients.addAll(listofPatientinDatabase);
-    }
-
-
     public void getDatafromDatabase() {
-        mytable.getItems().removeAll(patients);
         DatabaseClass databaseClass = new DatabaseClass();
-        databaseClass.loadPatientList();
 
+        if (!databaseClass.isDataBaseConnected()) {
+            mytable.getItems().removeAll(tableData.allPatientCahceList());
+            mytable.setItems(databaseClass.loadAllPatientList());
+        }
     }
 
 

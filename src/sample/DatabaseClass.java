@@ -96,7 +96,7 @@ public class DatabaseClass implements Initializable {
     }
 
 
-    public void loadPatientList() {
+    public ObservableList<Patient> loadAllPatientList() {
         try {
             Connection connection = DatabaseConnection.getConnection();
             this.data = FXCollections.observableArrayList();
@@ -117,8 +117,7 @@ public class DatabaseClass implements Initializable {
                         resultSet.getString(9),
                         resultSet.getString(10)));
             }
-
-            Controller.getNewPatientsAndShowOnTable(this.data);
+            return this.data;
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -131,7 +130,7 @@ public class DatabaseClass implements Initializable {
 
 
 
-
+        return this.data;
 
     }
 
