@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import newPatientPagePackage.Newpatient;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -75,6 +76,11 @@ public class Controller implements Initializable {
         address.setCellValueFactory(new PropertyValueFactory<Patient, String>("address"));//TABLE ELEMENTS//
         /////////////////////
         mytable.setItems(tableData.allPatientCahceList());
+        b1.setStyle(Newpatient.formatbutton);
+        b2.setStyle(Newpatient.formatbutton);
+        b3.setStyle(Newpatient.formatbutton);
+        b4.setStyle(Newpatient.formatbutton);
+
         System.out.println("Code was here");
         getDatafromDatabase();
     }
