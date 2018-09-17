@@ -120,8 +120,11 @@ public class Controller implements Initializable {
         DatabaseClass databaseClass = new DatabaseClass();
 
         if (!databaseClass.isDataBaseConnected()) {
+            System.out.println("DB is connected");
             mytable.getItems().removeAll(tableData.allPatientCahceList());
             mytable.setItems(databaseClass.loadAllPatientList());
+        } else {
+            System.out.println("DB Is not connected");
         }
     }
 
