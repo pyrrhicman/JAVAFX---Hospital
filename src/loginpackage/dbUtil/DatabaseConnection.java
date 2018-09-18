@@ -22,7 +22,7 @@ public class DatabaseConnection {
     private static final String MYSQL_GOOGLE_DATABASE_NAME = "patientlist";
 
 
-    //Connection connection = DriverManager.getConnection(jdbcUrl, MYSQL_GOOGLE_USERNAME, MYSQL_GOOGLE_PASSWORD);
+    //Connectioyyjyn connection = DriverManager.getConnection(jdbcUrl, MYSQL_GOOGLE_USERNAME, MYSQL_GOOGLE_PASSWORD);
 
 
     public static Connection getConnection() throws SQLException {
