@@ -43,9 +43,9 @@ public class DatabaseConnection {
                     //Class.forName("org.sqlite.JDBC");
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     //return DriverManager.getConnection(SQCONN);
-                    //return DriverManager.getConnection(MYSQLCONN, MYSQLUSERNAME, MYSQLPASSWORD);
+                    return DriverManager.getConnection(MYSQLCONN, MYSQLUSERNAME, MYSQLPASSWORD);
                     //return DriverManager.getConnection(MYSQL_GOOGLE_MINE, MYSQL_GOOGLE_USERNAME, MYSQL_GOOGLE_PASSWORD);
-                    return DriverManager.getConnection(jdbcUrl, username, password);
+                    //return DriverManager.getConnection(jdbcUrl, username, password);
 
                 } catch (ClassNotFoundException ex) {
                     ex.printStackTrace();
