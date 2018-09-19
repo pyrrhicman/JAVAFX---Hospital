@@ -70,7 +70,7 @@ public class DatabaseClass implements Initializable {
 
     public boolean addNewPatient(Patient patient) {
 
-        String sqlnewPatientInsert = "INSERT INTO PatientList(firstname,lastname,socialID,sex,dateofbirth,dateofregistration,phonenumber,city,address,postalcode) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        String sqlnewPatientInsert = "INSERT INTO Patientlist(firstname,lastname,socialID,sex,birthday,dateofregistration,phonenumber,city,address,postalcode) VALUES(?,?,?,?,?,?,?,?,?,?)";
 
         try {
             Connection connection = DatabaseConnection.getConnection();
