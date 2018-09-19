@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 public class DatabaseClass implements Initializable {
     Connection connection;
     ObservableList<Patient> data;
-    private String patientsql = "SELECT * FROM patientlist";
+    private String patientsql = "SELECT * FROM Patientlist";
 
     public DatabaseClass() {    // Constructor Part
 

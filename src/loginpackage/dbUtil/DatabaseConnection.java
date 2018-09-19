@@ -11,7 +11,7 @@ public class DatabaseConnection {
 
     private static final String MYSQLUSERNAME = "root";
     private static final String MYSQLPASSWORD = "Hashem741";
-    private static final String MYSQLCONN =  "jdbc:mysql://localhost:3306/mysql?autoReconnect=true&useSSL=false";
+    private static final String MYSQLCONN =  "jdbc:mysql://localhost:3306/patientlist?autoReconnect=true&useSSL=false";
 
     private static final String MYSQL_GOOGLE_USERNAME = "mysql.sys";
     private static final String MYSQL_GOOGLE_PASSWORD = "Hashem741";
@@ -43,9 +43,9 @@ public class DatabaseConnection {
                     //Class.forName("org.sqlite.JDBC");
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     //return DriverManager.getConnection(SQCONN);
-                    return DriverManager.getConnection(MYSQLCONN, MYSQLUSERNAME, MYSQLPASSWORD);
+                    //return DriverManager.getConnection(MYSQLCONN, MYSQLUSERNAME, MYSQLPASSWORD);
                     //return DriverManager.getConnection(MYSQL_GOOGLE_MINE, MYSQL_GOOGLE_USERNAME, MYSQL_GOOGLE_PASSWORD);
-                    //return DriverManager.getConnection(jdbcUrl, username, password);
+                    return DriverManager.getConnection(MYSQL_GOOGLE_MINE, username, password);
 
                 } catch (ClassNotFoundException ex) {
                     ex.printStackTrace();
