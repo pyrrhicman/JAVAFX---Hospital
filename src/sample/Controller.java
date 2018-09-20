@@ -80,13 +80,13 @@ public class Controller implements Initializable {
         b2.setStyle(Newpatient.formatbutton);
         b3.setStyle(Newpatient.formatbutton);
         b4.setStyle(Newpatient.formatbutton);
-
-        System.out.println("Code was here");
         getDatafromDatabase();
     }
     public void newPatientButtonPressed() {
         newPatientFormOpener();
     }
+
+
     public void deleteExistedPatient() {
         if (!(t3.getText().isEmpty())) {
             for (int j = tableData.allPatientCahceList().size() - 1; j >= 0; j--) {
@@ -125,11 +125,8 @@ public class Controller implements Initializable {
     public void getDatafromDatabase() {
             DatabaseClass databaseClass = new DatabaseClass();
             if (!databaseClass.isDataBaseConnected()) {
-                System.out.println("DB is connected");
                 mytable.getItems().removeAll(tableData.allPatientCahceList());
                 mytable.setItems(databaseClass.loadAllPatientList());
-            } else {
-                System.out.println("DB Is not connected");
             }
     }
 

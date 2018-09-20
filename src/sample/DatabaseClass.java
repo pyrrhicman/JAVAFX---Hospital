@@ -4,8 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import loginpackage.dbUtil.DatabaseConnection;
-import newPatientPagePackage.Newpatient;
-
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,9 +12,9 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DatabaseClass implements Initializable {
-    Connection connection;
-    ObservableList<Patient> data;
-    private String patientsql = "SELECT * FROM Patientlist";
+    private Connection connection;
+    private ObservableList<Patient> data;
+
 
     public DatabaseClass() {    // Constructor Part
 
@@ -66,12 +64,13 @@ public class DatabaseClass implements Initializable {
 
     }
 
-    public boolean addNewPatient(Patient patient) {
-
+    public void addNewPatient(Patient patient) {
+        System.out.println("Importing new Data...");
         String sqlnewPatientInsert = "INSERT INTO Patientlist(firstname,lastname,socialID,sex,birthday,dateofregistration,phonenumber,city,address,postalcode) VALUES(?,?,?,?,?,?,?,?,?,?)";
 
         try {
             Connection connection = DatabaseConnection.getConnection();
+            assert connection != null;
             PreparedStatement preparedStatement = connection.prepareStatement(sqlnewPatientInsert);
             preparedStatement.setString(1, patient.getFirstname());
             preparedStatement.setString(2, patient.getLastname());
@@ -87,21 +86,24 @@ public class DatabaseClass implements Initializable {
             connection.close();
             connection.close();
 
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
-        } catch (NullPointerException ex) {
-            ex.printStackTrace();
         }
-        return false;
+
+        System.out.println("End of Importing new Data.");
     }
 
 
     public ObservableList<Patient> loadAllPatientList() {
+        System.out.println("retrieving data from server...");
+        String TABLE_SELECT = "SELECT * FROM Patientlist"; //Table Name
+
         try {
             Connection connection = DatabaseConnection.getConnection();
             this.data = FXCollections.observableArrayList();
 
-            ResultSet resultSet = connection.createStatement().executeQuery(patientsql);
+            assert connection != null;
+            ResultSet resultSet = connection.createStatement().executeQuery(TABLE_SELECT);
 
             while (resultSet.next()) {
                 this.data.add(
@@ -117,21 +119,13 @@ public class DatabaseClass implements Initializable {
                         resultSet.getString(9),
                         resultSet.getString(10)));
             }
+            System.out.println("End of retrieving data from server.");
             return this.data;
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             ex.printStackTrace();
         }
-
-
-
-
-
-
-
-
-
+        System.out.println("End of retrieving data from server with error.");
         return this.data;
-
     }
 
 
