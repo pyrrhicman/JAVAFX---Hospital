@@ -39,9 +39,7 @@ public class DatabaseClass implements Initializable {
     }
 
 
-    public boolean patientSearch(
-            String lastname,
-            String socialID) throws Exception {
+    public boolean patientSearch(String lastname,String socialID) throws Exception {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
@@ -84,13 +82,15 @@ public class DatabaseClass implements Initializable {
             preparedStatement.setString(7, patient.getPhonenumber());
             preparedStatement.setString(8, patient.getCity());
             preparedStatement.setString(9, patient.getAddress());
-            preparedStatement.setString(10,patient.getPostalcode());
+            preparedStatement.setString(10, patient.getPostalcode());
             preparedStatement.execute();
             connection.close();
             connection.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (NullPointerException ex) {
+            ex.printStackTrace();
         }
         return false;
     }
