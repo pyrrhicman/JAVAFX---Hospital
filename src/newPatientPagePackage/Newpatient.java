@@ -1,9 +1,8 @@
 package newPatientPagePackage;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.paint.Color;
@@ -16,6 +15,7 @@ import sample.Patient;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -37,6 +37,8 @@ public class Newpatient implements Initializable {
     private JFXTextField age;
     @FXML
     private JFXDatePicker birthday;
+    @FXML
+    private JFXRadioButton enterbirthday;
     @FXML
     private JFXDatePicker registerationday;
     @FXML
@@ -88,6 +90,7 @@ public class Newpatient implements Initializable {
     }
 
     public void initialize(URL location, ResourceBundle resources) {
+        birthday.setDisable(true);
         gender.getItems().addAll("Male","Female");
         gender.setValue("Male");
         age.setEditable(true);
@@ -123,8 +126,43 @@ public class Newpatient implements Initializable {
 
         Date date1 = new Date();
         registerationday.setValue(date1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        LocalDate birthDate = LocalDate.of(1900,1,2);
 
+        EventHandler<ActionEvent> birthdaytonull = event ->{
+            birthday.setOnAction(null);
+            birthday.setValue(birthDate);
+        };
+        age.setOnAction(birthdaytonull);
+
+
+        EventHandler<ActionEvent> agecalculator = event -> {
+            System.out.print("Happened");
+            int agebydate = calculateAge(birthday.getValue(), date1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+            age.setOnAction(null);
+            age.setText(String.valueOf(agebydate));
+            age.setOnAction(birthdaytonull);
+        };
+        birthday.setOnAction(agecalculator);
+
+
+
+
+
+
+        EventHandler<ActionEvent> birthdayAvailable = event -> {
+            if (enterbirthday.isSelected()) {
+                age.setDisable(true);
+                birthday.setDisable(false);
+            } else {
+                age.setDisable(false);
+                birthday.setDisable(true);
+            }
+
+        };
+        enterbirthday.setOnAction(birthdayAvailable);
     }
+
+
 
     public void cancelButtonPressed() {
         Stage stage = (Stage) this.cancel.getScene().getWindow();
@@ -207,7 +245,13 @@ public class Newpatient implements Initializable {
         return true;
     }
 
-
+    public static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
+        if ((birthDate != null) && (currentDate != null)) {
+            return Period.between(birthDate, currentDate).getYears();
+        } else {
+            return 0;
+        }
+    }
 
 
 }

@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="ds">
       <change beforePath="$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/DatabaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/DatabaseClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/newPatientPagePackage/newpatient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/newPatientPagePackage/newpatient.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -224,7 +222,7 @@
         <counts>
           <entry key="css" value="336" />
           <entry key="fxml" value="4" />
-          <entry key="java" value="1788" />
+          <entry key="java" value="2327" />
           <entry key="sql" value="82" />
           <entry key="txt" value="7" />
         </counts>
@@ -232,7 +230,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="351" />
-          <entry key="JAVA" value="1773" />
+          <entry key="JAVA" value="2312" />
           <entry key="PLAIN_TEXT" value="7" />
           <entry key="SQL" value="82" />
           <entry key="XML" value="4" />
@@ -330,8 +328,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-525">
-              <caret line="89" column="68" selection-start-line="89" selection-start-column="68" selection-end-line="89" selection-end-column="68" />
+            <state relative-caret-position="-3015">
+              <caret line="80" column="35" lean-forward="true" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Newpatient#0;class#Newpatient#0" />
@@ -480,8 +478,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-12" />
-    <option name="y" value="75" />
+    <option name="x" value="186" />
+    <option name="y" value="421" />
     <option name="width" value="2618" />
     <option name="height" value="2124" />
   </component>
@@ -560,7 +558,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537630425870" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537633898715" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../GoogleCloud" />
@@ -741,7 +739,7 @@
       <workItem from="1537465741797" duration="159000" />
       <workItem from="1537465926052" duration="3471000" />
       <workItem from="1537469443953" duration="5654000" />
-      <workItem from="1537623660176" duration="6452000" />
+      <workItem from="1537623660176" duration="9919000" />
     </task>
     <task id="LOCAL-00001" summary="ds">
       <created>1537292360276</created>
@@ -754,10 +752,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132566000" />
+    <option name="totallyTimeSpent" value="136033000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="50" width="1745" height="1416" extended-state="0" />
+    <frame x="184" y="50" width="1745" height="1416" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.12166172" />
@@ -769,7 +767,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3936508" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3936508" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -788,7 +786,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="JetGradle" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.18397626" />
+      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.18397626" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
@@ -1157,8 +1155,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-525">
-          <caret line="89" column="68" selection-start-line="89" selection-start-column="68" selection-end-line="89" selection-end-column="68" />
+        <state relative-caret-position="-3015">
+          <caret line="80" column="35" lean-forward="true" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Newpatient#0;class#Newpatient#0" />

@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,6 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="800.0" prefWidth="600.0" styleClass="parent" stylesheets="/css/stylesheet.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newPatientPagePackage.Newpatient">
@@ -79,11 +81,22 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXDatePicker fx:id="birthday" prefHeight="30.0" prefWidth="300.0" promptText="Birthday">
+                  <HBox prefHeight="30.0" prefWidth="300.0">
+                     <children>
+                        <JFXDatePicker fx:id="birthday" prefHeight="30.0" prefWidth="300.0" promptText="Birthday" />
+                        <JFXRadioButton fx:id="enterbirthday" prefHeight="30.0" prefWidth="300.0" text="Enter Birthday" textFill="#62929a">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </JFXRadioButton>
+                     </children>
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
-                  </JFXDatePicker>
+                  </HBox>
                   <JFXDatePicker fx:id="registerationday" prefHeight="30.0" prefWidth="300.0" promptText="Registration date">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
