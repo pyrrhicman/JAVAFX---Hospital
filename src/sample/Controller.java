@@ -18,6 +18,7 @@ import newPatientPagePackage.Newpatient;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.text.DateFormat;
 import java.util.ResourceBundle;
 
 
@@ -36,7 +37,7 @@ public class Controller implements Initializable {
     @FXML
     private TableColumn<Patient, String> birthday;
     @FXML
-    private TableColumn<Patient, String> dateofregistration;
+    private TableColumn<Patient, DateFormat> dateofregistration;
     @FXML
     private TableColumn<Patient, String> phonenumber;
     @FXML
@@ -70,7 +71,7 @@ public class Controller implements Initializable {
         socialid.setCellValueFactory(new PropertyValueFactory<Patient, String>("socialid"));
         sex.setCellValueFactory(new PropertyValueFactory<Patient, String>("sex"));
         birthday.setCellValueFactory(new PropertyValueFactory<Patient, String>("birthday"));
-        dateofregistration.setCellValueFactory(new PropertyValueFactory<Patient, String>("dateofregistration"));
+        dateofregistration.setCellValueFactory(new PropertyValueFactory<Patient, DateFormat>("dateofregistration"));
         phonenumber.setCellValueFactory(new PropertyValueFactory<Patient, String>("phonenumber"));
         city.setCellValueFactory(new PropertyValueFactory<Patient, String>("city"));
         address.setCellValueFactory(new PropertyValueFactory<Patient, String>("address"));//TABLE ELEMENTS//

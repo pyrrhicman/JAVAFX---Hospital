@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -59,12 +60,12 @@
                         </LinearGradient>
                      </unFocusColor>
                   </JFXTextField>
-                  <JFXComboBox fx:id="sex" focusColor="#62929a" prefHeight="50.0" prefWidth="300.0" promptText="Gender" styleClass="combo-box" unFocusColor="#62929a">
+                  <JFXComboBox fx:id="gender" focusColor="#62929a" prefHeight="30.0" prefWidth="300.0" promptText="Gender" styleClass="combo-box" unFocusColor="#62929a">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </JFXComboBox>
-                  <JFXTextField fx:id="dateofbirth" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Birthday" styleClass="text-field">
+                  <JFXTextField fx:id="age" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Age" styleClass="text-field">
                      <unFocusColor>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -78,20 +79,16 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXTextField fx:id="dateofregistration" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Date of Registration" styleClass="text-field">
-                     <unFocusColor>
-                        <LinearGradient endX="1.0" endY="1.0">
-                           <stops>
-                              <Stop color="#62929a" />
-                              <Stop color="#62929a" offset="0.007662835249042145" />
-                              <Stop color="#edebeb00" offset="1.0" />
-                           </stops>
-                        </LinearGradient>
-                     </unFocusColor>
+                  <JFXDatePicker fx:id="birthday" prefHeight="30.0" prefWidth="300.0" promptText="Birthday">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
-                  </JFXTextField>
+                  </JFXDatePicker>
+                  <JFXDatePicker fx:id="registerationday" prefHeight="30.0" prefWidth="300.0" promptText="Registration date">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </JFXDatePicker>
                   <JFXTextField fx:id="phonenumber" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Phone Number" styleClass="text-field" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
