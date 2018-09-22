@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.text.DateFormat;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 
@@ -33,17 +34,21 @@ public class Controller implements Initializable {
     @FXML
     private TableColumn<Patient, String> socialid;//sex
     @FXML
-    private TableColumn<Patient, String> sex;//
+    private TableColumn<Patient, String> gender;//
     @FXML
-    private TableColumn<Patient, String> birthday;
+    private TableColumn<Patient, String> age;//
     @FXML
-    private TableColumn<Patient, DateFormat> dateofregistration;
+    private TableColumn<Patient, LocalDate> birthday;
+    @FXML
+    private TableColumn<Patient, LocalDate> dateofregistration;
     @FXML
     private TableColumn<Patient, String> phonenumber;
     @FXML
     private TableColumn<Patient, String> city;
     @FXML
     private TableColumn<Patient, String> address;
+    @FXML
+    private TableColumn<Patient, String> postalcode;
     @FXML
     private JFXButton b1;
     @FXML
@@ -69,12 +74,15 @@ public class Controller implements Initializable {
         lastname.setCellValueFactory(new PropertyValueFactory<Patient, String>("lastname"));
         firstname.setCellValueFactory(new PropertyValueFactory<Patient, String>("firstname"));
         socialid.setCellValueFactory(new PropertyValueFactory<Patient, String>("socialid"));
-        sex.setCellValueFactory(new PropertyValueFactory<Patient, String>("sex"));
-        birthday.setCellValueFactory(new PropertyValueFactory<Patient, String>("birthday"));
-        dateofregistration.setCellValueFactory(new PropertyValueFactory<Patient, DateFormat>("dateofregistration"));
+        gender.setCellValueFactory(new PropertyValueFactory<Patient, String>("gender"));
+        age.setCellValueFactory(new PropertyValueFactory<Patient, String>("age"));
+        birthday.setCellValueFactory(new PropertyValueFactory<Patient, LocalDate>("birthday"));
+        dateofregistration.setCellValueFactory(new PropertyValueFactory<Patient, LocalDate>("dateofregistration"));
         phonenumber.setCellValueFactory(new PropertyValueFactory<Patient, String>("phonenumber"));
         city.setCellValueFactory(new PropertyValueFactory<Patient, String>("city"));
         address.setCellValueFactory(new PropertyValueFactory<Patient, String>("address"));//TABLE ELEMENTS//
+        postalcode.setCellValueFactory(new PropertyValueFactory<Patient, String>("postalcode"));//TABLE ELEMENTS//
+
         /////////////////////
         mytable.setItems(tableData.allPatientCahceList());
         b1.setStyle(Newpatient.formatbutton);

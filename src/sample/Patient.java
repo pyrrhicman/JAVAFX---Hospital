@@ -2,40 +2,76 @@ package sample;
 
 import javafx.beans.property.SimpleStringProperty;
 
+import java.time.LocalDate;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 public class Patient {
     private SimpleStringProperty firstname;
     private SimpleStringProperty lastname;
     private SimpleStringProperty socialid;
-    private SimpleStringProperty sex;
-    private SimpleStringProperty birthday;
-    private SimpleStringProperty dateofregistration;
+    private SimpleStringProperty gender;
+    private SimpleStringProperty age;
+    private LocalDate birthday;
+    private LocalDate dateofregistration;
     private SimpleStringProperty phonenumber;
     private SimpleStringProperty city;
     private SimpleStringProperty address;
     private SimpleStringProperty postalcode;
 
-    public Patient(
-            String firstname,
-            String lastname,
-            String socialid,
-            String sex,
-            String birthday,
-            String dateofregistration,
-            String phonenumber,
-            String city,
-            String address,
-            String postalcode) {
+
+
+    public Patient(String firstname,
+                   String lastname,
+                   String socialid,
+                   String gender,
+                   String age,
+                   LocalDate   birthday,
+                   LocalDate   dateofregistration,
+                   String phonenumber,
+                   String city,
+                   String address,
+                   String postalcode) {
 
         this.firstname = new SimpleStringProperty(firstname);
         this.lastname = new SimpleStringProperty(lastname);
         this.socialid = new SimpleStringProperty(socialid);
-        this.sex = new SimpleStringProperty(sex);
-        this.birthday = new SimpleStringProperty(birthday);
-        this.dateofregistration = new SimpleStringProperty(dateofregistration);
+        this.gender = new SimpleStringProperty(gender);
+        this.age = new SimpleStringProperty(age);
+        this.birthday = birthday;
+        this.dateofregistration = dateofregistration;
         this.phonenumber = new SimpleStringProperty(phonenumber);
         this.city = new SimpleStringProperty(city);
         this.address = new SimpleStringProperty(address);
         this.postalcode = new SimpleStringProperty(postalcode);
+    }
+    public String getAge() {
+        return age.get();
+    }
+
+    public SimpleStringProperty ageProperty() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age.set(age);
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public LocalDate getDateofregistration() {
+        return dateofregistration;
+    }
+
+    public void setDateofregistration(LocalDate dateofregistration) {
+        this.dateofregistration = dateofregistration;
     }
 
     public String getPostalcode() {
@@ -86,40 +122,16 @@ public class Patient {
         this.socialid.set(socialid);
     }
 
-    public String getSex() {
-        return sex.get();
+    public String getGender() {
+        return gender.get();
     }
 
-    public SimpleStringProperty sexProperty() {
-        return sex;
+    public SimpleStringProperty genderProperty() {
+        return gender;
     }
 
-    public void setSex(String sex) {
-        this.sex.set(sex);
-    }
-
-    public String getBirthday() {
-        return birthday.get();
-    }
-
-    public SimpleStringProperty birthdayProperty() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday.set(birthday);
-    }
-
-    public String getDateofregistration() {
-        return dateofregistration.get();
-    }
-
-    public SimpleStringProperty dateofregistrationProperty() {
-        return dateofregistration;
-    }
-
-    public void setDateofregistration(String dateofregistration) {
-        this.dateofregistration.set(dateofregistration);
+    public void setGender(String gender) {
+        this.gender.set(gender);
     }
 
     public String getPhonenumber() {

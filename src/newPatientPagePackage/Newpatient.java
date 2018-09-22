@@ -16,6 +16,7 @@ import sample.Patient;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -31,6 +32,14 @@ public class Newpatient implements Initializable {
     @FXML
     private JFXTextField socialid;
     @FXML
+    private JFXComboBox<String> gender = new JFXComboBox<String>();
+    @FXML
+    private JFXTextField age;
+    @FXML
+    private JFXDatePicker birthday;
+    @FXML
+    private JFXDatePicker registerationday;
+    @FXML
     private JFXTextField phonenumber;
     @FXML
     private JFXTextField city;
@@ -38,14 +47,6 @@ public class Newpatient implements Initializable {
     private JFXTextField address;
     @FXML
     private JFXTextField postalcode;
-    @FXML
-    private JFXComboBox<String> gender = new JFXComboBox<String>();
-    @FXML
-    private JFXTextField age;
-    @FXML
-    private JFXDatePicker registerationday;
-    @FXML
-    private JFXDatePicker birthday;
     @FXML
     private Text systext;
 
@@ -87,9 +88,6 @@ public class Newpatient implements Initializable {
     }
 
     public void initialize(URL location, ResourceBundle resources) {
-        Date currentDate = new Date();
-        SimpleDateFormat dataFormat = new SimpleDateFormat("dd/MM/yyyy | hh:mm");
-        String date = dataFormat.format(currentDate);
         gender.getItems().addAll("Male","Female");
         gender.setValue("Male");
         age.setEditable(true);
@@ -123,6 +121,9 @@ public class Newpatient implements Initializable {
         address.setText("Pormestarinkatu 14C89");
         postalcode.setText("06100");
 
+        Date date1 = new Date();
+        registerationday.setValue(date1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+
     }
 
     public void cancelButtonPressed() {
@@ -144,20 +145,20 @@ public class Newpatient implements Initializable {
                                 socialid.getText(),
                                 gender.getValue(),
                                 age.getText(),
-                                registerationday.getValue().toString(),
+                                birthday.getValue(),
+                                registerationday.getValue(),
                                 phonenumber.getText(),
                                 (city.getText(0, 1).toUpperCase() + city.getText(1, city.getText().length()).toLowerCase()),
                                 (address.getText(0, 1).toUpperCase() + address.getText(1, address.getText().length()).toLowerCase()),
                                 postalcode.getText()
                         );
 
+
+
+
                 //Controller.getNewPatientAndSaveIt(patient);
                 DatabaseClass databaseClass = new DatabaseClass();
-
-
                 databaseClass.addNewPatient(patient);
-
-
                 //Controller.reloadTableData();
                 Stage stage = (Stage) this.cancel.getScene().getWindow();
                 stage.close();
