@@ -6,13 +6,25 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 
-    private static final String SERVER_NAME = " ";
+    private static final String MYSQL_GOOGLE_SERVER_NAME = " ";
     private static final String MYSQL_GOOGLE_DATABASE_NAME = "patientlist";
     private static final String MYSQL_GOOGLE_PRIMARY_IP_ADDRESS = "35.228.119.107";
     private static final String MYSQL_GOOGLE_INSTANCE_CONN_NAME = "second-jet-216010:europe-north1:mhdaska";
     private static final String MYSQL_GOOGLE_USERNAME = "root";
     private static final String MYSQL_GOOGLE_PASSWORD = "Hashem741";
     private static final String MYSQL_GOOGLE_MINE = "jdbc:mysql://" + MYSQL_GOOGLE_PRIMARY_IP_ADDRESS + "/" + MYSQL_GOOGLE_DATABASE_NAME + "?useSSL=false";
+
+    private static final String MYSQL_DB4FREE_SERVER_NAME = " ";
+    private static final String MYSQL_DB4FREE_DATABASE_NAME = "iskacodatabase";
+    private static final String MYSQL_DB4FREE_PRIMARY_IP_ADDRESS = "db4free.net";
+    private static final String MYSQL_DB4FREE_INSTANCE_CONN_NAME = "second-jet-216010:europe-north1:mhdaska";
+    private static final String MYSQL_DB4FREE_USERNAME = "askari";
+    private static final String MYSQL_DB4FREE_PASSWORD = "Hashem741";
+    private static final String MYSQL_DB4FREE_MINE = "jdbc:mysql://" + MYSQL_DB4FREE_PRIMARY_IP_ADDRESS + "/" + MYSQL_DB4FREE_DATABASE_NAME + "?useSSL=false";
+
+
+
+
 
     private static final String MYSQL_LOCAL_DATABASE_NAME = "patientlist";
     private static final String MYSQLUSERNAME = "root";
@@ -27,7 +39,7 @@ public class DatabaseConnection {
 
             //return DriverManager.getConnection(SQCONN); //Local Sqlite Database
             //return DriverManager.getConnection(MYSQLCONN, MYSQLUSERNAME, MYSQLPASSWORD); //Local MYSQL Server
-            return DriverManager.getConnection(MYSQL_GOOGLE_MINE, MYSQL_GOOGLE_USERNAME, MYSQL_GOOGLE_PASSWORD); ////GCP MYSQL SERVER
+            return DriverManager.getConnection(MYSQL_DB4FREE_MINE, MYSQL_DB4FREE_USERNAME, MYSQL_DB4FREE_PASSWORD); ////GCP MYSQL SERVER
 
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();

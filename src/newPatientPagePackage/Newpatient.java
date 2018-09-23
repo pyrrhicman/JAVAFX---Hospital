@@ -90,6 +90,7 @@ public class Newpatient implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources) {
         birthday.setDisable(true);
+        birthday.setEditable(false);
         gender.getItems().addAll("Male","Female");
         gender.setValue("Male");
         age.setEditable(true);
@@ -116,6 +117,7 @@ public class Newpatient implements Initializable {
         //</editor-fold>
 
         //<editor-fold desc="TEST DATA">
+        /*
         firstname.setText("Erik");
         lastname.setText("Aska");
         socialid.setText("211199-7111");
@@ -124,6 +126,7 @@ public class Newpatient implements Initializable {
         city.setText("Porvoo");
         address.setText("Pormestarinkatu 14C89");
         postalcode.setText("06100");
+        */
         //</editor-fold>
 
         Date date1 = new Date();
