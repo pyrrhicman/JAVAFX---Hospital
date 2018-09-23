@@ -25,6 +25,7 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
+    //<editor-fold desc="#### >>>>>> FXML ELEMENTS <<<<<<< #####">
     @FXML
     public TableView<Patient> mytable;
     @FXML
@@ -58,19 +59,15 @@ public class Controller implements Initializable {
     @FXML
     private JFXButton b4;
     @FXML
-    private TextField t1;
-    @FXML
-    private TextField t2;
-    @FXML
-    private TextField t3;
-    @FXML
-    private Text text;//FXML ELEMENTS///
-    /////////////////////
+    private Text text;
+    //</editor-fold>
+
+
     TableData tableData = new TableData();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /////////////////////
 
+        //<editor-fold desc="#### >>>>>> set Cell Value Factory = Connecting Fields to Table Columns <<<<<<< #####">
         lastname.setCellValueFactory(new PropertyValueFactory<Patient, String>("lastname"));
         firstname.setCellValueFactory(new PropertyValueFactory<Patient, String>("firstname"));
         socialid.setCellValueFactory(new PropertyValueFactory<Patient, String>("socialid"));
@@ -82,8 +79,8 @@ public class Controller implements Initializable {
         city.setCellValueFactory(new PropertyValueFactory<Patient, String>("city"));
         address.setCellValueFactory(new PropertyValueFactory<Patient, String>("address"));//TABLE ELEMENTS//
         postalcode.setCellValueFactory(new PropertyValueFactory<Patient, String>("postalcode"));//TABLE ELEMENTS//
+        //</editor-fold>
 
-        /////////////////////
         mytable.setItems(tableData.allPatientCahceList());
         b1.setStyle(Newpatient.formatbutton);
         b2.setStyle(Newpatient.formatbutton);
@@ -92,28 +89,6 @@ public class Controller implements Initializable {
         getDatafromDatabase();
     }
     public void newPatientButtonPressed() {
-        newPatientFormOpener();
-    }
-
-
-    public void deleteExistedPatient() {
-        if (!(t3.getText().isEmpty())) {
-            for (int j = tableData.allPatientCahceList().size() - 1; j >= 0; j--) {
-                if (tableData.allPatientCahceList().get(j).getSocialid().equals(t3.getText())) {
-                    tableData.allPatientCahceList().remove(j);
-                    mytable.getItems();
-                }
-            }
-        }
-
-    }
-    public void exitButtonPressed() {
-        Stage stage =(Stage)this.b3.getScene().getWindow();
-        stage.close();
-        System.exit(0);
-
-    }
-    public void newPatientFormOpener() {
         try {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader();
@@ -131,6 +106,21 @@ public class Controller implements Initializable {
 
         } catch (IOException ex) { ex.printStackTrace(); }
     }
+
+
+    public void deleteExistedPatient() {
+
+        /*if (!(t3.getText().isEmpty())) {
+            for (int j = tableData.allPatientCahceList().size() - 1; j >= 0; j--) {
+                if (tableData.allPatientCahceList().get(j).getSocialid().equals(t3.getText())) {
+                    tableData.allPatientCahceList().remove(j);
+                    mytable.getItems();
+                }
+            }
+        }*/
+
+    }
+
     public void getDatafromDatabase() {
             DatabaseClass databaseClass = new DatabaseClass();
             if (!databaseClass.isDataBaseConnected()) {
@@ -139,7 +129,12 @@ public class Controller implements Initializable {
             }
     }
 
+    public void exitButtonPressed() {
+        Stage stage =(Stage)this.b3.getScene().getWindow();
+        stage.close();
+        System.exit(0);
 
+    }
 }
 
 

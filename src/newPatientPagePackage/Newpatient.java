@@ -1,26 +1,25 @@
 package newPatientPagePackage;
 
+    //<editor-fold desc="IMPORTS">
 import com.jfoenix.controls.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.DatabaseClass;
 import sample.Patient;
-
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.ResourceBundle;
+//</editor-fold>
 
 public class Newpatient implements Initializable {
+    //<editor-fold desc="FXML Elements">
     @FXML
     private JFXButton enter;
     @FXML
@@ -51,8 +50,9 @@ public class Newpatient implements Initializable {
     private JFXTextField postalcode;
     @FXML
     private Text systext;
+    //</editor-fold>
 
-
+    //<editor-fold desc="STYLES">
     public static final String formatString = "" +
             " -fx-font-family: Segoe UI semibold ;" +
             " -fx-style: Regular; " +
@@ -81,8 +81,7 @@ public class Newpatient implements Initializable {
             "-fx-base: #62929a; " +
             "-fx-text-fill: #62929a; " +
             "-fx-font-size: 16";
-
-
+    //</editor-fold>
 
     public Newpatient() {
         //Controller controller = new Controller();
@@ -94,8 +93,11 @@ public class Newpatient implements Initializable {
         gender.getItems().addAll("Male","Female");
         gender.setValue("Male");
         age.setEditable(true);
-        registerationday.setEditable(true);
+        registerationday.setEditable(false);
+        LocalDate birthDate = LocalDate.of(1900,1,2);
+        birthday.setValue(birthDate);
 
+        //<editor-fold desc="setSTYLE">
         firstname.setStyle(formatString);
         lastname.setStyle(formatString);
         socialid.setStyle(formatString);
@@ -104,35 +106,36 @@ public class Newpatient implements Initializable {
         registerationday.setStyle(formatdatepicker);
         birthday.setStyle(formatdatepicker);
         //birthday.setDefaultColor(Color.valueOf("#62929a"));
-
         phonenumber.setStyle(formatString);
         city.setStyle(formatString);
         address.setStyle(formatString);
         postalcode.setStyle(formatString);
-
         systext.setText(formatString);
         enter.setStyle(formatbutton);
         cancel.setStyle(formatbutton);
+        //</editor-fold>
 
+        //<editor-fold desc="TEST DATA">
         firstname.setText("Erik");
         lastname.setText("Aska");
         socialid.setText("211199-7111");
         age.setText("35");
-        //registerationday.setda(date);
         phonenumber.setText("5589");
         city.setText("Porvoo");
         address.setText("Pormestarinkatu 14C89");
         postalcode.setText("06100");
+        //</editor-fold>
 
         Date date1 = new Date();
         registerationday.setValue(date1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-        LocalDate birthDate = LocalDate.of(1900,1,2);
+
 
         EventHandler<ActionEvent> birthdaytonull = event ->{
             birthday.setOnAction(null);
             birthday.setValue(birthDate);
         };
         age.setOnAction(birthdaytonull);
+
 
 
         EventHandler<ActionEvent> agecalculator = event -> {
@@ -143,11 +146,6 @@ public class Newpatient implements Initializable {
             age.setOnAction(birthdaytonull);
         };
         birthday.setOnAction(agecalculator);
-
-
-
-
-
 
         EventHandler<ActionEvent> birthdayAvailable = event -> {
             if (enterbirthday.isSelected()) {
@@ -177,36 +175,31 @@ public class Newpatient implements Initializable {
 
 
                 Patient patient = new Patient
-                        (
-                                (firstname.getText(0, 1).toUpperCase() + firstname.getText(1, firstname.getText().length()).toLowerCase()),
-                                (lastname.getText(0, 1).toUpperCase() + lastname.getText(1, lastname.getText().length()).toLowerCase()),
-                                socialid.getText(),
-                                gender.getValue(),
-                                age.getText(),
-                                birthday.getValue(),
-                                registerationday.getValue(),
-                                phonenumber.getText(),
-                                (city.getText(0, 1).toUpperCase() + city.getText(1, city.getText().length()).toLowerCase()),
-                                (address.getText(0, 1).toUpperCase() + address.getText(1, address.getText().length()).toLowerCase()),
-                                postalcode.getText()
-                        );
+                (
+                        (firstname.getText(0, 1).toUpperCase() + firstname.getText(1, firstname.getText().length()).toLowerCase()),
+                        (lastname.getText(0, 1).toUpperCase() + lastname.getText(1, lastname.getText().length()).toLowerCase()),
+                        socialid.getText(),
+                        gender.getValue(),
+                        age.getText(),
+                        birthday.getValue(),
+                        registerationday.getValue(),
+                        phonenumber.getText(),
+                        (city.getText(0, 1).toUpperCase() + city.getText(1, city.getText().length()).toLowerCase()),
+                        (address.getText(0, 1).toUpperCase() + address.getText(1, address.getText().length()).toLowerCase()),
+                        postalcode.getText()
+                );
 
-
-
-
-                //Controller.getNewPatientAndSaveIt(patient);
                 DatabaseClass databaseClass = new DatabaseClass();
                 databaseClass.addNewPatient(patient);
-                //Controller.reloadTableData();
                 Stage stage = (Stage) this.cancel.getScene().getWindow();
                 stage.close();
             } else { systext.setText("Please Check the Phone Number"); }
 
 
-        }else {
+        } else {
             systext.setText("Please Fill the Form Completely");
+         }
 
-        }
     }
 
 
@@ -232,6 +225,8 @@ public class Newpatient implements Initializable {
         }
         return false;
     }
+
+
 
     public boolean phoneNumberIsFormatted(String string) {
         char[] inputPhoneNumber = string.toCharArray();

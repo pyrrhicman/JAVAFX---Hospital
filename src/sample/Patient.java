@@ -3,9 +3,6 @@ package sample;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 public class Patient {
     private SimpleStringProperty firstname;
@@ -27,8 +24,8 @@ public class Patient {
                    String socialid,
                    String gender,
                    String age,
-                   LocalDate   birthday,
-                   LocalDate   dateofregistration,
+                   LocalDate birthday,
+                   LocalDate dateofregistration,
                    String phonenumber,
                    String city,
                    String address,
