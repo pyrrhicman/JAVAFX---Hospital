@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 //</editor-fold>
 
 public class Newpatient implements Initializable {
+
     //<editor-fold desc="FXML Elements">
     @FXML
     private JFXButton enter;
@@ -161,6 +162,85 @@ public class Newpatient implements Initializable {
 
         };
         enterbirthday.setOnAction(birthdayAvailable);
+
+
+        EventHandler<ActionEvent> firstnameinstantcheck = event -> {
+            System.out.print(firstname.getStyle());
+            if (nameIsFormatted(firstname.getText())) {
+                //firstname.setStyle();
+            }
+
+        };
+        firstname.setOnAction(firstnameinstantcheck);
+
+
+        EventHandler<ActionEvent> lastnameinstantcheck = event -> {
+
+
+        };
+        lastname.setOnAction(lastnameinstantcheck);
+
+
+        EventHandler<ActionEvent> socialidinstantcheck = event -> {
+
+
+        };
+        socialid.setOnAction(socialidinstantcheck);
+
+
+        EventHandler<ActionEvent> ageinstantcheck = event -> {
+
+
+        };
+        age.setOnAction(ageinstantcheck);
+
+
+        EventHandler<ActionEvent> phonenumberinstantcheck = event -> {
+
+
+        };
+        phonenumber.setOnAction(phonenumberinstantcheck);
+
+
+        EventHandler<ActionEvent> cityinstantcheck = event -> {
+
+
+        };
+        city.setOnAction(cityinstantcheck);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 
@@ -170,38 +250,34 @@ public class Newpatient implements Initializable {
         stage.close();
     }
 
+
     public void enterButtonPressed() {
-
-        if (fieldsAreNotEmpty())
-        {
-            if (phoneNumberIsFormatted(phonenumber.getText())) {
+        if (customsPermission()) {
 
 
-                Patient patient = new Patient
-                (
-                        (firstname.getText(0, 1).toUpperCase() + firstname.getText(1, firstname.getText().length()).toLowerCase()),
-                        (lastname.getText(0, 1).toUpperCase() + lastname.getText(1, lastname.getText().length()).toLowerCase()),
-                        socialid.getText(),
-                        gender.getValue(),
-                        age.getText(),
-                        birthday.getValue(),
-                        registerationday.getValue(),
-                        phonenumber.getText(),
-                        (city.getText(0, 1).toUpperCase() + city.getText(1, city.getText().length()).toLowerCase()),
-                        (address.getText(0, 1).toUpperCase() + address.getText(1, address.getText().length()).toLowerCase()),
-                        postalcode.getText()
-                );
+            Patient patient = new Patient
+                    (
+                            (firstname.getText(0, 1).toUpperCase() + firstname.getText(1, firstname.getText().length()).toLowerCase()),
+                            (lastname.getText(0, 1).toUpperCase() + lastname.getText(1, lastname.getText().length()).toLowerCase()),
+                            socialid.getText(),
+                            gender.getValue(),
+                            age.getText(),
+                            birthday.getValue(),
+                            registerationday.getValue(),
+                            phonenumber.getText(),
+                            (city.getText(0, 1).toUpperCase() + city.getText(1, city.getText().length()).toLowerCase()),
+                            (address.getText(0, 1).toUpperCase() + address.getText(1, address.getText().length()).toLowerCase()),
+                            postalcode.getText()
+                    );
+
 
                 DatabaseClass databaseClass = new DatabaseClass();
                 databaseClass.addNewPatient(patient);
+
                 Stage stage = (Stage) this.cancel.getScene().getWindow();
                 stage.close();
-            } else { systext.setText("Please Check the Phone Number"); }
+        }
 
-
-        } else {
-            systext.setText("Please Fill the Form Completely");
-         }
 
     }
 
@@ -230,8 +306,50 @@ public class Newpatient implements Initializable {
     }
 
 
+    public boolean nameIsFormatted(String string) {
 
-    public boolean phoneNumberIsFormatted(String string) {
+        char[] inputName = string.toCharArray();
+        String validName = "abcdefghijklmnopqrstuvwxyzäöå";
+        for (char c : inputName) {
+            if (validName.indexOf(c) == -1) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    public boolean socialidisFormatted(String string) {
+        char[] inputsocialid = string.toCharArray();
+        String validsocialid = "0123456789-";
+        for (char c : inputsocialid) {
+            if (validsocialid.indexOf(c) == -1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    public boolean ageisFormatted() {
+        String string = age.getText();
+        char[] inputsocialid = string.toCharArray();
+        String validsocialid = "0123456789";
+        for (char c : inputsocialid) {
+            if (validsocialid.indexOf(c) == -1) {
+                return false;
+            }
+        }
+        int age = Integer.parseInt(this.age.getText());
+
+        if (age > 0 & age < 150) return true;
+        else return false;
+    }
+
+
+    public boolean phoneNumberIsFormatted() {
+        String string = phonenumber.getText();
         char[] inputPhoneNumber = string.toCharArray();
         String validPhoneNumber = "0123456789-+";
         for (char c : inputPhoneNumber) {
@@ -241,6 +359,66 @@ public class Newpatient implements Initializable {
         }
 
         return true;
+    }
+
+
+    public boolean addressIsFormatted() {
+        String string = address.getText();
+        char[] inputaddress = string.toCharArray();
+        String validaddress = "abcdefghijklmnopqrstuvwxyzäöå0123456789";
+        for (char c : inputaddress) {
+            if (validaddress.indexOf(c) == -1) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    public boolean postalcodeIsFormatted() {
+        String string = postalcode.getText();
+        char[] inputpostalcode = string.toCharArray();
+        String validpostalcode = "0123456789";
+        for (char c : inputpostalcode) {
+            if (validpostalcode.indexOf(c) == -1) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    public boolean customsPermission() {
+        if (fieldsAreNotEmpty()) {
+            if (nameIsFormatted(firstname.getText())) {
+                if (nameIsFormatted(lastname.getText())) {
+                    if (socialidisFormatted(socialid.getText())) {
+                        if (ageisFormatted()) {
+                            if (phoneNumberIsFormatted()) {
+                                if (nameIsFormatted(city.getText())) {
+                                    if (addressIsFormatted()) {
+                                        if (postalcodeIsFormatted()) {
+                                            return true;
+
+                                        }else { systext.setText("Please Check the Postal Code"); }
+
+                                    }else { systext.setText("Please Check the Address"); }
+
+                                }else { systext.setText("Please Check the City"); }
+
+                            }else { systext.setText("Please Check the Phone Number"); }
+
+                        }else { systext.setText("Please Check the Age"); }
+
+                    }else { systext.setText("Please Check the Social ID"); }
+
+                }else { systext.setText("Please Check the Last Name"); }
+
+            }else { systext.setText("Please Check the First Name"); }
+        }else { systext.setText("Please Fill the Form Completely"); }
+        return false;
     }
 
     public static int calculateAge(LocalDate birthDate, LocalDate currentDate) {

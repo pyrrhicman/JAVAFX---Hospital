@@ -22,24 +22,27 @@ public class DatabaseConnection {
     private static final String MYSQL_DB4FREE_PASSWORD = "Hashem741";
     private static final String MYSQL_DB4FREE_MINE = "jdbc:mysql://" + MYSQL_DB4FREE_PRIMARY_IP_ADDRESS + "/" + MYSQL_DB4FREE_DATABASE_NAME + "?useSSL=false";
 
-
-
-
-
     private static final String MYSQL_LOCAL_DATABASE_NAME = "patientlist";
-    private static final String MYSQLUSERNAME = "root";
-    private static final String MYSQLPASSWORD = "Hashem741";
-    private static final String MYSQLCONN = "jdbc:mysql://localhost:3306/" + MYSQL_LOCAL_DATABASE_NAME + "?autoReconnect=true&useSSL=false";
+    private static final String MYSQL_LOCAL_USERNAME = "root";
+    private static final String MYSQL_LOCAL_PASSWORD = "Hashem741";
+    private static final String MYSQL_LOCAL_CONNECTION = "jdbc:mysql://localhost:3306/" + MYSQL_LOCAL_DATABASE_NAME + "?autoReconnect=true&useSSL=false";
 
+    private static final String SQLITE_DATABASE_NAME = "Patientlist";
+    private static final String SQLITE_DATABASE_CONNECTION = "jdbc:sqlite:" + SQLITE_DATABASE_NAME + ".sqlite";
+
+
+
+
+    //jdbc:mysql://localhost:3306/patientmenu?autoReconnect=true&useSSL=false
     public static Connection getConnection() throws SQLException {
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            //Class.forName("org.sqlite.JDBC");
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("org.sqlite.JDBC");
 
-            //return DriverManager.getConnection(SQCONN); //Local Sqlite Database
+            return DriverManager.getConnection(SQLITE_DATABASE_CONNECTION); //Local Sqlite Database
             //return DriverManager.getConnection(MYSQLCONN, MYSQLUSERNAME, MYSQLPASSWORD); //Local MYSQL Server
-            return DriverManager.getConnection(MYSQL_DB4FREE_MINE, MYSQL_DB4FREE_USERNAME, MYSQL_DB4FREE_PASSWORD); ////GCP MYSQL SERVER
+            //return DriverManager.getConnection(MYSQL_DB4FREE_MINE, MYSQL_DB4FREE_USERNAME, MYSQL_DB4FREE_PASSWORD); ////GCP MYSQL SERVER
 
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
@@ -50,7 +53,7 @@ public class DatabaseConnection {
     public static Connection mysql_LOCAL_SERVER_Connection() throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection(MYSQLCONN, MYSQLUSERNAME, MYSQLPASSWORD); //Local MYSQL Server
+            return DriverManager.getConnection(MYSQL_LOCAL_CONNECTION, MYSQL_LOCAL_USERNAME, MYSQL_LOCAL_PASSWORD); //Local MYSQL Server
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }
@@ -66,11 +69,12 @@ public class DatabaseConnection {
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace(); }return null; }
 
+
     public static Connection sqlite_LOCAL_DATABASE_Connection(String database_name) throws SQLException {
-         final String SQCONN = "jdbc:sqlite:" + database_name + ".sqlite";
+
         try {
             Class.forName("org.sqlite.JDBC");
-            return DriverManager.getConnection(SQCONN); //Local Sqlite Database
+            return DriverManager.getConnection(SQLITE_DATABASE_CONNECTION); //Local Sqlite Database
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }
