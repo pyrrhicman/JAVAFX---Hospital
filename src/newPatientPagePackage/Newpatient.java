@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.DatabaseClass;
@@ -165,11 +166,20 @@ public class Newpatient implements Initializable {
 
 
         EventHandler<ActionEvent> firstnameinstantcheck = event -> {
-            System.out.print(firstname.getStyle());
-            if (nameIsFormatted(firstname.getText())) {
-                //firstname.setStyle();
-            }
+            System.out.println("firstnameinstantcheck");
 
+            if (nameIsFormatted(firstname.getText())) {
+                if (firstname.getStylesheets().contains("css/errorstylesheet.css")) {
+                    firstname.getStylesheets().remove("css/errorstylesheet.css");
+                    firstname.getStylesheets().add("css/stylesheet.css");
+
+                }
+
+            } else if (firstname.getStylesheets().contains("css/stylesheet.css")) {
+                        firstname.getStylesheets().remove("css/stylesheet.css");
+                        firstname.getStylesheets().add("css/errorstylesheet.css");
+
+            }
         };
         firstname.setOnAction(firstnameinstantcheck);
 

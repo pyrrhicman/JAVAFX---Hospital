@@ -42,24 +42,10 @@
 
 .jfx-text-field {
     -jfx-focus-color: #62929a;
-    -jfx-unfocus-color: linear-gradient(to left, #62929a, #62929a 50%, #edebeb 75%, #333 75%);
-    /*-jfx-unfocus-color:linear-gradient(#62929a, #62929a, #edebeb00);*/
+    -jfx-unfocus-color: linear-gradient(to left, #62929a, #62929a 50%, #edebeb 75%);
     -fx-background-color: transparent;
     -fx-text-fill: white;
     -fx-prompt-text-fill: #b5c2c9;
-    /*-fx-text-fill: #62929a;
-    -fx-prompt-text-fill: #62929a;*/
-
-    /*<JFXTextField fx:id="age" focusColor="#62929a" prefHeight="30.0" prefWidth="150.0" promptText="Age" styleClass="text-field">
-<unFocusColor>
-<LinearGradient endX="1.0" endY="1.0">
-<stops>
-<Stop color="#62929a" />
-<Stop color="#62929a" offset="0.007662835249042145" />
-<Stop color="#edebeb00" offset="1.0" />
-</stops>
-</LinearGradient>
-</unFocusColor>*/
 }
 
 .combo-box{
