@@ -82,10 +82,18 @@ public class Controller implements Initializable {
         //</editor-fold>
 
         mytable.setItems(tableData.allPatientCahceList());
-        b1.setStyle(Newpatient.formatbutton);
-        b2.setStyle(Newpatient.formatbutton);
-        b3.setStyle(Newpatient.formatbutton);
-        b4.setStyle(Newpatient.formatbutton);
+
+        final String formatbutton = "" +
+                "-fx-font-family: Segoe UI semibold; " +
+                "-fx-style: Regular; " +
+                "-fx-base: #AE3522; " +
+                "-fx-text-fill: white; " +
+                "-fx-font-size: 16";
+
+        b1.setStyle(formatbutton);
+        b2.setStyle(formatbutton);
+        b3.setStyle(formatbutton);
+        b4.setStyle(formatbutton);
         getDatafromDatabase();
     }
     public void newPatientButtonPressed() {

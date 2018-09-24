@@ -2,15 +2,22 @@ package newPatientPagePackage;
 
     //<editor-fold desc="IMPORTS">
 import com.jfoenix.controls.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.css.StyleClass;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.DatabaseClass;
 import sample.Patient;
+
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Period;
@@ -54,30 +61,47 @@ public class Newpatient implements Initializable {
     private Text systext;
     //</editor-fold>
 
+    private static String validName = "abcdefghijklmnopqrstuvwxyzäöå";
+    private static String validsocialid = "0123456789-";
+    private static String agevalidinput = "0123456789";
+    private static String validPhoneNumber = "0123456789-+";
+    private static String validaddress = "abcdefghijklmnopqrstuvwxyzäöå0123456789";
+    private static String validpostalcode = "0123456789";
+
     //<editor-fold desc="STYLES">
-    public static final String formatString = "" +
+    final String formatString = "" +
             " -fx-font-family: Segoe UI semibold ;" +
             " -fx-style: Regular; " +
             " -fx-base: #AE3522; " +
+            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68, #62929a 50%, #edebeb 75%);" +
             " -fx-text-fill: white; " +
             " -fx-font-size: 16";
 
-    public static final String formatdatepicker = "" +
+    final String errorstring =  "" +
             " -fx-font-family: Segoe UI semibold ;" +
             " -fx-style: Regular; " +
-            //" -fx-base: #AE3522; " +
-           // " -fx-text-fill: white; " +
+            " -fx-base: #AE3522; " +
+            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68, #62929a 50%, red 75%);" +
+            " -fx-text-fill: white; " +
             " -fx-font-size: 16";
 
 
-    public static final String formatbutton = "" +
+    final String formatdatepicker = "" +
+            " -fx-font-family: Segoe UI semibold ;" +
+            " -fx-style: Regular; " +
+            //" -fx-base: #AE3522; " +
+            // " -fx-text-fill: white; " +
+            " -fx-font-size: 16";
+
+
+    final String formatbutton = "" +
             "-fx-font-family: Segoe UI semibold; " +
             "-fx-style: Regular; " +
             "-fx-base: #AE3522; " +
             "-fx-text-fill: white; " +
             "-fx-font-size: 16";
 
-    public static final String formatcomboBox="" +
+    final String formatcomboBox="" +
             "-fx-font-family: Segoe UI semibold; " +
             "-fx-style: Regular; " +
             "-fx-base: #62929a; " +
@@ -99,24 +123,13 @@ public class Newpatient implements Initializable {
         registerationday.setEditable(false);
         LocalDate birthDate = LocalDate.of(1900,1,2);
         birthday.setValue(birthDate);
+        customstylesetter();
 
-        //<editor-fold desc="setSTYLE">
-        firstname.setStyle(formatString);
-        lastname.setStyle(formatString);
-        socialid.setStyle(formatString);
-        gender.setStyle(formatcomboBox);
-        age.setStyle(formatString);
-        registerationday.setStyle(formatdatepicker);
-        birthday.setStyle(formatdatepicker);
-        //birthday.setDefaultColor(Color.valueOf("#62929a"));
-        phonenumber.setStyle(formatString);
-        city.setStyle(formatString);
-        address.setStyle(formatString);
-        postalcode.setStyle(formatString);
-        systext.setText(formatString);
-        enter.setStyle(formatbutton);
-        cancel.setStyle(formatbutton);
-        //</editor-fold>
+
+
+
+
+
 
         //<editor-fold desc="TEST DATA">
         /*
@@ -166,22 +179,65 @@ public class Newpatient implements Initializable {
 
 
         EventHandler<ActionEvent> firstnameinstantcheck = event -> {
-            System.out.println("firstnameinstantcheck");
 
-            if (nameIsFormatted(firstname.getText())) {
-                if (firstname.getStylesheets().contains("css/errorstylesheet.css")) {
-                    firstname.getStylesheets().remove("css/errorstylesheet.css");
-                    firstname.getStylesheets().add("css/stylesheet.css");
 
-                }
 
-            } else if (firstname.getStylesheets().contains("css/stylesheet.css")) {
-                        firstname.getStylesheets().remove("css/stylesheet.css");
-                        firstname.getStylesheets().add("css/errorstylesheet.css");
+/*
+                if (firstname.getScene().getStylesheets().contains("/css/errorstylesheet.css")) {
+                    System.out.println("it contains errorstylesheet");
+                        firstname.getScene().getStylesheets().removeAll("/css/errorstylesheet.css");
+                        firstname.getScene().getStylesheets().add("/css/stylesheet.css");
+                        System.out.println("css added :");
+                        customstylesetter();
+
+                }else System.out.println("it does not contains errorstylesheet");
+
+
+            } else{
+                System.out.println("firstname is not formatted");
+
+                if (firstname.getScene().getStylesheets().contains("/css/stylesheet.css")) {
+                    System.out.println("it contains stylesheet");
+
+                    firstname.getScene().getStylesheets().removeAll("/css/stylesheet.css");
+                    firstname.getScene().getStylesheets().add("/css/errorstylesheet.css");
+                    System.out.println("css added");
+                    customstylesetter();
+                }else System.out.println("it does not contains stylesheet");
+
+                */
+
+        };
+
+        firstname.setOnAction(firstnameinstantcheck);
+
+
+        firstname.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+
+            if (newPropertyValue)
+            {
+                System.out.println("Textfield on focus");
 
             }
-        };
-        firstname.setOnAction(firstnameinstantcheck);
+            else
+            {
+                System.out.println("Textfield out focus");
+
+                if (nameIsFormatted(firstname.getText())) {
+                    System.out.println("firstname is formatted");
+                    //firstname.setStyle(formatString);
+
+                } else {
+                    System.out.println("firstname is not formatted");
+                    firstname.setStyle(errorstring);
+                }
+
+
+            }
+        });
+
+
+
 
 
         EventHandler<ActionEvent> lastnameinstantcheck = event -> {
@@ -221,39 +277,30 @@ public class Newpatient implements Initializable {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
+    public void customstylesetter() {
 
+
+        //<editor-fold desc="setSTYLE">
+        firstname.setStyle(formatString);
+        lastname.setStyle(formatString);
+        socialid.setStyle(formatString);
+        gender.setStyle(formatcomboBox);
+        age.setStyle(formatString);
+        registerationday.setStyle(formatdatepicker);
+        birthday.setStyle(formatdatepicker);
+        //birthday.setDefaultColor(Color.valueOf("#62929a"));
+        phonenumber.setStyle(formatString);
+        city.setStyle(formatString);
+        address.setStyle(formatString);
+        postalcode.setStyle(formatString);
+        systext.setText(formatString);
+        enter.setStyle(formatbutton);
+        cancel.setStyle(formatbutton);
+        //</editor-fold>
+
+    }
 
     public void cancelButtonPressed() {
         Stage stage = (Stage) this.cancel.getScene().getWindow();
@@ -316,10 +363,11 @@ public class Newpatient implements Initializable {
     }
 
 
-    public boolean nameIsFormatted(String string) {
+
+    private boolean nameIsFormatted(String string) {
 
         char[] inputName = string.toCharArray();
-        String validName = "abcdefghijklmnopqrstuvwxyzäöå";
+
         for (char c : inputName) {
             if (validName.indexOf(c) == -1) {
                 return false;
@@ -330,9 +378,9 @@ public class Newpatient implements Initializable {
     }
 
 
-    public boolean socialidisFormatted(String string) {
+    private boolean socialidisFormatted(String string) {
         char[] inputsocialid = string.toCharArray();
-        String validsocialid = "0123456789-";
+
         for (char c : inputsocialid) {
             if (validsocialid.indexOf(c) == -1) {
                 return false;
@@ -342,12 +390,12 @@ public class Newpatient implements Initializable {
     }
 
 
-    public boolean ageisFormatted() {
+    private boolean ageisFormatted() {
         String string = age.getText();
         char[] inputsocialid = string.toCharArray();
-        String validsocialid = "0123456789";
+
         for (char c : inputsocialid) {
-            if (validsocialid.indexOf(c) == -1) {
+            if (agevalidinput.indexOf(c) == -1) {
                 return false;
             }
         }
@@ -358,10 +406,10 @@ public class Newpatient implements Initializable {
     }
 
 
-    public boolean phoneNumberIsFormatted() {
+    private boolean phoneNumberIsFormatted() {
         String string = phonenumber.getText();
         char[] inputPhoneNumber = string.toCharArray();
-        String validPhoneNumber = "0123456789-+";
+
         for (char c : inputPhoneNumber) {
             if (validPhoneNumber.indexOf(c) == -1) {
                 return false;
@@ -372,10 +420,10 @@ public class Newpatient implements Initializable {
     }
 
 
-    public boolean addressIsFormatted() {
+    private boolean addressIsFormatted() {
         String string = address.getText();
         char[] inputaddress = string.toCharArray();
-        String validaddress = "abcdefghijklmnopqrstuvwxyzäöå0123456789";
+
         for (char c : inputaddress) {
             if (validaddress.indexOf(c) == -1) {
                 return false;
@@ -386,10 +434,10 @@ public class Newpatient implements Initializable {
     }
 
 
-    public boolean postalcodeIsFormatted() {
+    private boolean postalcodeIsFormatted() {
         String string = postalcode.getText();
         char[] inputpostalcode = string.toCharArray();
-        String validpostalcode = "0123456789";
+
         for (char c : inputpostalcode) {
             if (validpostalcode.indexOf(c) == -1) {
                 return false;
@@ -400,7 +448,7 @@ public class Newpatient implements Initializable {
     }
 
 
-    public boolean customsPermission() {
+    private boolean customsPermission() {
         if (fieldsAreNotEmpty()) {
             if (nameIsFormatted(firstname.getText())) {
                 if (nameIsFormatted(lastname.getText())) {
@@ -431,7 +479,7 @@ public class Newpatient implements Initializable {
         return false;
     }
 
-    public static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
+    private static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
         if ((birthDate != null) && (currentDate != null)) {
             return Period.between(birthDate, currentDate).getYears();
         } else {
