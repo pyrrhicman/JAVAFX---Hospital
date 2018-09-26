@@ -139,7 +139,7 @@ public class Newpatient implements Initializable {
 
         TextfieldlistenerEditor(JFXTextField jfxTextField, String string) {
 
-            jfxTextField.getDocument().addDocumentListener(new MyDocumentListener());
+            //jfxTextField.getDocument().addDocumentListener(new MyDocumentListener());
 
 
             jfxTextField.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
