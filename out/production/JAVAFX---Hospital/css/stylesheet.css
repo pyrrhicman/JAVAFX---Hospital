@@ -48,10 +48,10 @@
     -fx-prompt-text-fill: #b5c2c9;
 }
 .jfx-text-field .input-line{
-    -fx-pref-height: 1px;
+    -fx-pref-height: 2px;
 }
 .jfx-text-field .input-focused-line{
-    -fx-pref-height: 2px;
+    -fx-pref-height: 3px;
 }
 .jfx-combo-box{
     -jfx-focus-color: #62929a;

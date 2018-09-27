@@ -63,12 +63,13 @@ public class Newpatient implements Initializable {
     //</editor-fold>
     private final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÅabcdefghijklmnopqrstuvwxyz";
     private final static String NUMBERS = "0123456789";
+    private final static String SPACES = " ";
 
-    private final static String VALID_NAME_FORMAT =         ALPHABET;
+    private final static String VALID_NAME_FORMAT =         ALPHABET + SPACES;
     private final static String VALID_SOCIAL_ID_FORMAT =    NUMBERS + "-";
     private final static String VALID_AGE_FORMAT =          NUMBERS;
     private final static String VALID_PHONE_NUM_FORMAT =    NUMBERS + "-+";
-    private final static String VALID_ADDRESS_FORMAT =      ALPHABET + NUMBERS;
+    private final static String VALID_ADDRESS_FORMAT =      ALPHABET + NUMBERS + SPACES;
     private final static String VALID_POSTALCODE_FORMAT =   NUMBERS;
 
     //<editor-fold desc="STYLES">
@@ -177,10 +178,13 @@ public class Newpatient implements Initializable {
         gender.getItems().addAll("Male","Female");
         gender.setValue("Male");
         age.setEditable(true);
+        age.setText("Enter Age or Select Birthday");
         registerationday.setEditable(false);
-        LocalDate birthDate = LocalDate.of(1900,1,2);
+        LocalDate birthDate = LocalDate.of(2018,1,2);
         birthday.setValue(birthDate);
         customstylesetter();
+
+
         //<editor-fold desc="TEST DATA">
         /*
         firstname.setText("Erik");
@@ -203,6 +207,7 @@ public class Newpatient implements Initializable {
 
         Date date1 = new Date();
         registerationday.setValue(date1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+
 
         EventHandler<ActionEvent> birthdaytonull = event ->{
             birthday.setOnAction(null);
@@ -231,29 +236,6 @@ public class Newpatient implements Initializable {
         };
         enterbirthday.setOnAction(birthdayAvailable);
 
-
-
-        /*firstname.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
-            if (newPropertyValue)
-            {
-                System.out.println("Textfield on focus");
-            }
-            else
-            {
-                System.out.println("Textfield out focus");
-
-                if (nameIsFormatted(firstname.getText())) {
-                    System.out.println("firstname is formatted");
-                    firstname.setStyle(fxtextfieldCORRECT);
-
-                } else {
-                    System.out.println("firstname is not formatted");
-                    firstname.setStyle(fxtextfieldERROR);
-                }
-
-
-            }
-        });*/
 
         TextfieldlistenerEditor firstname_Listener  = new TextfieldlistenerEditor(firstname,VALID_NAME_FORMAT);
         TextfieldlistenerEditor lastname_Listener  = new TextfieldlistenerEditor(lastname,VALID_NAME_FORMAT);

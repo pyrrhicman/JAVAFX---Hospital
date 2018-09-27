@@ -12,47 +12,47 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="600.0" styleClass="parent"  xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newPatientPagePackage.Newpatient">
+<AnchorPane prefHeight="800.0" prefWidth="600.0" styleClass="parent" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newPatientPagePackage.Newpatient">
    <children>
       <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" opacity="0.92" prefHeight="471.0" prefWidth="428.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox prefHeight="800.0" prefWidth="550.0">
                <children>
-                  <JFXTextField fx:id="firstname" prefHeight="30.0" prefWidth="150.0" promptText="First Name" >
+                  <JFXTextField fx:id="firstname" prefHeight="30.0" prefWidth="150.0" promptText="First Name">
 
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXTextField fx:id="lastname" prefHeight="30.0" prefWidth="150.0" promptText="Last Name" >
+                  <JFXTextField fx:id="lastname" prefHeight="30.0" prefWidth="150.0" promptText="Last Name">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXTextField fx:id="socialid" prefHeight="30.0" prefWidth="150.0" promptText="Social ID" >
+                  <JFXTextField fx:id="socialid" prefHeight="30.0" prefWidth="150.0" promptText="Social ID">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXComboBox fx:id="gender" prefHeight="30.0" prefWidth="300.0" promptText="Gender" styleClass="combo-box">
+                  <JFXComboBox fx:id="gender" maxWidth="280.0" prefHeight="30.0" prefWidth="300.0" promptText="Gender" styleClass="combo-box">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </JFXComboBox>
-                  <JFXTextField fx:id="age" prefHeight="30.0" prefWidth="150.0" promptText="Age" >
+                  <JFXTextField fx:id="age" prefHeight="30.0" prefWidth="150.0" promptText="Age">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </JFXTextField>
                   <HBox prefHeight="30.0" prefWidth="300.0">
                      <children>
-                        <JFXDatePicker fx:id="birthday" prefHeight="30.0" prefWidth="300.0" promptText="Birthday" />
-                        <JFXRadioButton fx:id="enterbirthday" prefHeight="30.0" prefWidth="300.0" text="Enter Birthday" >
+                        <JFXDatePicker fx:id="birthday" maxWidth="280.0" prefHeight="30.0" prefWidth="280.0" promptText="Birthday" />
+                        <JFXRadioButton fx:id="enterbirthday" minWidth="125.0" prefHeight="30.0" prefWidth="105.0" text="Enter Birthday">
                            <font>
                               <Font size="15.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="20.0" />
+                              <Insets left="5.0" />
                            </HBox.margin>
                         </JFXRadioButton>
                      </children>
@@ -60,28 +60,28 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </HBox>
-                  <JFXDatePicker fx:id="registerationday" prefHeight="30.0" prefWidth="300.0" promptText="Registration date">
+                  <JFXDatePicker fx:id="registerationday" maxWidth="280.0" prefHeight="30.0" prefWidth="280.0" promptText="Registration date">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </JFXDatePicker>
-                  <JFXTextField fx:id="phonenumber" prefHeight="30.0" prefWidth="150.0" promptText="Phone Number"  VBox.vgrow="ALWAYS">
+                  <JFXTextField fx:id="phonenumber" prefHeight="30.0" prefWidth="150.0" promptText="Phone Number" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXTextField fx:id="city" prefHeight="30.0" prefWidth="150.0" promptText="City" >
+                  <JFXTextField fx:id="city" prefHeight="30.0" prefWidth="150.0" promptText="City">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXTextField fx:id="address" prefHeight="30.0" prefWidth="150.0" promptText="Address" >
+                  <JFXTextField fx:id="address" prefHeight="30.0" prefWidth="150.0" promptText="Address">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
 
                   </JFXTextField>
-                  <JFXTextField fx:id="postalcode" prefHeight="30.0" prefWidth="150.0" promptText="Postal Code" >
+                  <JFXTextField fx:id="postalcode" prefHeight="30.0" prefWidth="150.0" promptText="Postal Code">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -95,12 +95,12 @@
             </VBox>
             <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefHeight="1000.0" prefWidth="303.0">
                <children>
-                  <JFXButton fx:id="enter" buttonType="RAISED" minWidth="60.0" onAction="#enterButtonPressed" prefHeight="30.0" prefWidth="150.0" ripplerFill="BLACK"  text="Enter" textAlignment="CENTER">
+                  <JFXButton fx:id="enter" buttonType="RAISED" minWidth="60.0" onAction="#enterButtonPressed" prefHeight="30.0" prefWidth="150.0" ripplerFill="BLACK" text="Enter" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
                      </VBox.margin>
                   </JFXButton>
-                  <JFXButton fx:id="cancel" buttonType="RAISED" minWidth="60.0" onAction="#cancelButtonPressed" prefHeight="30.0" prefWidth="150.0"  text="Cancel" textAlignment="CENTER">
+                  <JFXButton fx:id="cancel" buttonType="RAISED" minWidth="60.0" onAction="#cancelButtonPressed" prefHeight="30.0" prefWidth="150.0" text="Cancel" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
