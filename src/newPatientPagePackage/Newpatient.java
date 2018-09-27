@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.fxml.LoadException;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.Background;
@@ -172,14 +173,6 @@ public class Newpatient implements Initializable {
         LocalDate birthDate = LocalDate.of(2018,1,2);
         birthday.setValue(birthDate);
 
-        try {
-
-            Scene scene = firstname.getScene();
-            firstname.getScene().getStylesheets().clear();
-            //System.out.println(;
-        } catch (NullPointerException ec) {
-            ec.printStackTrace();
-        }
         customstylesetter();
 
         //<editor-fold desc="TEST DATA">
