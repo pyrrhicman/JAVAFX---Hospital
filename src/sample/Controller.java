@@ -68,19 +68,18 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         //<editor-fold desc="#### >>>>>> set Cell Value Factory = Connecting Fields to Table Columns <<<<<<< #####">
-        lastname.setCellValueFactory(new PropertyValueFactory<Patient, String>("lastname"));
-        firstname.setCellValueFactory(new PropertyValueFactory<Patient, String>("firstname"));
-        socialid.setCellValueFactory(new PropertyValueFactory<Patient, String>("socialid"));
-        gender.setCellValueFactory(new PropertyValueFactory<Patient, String>("gender"));
-        age.setCellValueFactory(new PropertyValueFactory<Patient, String>("age"));
-        birthday.setCellValueFactory(new PropertyValueFactory<Patient, LocalDate>("birthday"));
-        dateofregistration.setCellValueFactory(new PropertyValueFactory<Patient, LocalDate>("dateofregistration"));
-        phonenumber.setCellValueFactory(new PropertyValueFactory<Patient, String>("phonenumber"));
-        city.setCellValueFactory(new PropertyValueFactory<Patient, String>("city"));
-        address.setCellValueFactory(new PropertyValueFactory<Patient, String>("address"));//TABLE ELEMENTS//
-        postalcode.setCellValueFactory(new PropertyValueFactory<Patient, String>("postalcode"));//TABLE ELEMENTS//
+        lastname.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+        firstname.setCellValueFactory(new PropertyValueFactory<>("firstname"));
+        socialid.setCellValueFactory(new PropertyValueFactory<>("socialid"));
+        gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        age.setCellValueFactory(new PropertyValueFactory<>("age"));
+        birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
+        dateofregistration.setCellValueFactory(new PropertyValueFactory<>("dateofregistration"));
+        phonenumber.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+        city.setCellValueFactory(new PropertyValueFactory<>("city"));
+        address.setCellValueFactory(new PropertyValueFactory<>("address"));//TABLE ELEMENTS//
+        postalcode.setCellValueFactory(new PropertyValueFactory<>("postalcode"));//TABLE ELEMENTS//
         //</editor-fold>
-
         mytable.setItems(tableData.allPatientCahceList());
 
         final String formatbutton = "" +
@@ -114,7 +113,6 @@ public class Controller implements Initializable {
 
         } catch (IOException ex) { ex.printStackTrace(); }
     }
-
 
     public void deleteExistedPatient() {
 

@@ -2,28 +2,28 @@ package newPatientPagePackage;
 
     //<editor-fold desc="IMPORTS">
 import com.jfoenix.controls.*;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.css.StyleClass;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.geometry.Insets;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.DatabaseClass;
 import sample.Patient;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.EnumSet;
+import java.util.DuplicateFormatFlagsException;
 import java.util.ResourceBundle;
 //</editor-fold>
 
@@ -34,6 +34,8 @@ public class Newpatient implements Initializable {
     private JFXButton enter;
     @FXML
     private JFXButton cancel;
+    @FXML
+    private JFXButton settheme;
     @FXML
     private JFXTextField lastname;
     @FXML
@@ -60,6 +62,18 @@ public class Newpatient implements Initializable {
     private JFXTextField postalcode;
     @FXML
     private Text systext;
+    @FXML
+    private JFXColorPicker cp1;
+    @FXML
+    private JFXColorPicker cp2;
+    @FXML
+    private JFXColorPicker cp3;
+    @FXML
+    private JFXColorPicker cp4;
+    @FXML
+    private JFXColorPicker cp5;
+
+
     //</editor-fold>
     private final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÅabcdefghijklmnopqrstuvwxyz";
     private final static String NUMBERS = "0123456789";
@@ -72,76 +86,43 @@ public class Newpatient implements Initializable {
     private final static String VALID_ADDRESS_FORMAT =      ALPHABET + NUMBERS + SPACES;
     private final static String VALID_POSTALCODE_FORMAT =   NUMBERS;
 
-    //<editor-fold desc="STYLES">
-    final String fxtextfieldNORMAL = "" +
-            " -fx-font-family: Segoe UI semibold ;" +
-            " -fx-style: Regular; " +
-            " -fx-base: #AE3522; " +
-            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68, white 75%);" +
-            "-jfx-focus-color: #FCFF31;" +
-            " -fx-text-fill: white; " +
-            " -fx-font-size: 16";
+    private  static String FX_STYLE = "Regular";
+    private  static String FX_FONT_FAMILY = "Segoe UI semibold";
+    private  static String FX_FONT_SIZE = "16";
+    private  static String FX_TEXT_FILL = "white";
+    private  static String FX_BASE = "#AE3522";
+    private  static String JFX_UNFOCUS_COLOR_1 = "#4B5D68";
+    private  static String JFX_UNFOCUS_COLOR_2 = "white";
+    private  static String FX_FOCUS_COLOR = "#FCFF31";
 
-    final String fxtextfieldERROR =  "" +
-            " -fx-font-family: Segoe UI semibold ;" +
-            " -fx-style: Regular; " +
-            " -fx-base: #AE3522; " +
-            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68 5% , #D1478D 75%);"+
-            "-jfx-focus-color: #FCFF31;" +
-            " -fx-text-fill: white; " +
-            " -fx-font-size: 16";
+    String publicStyle = ""+
+            "-fx-base:" +  FX_BASE  + ";"+
+            "-jfx-unfocus-color: linear-gradient(to left, "  +JFX_UNFOCUS_COLOR_1+ " 10%" +   ","   +JFX_UNFOCUS_COLOR_2+   " 75%);" +
+            "-jfx-focus-color: " + FX_FOCUS_COLOR +";"+
+            "-fx-text-fill: "+FX_TEXT_FILL+";" +
+            "-fx-font-family: "+FX_FONT_FAMILY+";" +
+            "-fx-style:"+ FX_STYLE + ";" +
+            "-fx-background-color: white;"+
+            "-fx-font-size:"+FX_FONT_SIZE+";";
 
-
-    final String fxtextfieldCORRECT =  "" +
-            " -fx-font-family: Segoe UI semibold ;" +
-            " -fx-style: Regular; " +
-            " -fx-base: #AE3522; " +
-            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68 5%, #05FF00 75%);"+
-            "-jfx-focus-color: #FCFF31;" +
-            " -fx-text-fill: white; " +
-            " -fx-font-size: 16";
-
-
-    final String formatdatepicker = "" +
-            " -fx-font-family: Segoe UI semibold ;" +
-            " -fx-style: Regular; " +
-            //" -fx-base: #AE3522; " +
-            // " -fx-text-fill: white; " +
-            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68 5%, #05FF00 75%);"+
-            "-jfx-focus-color: linear-gradient(to left, #4B5D68 5%, #05FF00 75%);"+
-            " -fx-font-size: 16";
+    String publicERRORStyle = ""+
+            "-fx-base:" +  FX_BASE  + ";"+
+            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68 5% , #D1478D 75%);" +
+            "-jfx-focus-color: " + FX_FOCUS_COLOR +";"+
+            "-fx-text-fill: "+FX_TEXT_FILL+";" +
+            "-fx-font-family: "+FX_FONT_FAMILY+";" +
+            "-fx-style:"+ FX_STYLE + ";" +
+            "-fx-background-color: white;"+
+            "-fx-font-size:"+FX_FONT_SIZE+";";
 
 
-    final String formatbutton = "" +
-            "-fx-font-family: Segoe UI semibold; " +
-            "-fx-style: Regular; " +
-            "-fx-base: #AE3522; " +
-            "-fx-text-fill: white; " +
-            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68 5%, #05FF00 75%);"+
-            "-jfx-focus-color: #FCFF31;" +
-            "-fx-font-size: 16";
 
-    final String formatcomboBox="" +
-            "-fx-font-family: Segoe UI semibold; " +
-            "-fx-style: Regular; " +
-            "-fx-base: #62929a; " +
-            "-fx-text-fill: #62929a; " +
-            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68 5%, #05FF00 75%);"+
-            "-jfx-focus-color: linear-gradient(to left, #4B5D68 5%, #05FF00 75%);"+
-            "-fx-font-size: 16";
-    //</editor-fold>
-
-    public Newpatient() {
-        //Controller controller = new Controller();
-        //controller.newPatientForm();
-    }
 
     class TextfieldlistenerEditor {
 
+
+
         TextfieldlistenerEditor(JFXTextField jfxTextField, String string) {
-
-            //jfxTextField.getDocument().addDocumentListener(new MyDocumentListener());
-
 
             jfxTextField.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
                 if (newPropertyValue)
@@ -154,11 +135,11 @@ public class Newpatient implements Initializable {
 
                     if (isThisFieldCorrect(jfxTextField.getText(),string)) {
                         System.out.println(jfxTextField.getId()+"  is formatted");
-                        jfxTextField.setStyle(fxtextfieldCORRECT);
+                        jfxTextField.setStyle(publicStyle);
 
                     } else {
                         System.out.println(jfxTextField.getId()+"  is not formatted");
-                        jfxTextField.setStyle(fxtextfieldERROR);
+                        jfxTextField.setStyle(publicERRORStyle);
                     }
 
 
@@ -168,9 +149,9 @@ public class Newpatient implements Initializable {
 
         }
 
-
-
     }
+
+
 
     public void initialize(URL location, ResourceBundle resources) {
         birthday.setDisable(true);
@@ -182,8 +163,8 @@ public class Newpatient implements Initializable {
         registerationday.setEditable(false);
         LocalDate birthDate = LocalDate.of(2018,1,2);
         birthday.setValue(birthDate);
-        customstylesetter();
 
+        customstylesetter();
 
         //<editor-fold desc="TEST DATA">
         /*
@@ -198,16 +179,8 @@ public class Newpatient implements Initializable {
         */
         //</editor-fold>
 
-
-
-
-
-
-
-
         Date date1 = new Date();
         registerationday.setValue(date1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-
 
         EventHandler<ActionEvent> birthdaytonull = event ->{
             birthday.setOnAction(null);
@@ -236,7 +209,6 @@ public class Newpatient implements Initializable {
         };
         enterbirthday.setOnAction(birthdayAvailable);
 
-
         TextfieldlistenerEditor firstname_Listener  = new TextfieldlistenerEditor(firstname,VALID_NAME_FORMAT);
         TextfieldlistenerEditor lastname_Listener  = new TextfieldlistenerEditor(lastname,VALID_NAME_FORMAT);
         TextfieldlistenerEditor socialid_Listener  = new TextfieldlistenerEditor(socialid,VALID_SOCIAL_ID_FORMAT);
@@ -245,28 +217,34 @@ public class Newpatient implements Initializable {
         TextfieldlistenerEditor city_Listener  = new TextfieldlistenerEditor(city,VALID_NAME_FORMAT);
         TextfieldlistenerEditor address_Listener  = new TextfieldlistenerEditor(address,VALID_ADDRESS_FORMAT);
         TextfieldlistenerEditor postalcode_Listener  = new TextfieldlistenerEditor(postalcode,VALID_POSTALCODE_FORMAT);
+        cp1.setValue(Color.valueOf(FX_FOCUS_COLOR));
+        cp2.setValue(Color.valueOf(JFX_UNFOCUS_COLOR_1));
+        cp3.setValue(Color.valueOf(JFX_UNFOCUS_COLOR_2));
+        cp4.setValue(Color.valueOf(FX_BASE));
+        cp5.setValue(Color.valueOf(FX_TEXT_FILL));
     }
 
 
     public void customstylesetter() {
 
-
         //<editor-fold desc="setSTYLE">
-        firstname.setStyle(fxtextfieldNORMAL);
-        lastname.setStyle(fxtextfieldNORMAL);
-        socialid.setStyle(fxtextfieldNORMAL);
-        gender.setStyle(formatcomboBox);
-        age.setStyle(fxtextfieldNORMAL);
-        registerationday.setStyle(formatdatepicker);
-        birthday.setStyle(formatdatepicker);
+        styleupdate();
+        firstname.setStyle(publicStyle);
+        lastname.setStyle(publicStyle);
+        socialid.setStyle(publicStyle);
+        gender.setStyle(publicStyle);
+        age.setStyle(publicStyle);
+        registerationday.setStyle(publicStyle);
+        birthday.setStyle(publicStyle);
         //birthday.setDefaultColor(Color.valueOf("#62929a"));
-        phonenumber.setStyle(fxtextfieldNORMAL);
-        city.setStyle(fxtextfieldNORMAL);
-        address.setStyle(fxtextfieldNORMAL);
-        postalcode.setStyle(fxtextfieldNORMAL);
-        systext.setText(fxtextfieldNORMAL);
-        enter.setStyle(formatbutton);
-        cancel.setStyle(formatbutton);
+        phonenumber.setStyle(publicStyle);
+        city.setStyle(publicStyle);
+        address.setStyle(publicStyle);
+        postalcode.setStyle(publicStyle);
+        systext.setText(publicStyle);
+        enter.setStyle(publicStyle);
+        cancel.setStyle(publicStyle);
+        settheme.setStyle(publicStyle);
         //</editor-fold>
 
     }
@@ -275,7 +253,27 @@ public class Newpatient implements Initializable {
         Stage stage = (Stage) this.cancel.getScene().getWindow();
         stage.close();
     }
+    public void setthemebutton() {
+        FX_FOCUS_COLOR = "#" + Integer.toHexString(cp1.getValue().hashCode());
+        FX_FOCUS_COLOR = FX_FOCUS_COLOR.substring(0, 7);
 
+        JFX_UNFOCUS_COLOR_1 = "#" + Integer.toHexString(cp2.getValue().hashCode());
+        JFX_UNFOCUS_COLOR_1 = JFX_UNFOCUS_COLOR_1.substring(0, 7);
+
+        JFX_UNFOCUS_COLOR_2 = "#" + Integer.toHexString(cp3.getValue().hashCode());
+        JFX_UNFOCUS_COLOR_2 = JFX_UNFOCUS_COLOR_2.substring(0, 7);
+
+        FX_BASE = "#" + Integer.toHexString(cp4.getValue().hashCode());
+        FX_BASE = FX_BASE.substring(0, 7);
+
+        FX_TEXT_FILL = "#" + Integer.toHexString(cp5.getValue().hashCode());
+        FX_TEXT_FILL = FX_TEXT_FILL.substring(0, 7);
+        customstylesetter();
+        System.out.println("theme is set " + "FX_FOCUS_COLOR: " + FX_FOCUS_COLOR + " JFX_UNFOCUS_COLOR_1: " + JFX_UNFOCUS_COLOR_1+ " JFX_UNFOCUS_COLOR_2: " + JFX_UNFOCUS_COLOR_2 + " FX_BASE: " + FX_BASE );
+        System.out.println(publicStyle);
+
+
+    }
 
     public void enterButtonPressed() {
         if (customsPermission()) {
@@ -307,11 +305,6 @@ public class Newpatient implements Initializable {
 
     }
 
-    enum validInputFormats {
-        NAME_FORMAT,SOCIAL_ID_FORMAT,AGE_FORMAT,PHONE_NUM_FORMAT,ADDRESS_FORMAT,POSTALCODE_FORMAT
-    }
-
-
     private boolean isThisFieldCorrect(String string, String format) {
 
         if (string.isEmpty()) {
@@ -327,7 +320,6 @@ public class Newpatient implements Initializable {
 
         return true;
     }
-
 
     private boolean fieldsAreNotEmpty() {
         if (!(firstname.getText().isEmpty())) {
@@ -351,90 +343,6 @@ public class Newpatient implements Initializable {
         }
         return false;
     }
-/*
-    private boolean nameIsFormatted(String string) {
-        if (string.isEmpty()) {
-            return false;
-        }
-        char[] inputName = string.toCharArray();
-
-        for (char c : inputName) {
-            if (validName.indexOf(c) == -1) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    private boolean socialidisFormatted(String string) {
-        char[] inputsocialid = string.toCharArray();
-
-        for (char c : inputsocialid) {
-            if (validsocialid.indexOf(c) == -1) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private boolean ageisFormatted() {
-        String string = age.getText();
-        char[] inputsocialid = string.toCharArray();
-
-        for (char c : inputsocialid) {
-            if (agevalidinput.indexOf(c) == -1) {
-                return false;
-            }
-        }
-        int age = Integer.parseInt(this.age.getText());
-
-        if (age > 0 & age < 150) return true;
-        else return false;
-    }
-
-    private boolean phoneNumberIsFormatted() {
-        String string = phonenumber.getText();
-        char[] inputPhoneNumber = string.toCharArray();
-
-        for (char c : inputPhoneNumber) {
-            if (validPhoneNumber.indexOf(c) == -1) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    private boolean addressIsFormatted() {
-        String string = address.getText();
-        char[] inputaddress = string.toCharArray();
-
-        for (char c : inputaddress) {
-            if (validaddress.indexOf(c) == -1) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    private boolean postalcodeIsFormatted() {
-        String string = postalcode.getText();
-        char[] inputpostalcode = string.toCharArray();
-
-        for (char c : inputpostalcode) {
-            if (validpostalcode.indexOf(c) == -1) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-*/
-
-
-
 
     private boolean customsPermission() {
         if (fieldsAreNotEmpty()) {
@@ -476,6 +384,29 @@ public class Newpatient implements Initializable {
         }
     }
 
+    private void styleupdate() {
+        String publicStyle = ""+
+                "-fx-base:" +  FX_BASE  + ";"+
+                "-jfx-unfocus-color: linear-gradient(to left, "  +JFX_UNFOCUS_COLOR_1+ " 10%" +   ","   +JFX_UNFOCUS_COLOR_2+   " 75%);" +
+                "-jfx-focus-color: " + FX_FOCUS_COLOR +";"+
+                "-fx-text-fill: "+FX_TEXT_FILL+";" +
+                "-fx-font-family: "+FX_FONT_FAMILY+";" +
+                "-fx-style:"+ FX_STYLE + ";" +
+                "-fx-font-size:"+FX_FONT_SIZE+";";
+
+        String publicERRORStyle = ""+
+                "-fx-base:" +  FX_BASE  + ";"+
+                "-jfx-unfocus-color: linear-gradient(to left, #4B5D68 5% , #D1478D 75%);" +
+                "-jfx-focus-color: " + FX_FOCUS_COLOR +";"+
+                "-fx-text-fill: "+FX_TEXT_FILL+";" +
+                "-fx-font-family: "+FX_FONT_FAMILY+";" +
+                "-fx-style:"+ FX_STYLE + ";" +
+                "-fx-font-size:"+FX_FONT_SIZE+";";
+
+        this.publicStyle = publicStyle;
+        this.publicERRORStyle = publicERRORStyle;
+
+    }
 
 }
 

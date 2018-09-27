@@ -3,9 +3,7 @@
 
 }
 
-.background{
-    -fx-background-color: #4b5d68 ;
-}
+.background{-fx-background-color: #4b5d68 ;}
 
 
 .sidebar {
@@ -41,11 +39,11 @@
 
 
 .jfx-text-field {
-    -jfx-focus-color: #62929a;
+    /*-jfx-focus-color: #62929a;
     -jfx-unfocus-color: linear-gradient(to left, #4B5D68, #62929a 50%, #edebeb 75%);
-    -fx-background-color: transparent;
-    -fx-text-fill: white;
-    -fx-prompt-text-fill: #b5c2c9;
+    -jfx-background-color: transparent;
+    -jfx-text-fill: white;
+    -jfx-prompt-text-fill: #b5c2c9;*/
 }
 .jfx-text-field .input-line{
     -fx-pref-height: 2px;
