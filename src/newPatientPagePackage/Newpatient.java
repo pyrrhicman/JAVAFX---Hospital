@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -72,7 +73,10 @@ public class Newpatient implements Initializable {
     private JFXColorPicker cp4;
     @FXML
     private JFXColorPicker cp5;
-
+    @FXML
+    private JFXColorPicker cp6;
+    @FXML
+    private JFXColorPicker cp7;
 
     //</editor-fold>
     private final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÅabcdefghijklmnopqrstuvwxyz";
@@ -95,6 +99,12 @@ public class Newpatient implements Initializable {
     private  static String JFX_UNFOCUS_COLOR_2 = "white";
     private  static String FX_FOCUS_COLOR = "#FCFF31";
 
+    private  static String JFX_ERROR_UNFOCUS_COLOR_1 = "#4B5D68";
+    private  static String JFX_ERROR_UNFOCUS_COLOR_2 = "white";
+
+    private  static String FX_BUTTON_COLOR = "#FCFF31";
+    private  static String FX_BUTTON_SIDE_COLOR = "#FCFF31";
+
     String publicStyle = ""+
             "-fx-base:" +  FX_BASE  + ";"+
             "-jfx-unfocus-color: linear-gradient(to left, "  +JFX_UNFOCUS_COLOR_1+ " 10%" +   ","   +JFX_UNFOCUS_COLOR_2+   " 75%);" +
@@ -102,17 +112,15 @@ public class Newpatient implements Initializable {
             "-fx-text-fill: "+FX_TEXT_FILL+";" +
             "-fx-font-family: "+FX_FONT_FAMILY+";" +
             "-fx-style:"+ FX_STYLE + ";" +
-            "-fx-background-color: white;"+
             "-fx-font-size:"+FX_FONT_SIZE+";";
 
     String publicERRORStyle = ""+
             "-fx-base:" +  FX_BASE  + ";"+
-            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68 5% , #D1478D 75%);" +
+            "-jfx-unfocus-color: linear-gradient(to left, "  +JFX_ERROR_UNFOCUS_COLOR_1+ " 10%" +   ","   +JFX_ERROR_UNFOCUS_COLOR_2+   " 75%);" +
             "-jfx-focus-color: " + FX_FOCUS_COLOR +";"+
             "-fx-text-fill: "+FX_TEXT_FILL+";" +
             "-fx-font-family: "+FX_FONT_FAMILY+";" +
             "-fx-style:"+ FX_STYLE + ";" +
-            "-fx-background-color: white;"+
             "-fx-font-size:"+FX_FONT_SIZE+";";
 
 
@@ -164,6 +172,14 @@ public class Newpatient implements Initializable {
         LocalDate birthDate = LocalDate.of(2018,1,2);
         birthday.setValue(birthDate);
 
+        try {
+
+            Scene scene = firstname.getScene();
+            firstname.getScene().getStylesheets().clear();
+            //System.out.println(;
+        } catch (NullPointerException ec) {
+            ec.printStackTrace();
+        }
         customstylesetter();
 
         //<editor-fold desc="TEST DATA">
@@ -222,6 +238,8 @@ public class Newpatient implements Initializable {
         cp3.setValue(Color.valueOf(JFX_UNFOCUS_COLOR_2));
         cp4.setValue(Color.valueOf(FX_BASE));
         cp5.setValue(Color.valueOf(FX_TEXT_FILL));
+        /*cp6.setValue(Color.valueOf(FX_BUTTON_COLOR));
+        cp7.setValue(Color.valueOf(FX_BUTTON_SIDE_COLOR));*/
     }
 
 
@@ -246,6 +264,9 @@ public class Newpatient implements Initializable {
         cancel.setStyle(publicStyle);
         settheme.setStyle(publicStyle);
         //</editor-fold>
+        //enter.setStyle("-fx-background-color: "+ FX_BUTTON_COLOR+";" + "-fx-border-color:transparent transparent transparent "+FX_BUTTON_SIDE_COLOR +";");
+        //cancel.setStyle("-fx-background-color: "+ FX_BUTTON_COLOR+";");
+        //settheme.setStyle("-fx-background-color: "+ FX_BUTTON_COLOR+";");
 
     }
 
@@ -268,6 +289,12 @@ public class Newpatient implements Initializable {
 
         FX_TEXT_FILL = "#" + Integer.toHexString(cp5.getValue().hashCode());
         FX_TEXT_FILL = FX_TEXT_FILL.substring(0, 7);
+
+        /*FX_BUTTON_COLOR = "#" + Integer.toHexString(cp6.getValue().hashCode());
+        FX_BUTTON_COLOR = FX_BUTTON_COLOR.substring(0, 7);
+
+        FX_BUTTON_SIDE_COLOR = "#" + Integer.toHexString(cp7.getValue().hashCode());
+        FX_BUTTON_SIDE_COLOR = FX_BUTTON_SIDE_COLOR.substring(0, 7);*/
         customstylesetter();
         System.out.println("theme is set " + "FX_FOCUS_COLOR: " + FX_FOCUS_COLOR + " JFX_UNFOCUS_COLOR_1: " + JFX_UNFOCUS_COLOR_1+ " JFX_UNFOCUS_COLOR_2: " + JFX_UNFOCUS_COLOR_2 + " FX_BASE: " + FX_BASE );
         System.out.println(publicStyle);
@@ -396,7 +423,7 @@ public class Newpatient implements Initializable {
 
         String publicERRORStyle = ""+
                 "-fx-base:" +  FX_BASE  + ";"+
-                "-jfx-unfocus-color: linear-gradient(to left, #4B5D68 5% , #D1478D 75%);" +
+                "-jfx-unfocus-color: linear-gradient(to left, "  +JFX_ERROR_UNFOCUS_COLOR_1+ " 10%" +   ","   +JFX_ERROR_UNFOCUS_COLOR_2+   " 75%);" +
                 "-jfx-focus-color: " + FX_FOCUS_COLOR +";"+
                 "-fx-text-fill: "+FX_TEXT_FILL+";" +
                 "-fx-font-family: "+FX_FONT_FAMILY+";" +

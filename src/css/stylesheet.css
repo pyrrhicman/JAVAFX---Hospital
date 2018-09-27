@@ -1,14 +1,14 @@
 .parent {
-    -fx-background-color: #4b5d68;
+    -fx-background-color: #ffdfdf;
 
 }
 
-.background{-fx-background-color: #4b5d68 ;}
+.background{-fx-background-color: #ffdfdf ;}
 
 
 .sidebar {
-    -fx-background-color: #4b5d68;
-    -fx-border-color:#4b5d68;
+    -fx-background-color: #ffdfdf;
+    -fx-border-color:#ffdfdf;
 }
 
 
