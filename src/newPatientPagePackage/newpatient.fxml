@@ -93,6 +93,9 @@
                      </VBox.margin>
                   </Text>
                </children>
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
             </VBox>
             <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefHeight="800.0" prefWidth="300.0">
                <children>

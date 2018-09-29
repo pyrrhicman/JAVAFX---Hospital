@@ -1,6 +1,7 @@
 package sample;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,10 +10,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import newPatientPagePackage.Newpatient;
 
 import java.io.IOException;
@@ -61,7 +65,8 @@ public class Controller implements Initializable {
     @FXML
     private Text text;
     //</editor-fold>
-
+    private double xOffset = 0;
+    private double yOffset = 0;
 
     TableData tableData = new TableData();
     @Override
@@ -106,10 +111,13 @@ public class Controller implements Initializable {
             stage.setScene(scene);
             scene.getStylesheets().add("/css/stylesheet.css");
             stage.setTitle("New Patient");
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.setResizable(true);
+
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
             getDatafromDatabase();
+
 
         } catch (IOException ex) { ex.printStackTrace(); }
     }
