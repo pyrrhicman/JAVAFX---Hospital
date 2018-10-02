@@ -15,27 +15,11 @@ import javafx.stage.Stage;
 import sample.DatabaseClass;
 import sample.Patient;
 
-<<<<<<< HEAD
-import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.text.Document;
-import java.awt.*;
-import java.beans.PropertyChangeEvent;
-import java.io.IOException;
-=======
->>>>>>> 5ae30e20677f98453c62d674f51099a408059564
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
-<<<<<<< HEAD
-import java.util.EnumSet;
-import java.util.Objects;
-=======
->>>>>>> 5ae30e20677f98453c62d674f51099a408059564
 import java.util.ResourceBundle;
 
 import static css.CustomStyle.*;
@@ -105,12 +89,7 @@ public class Newpatient implements Initializable {
 
 
 
-<<<<<<< HEAD
-            //jfxTextField.getDocument().addDocumentListener(new MyDocumentListener());
-            TextField textField = new TextField();
-=======
     class TextfieldlistenerEditor {
->>>>>>> 5ae30e20677f98453c62d674f51099a408059564
 
         TextfieldlistenerEditor(JFXTextField jfxTextField, String string) {
 
@@ -149,6 +128,7 @@ public class Newpatient implements Initializable {
         gender.getItems().addAll("Male","Female");
         gender.setValue("Male");
         age.setEditable(true);
+        age.setText("Enter Age or Select Birthday");
         registerationday.setEditable(false);
         LocalDate birthDate = LocalDate.of(2018,1,2);
         birthday.setValue(birthDate);
@@ -168,14 +148,6 @@ public class Newpatient implements Initializable {
         */
         //</editor-fold>
 
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> 5ae30e20677f98453c62d674f51099a408059564
         Date date1 = new Date();
         registerationday.setValue(date1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 
