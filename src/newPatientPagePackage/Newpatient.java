@@ -17,6 +17,13 @@ import javafx.stage.Stage;
 import sample.DatabaseClass;
 import sample.Patient;
 
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.Document;
+import java.awt.*;
+import java.beans.PropertyChangeEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -24,6 +31,7 @@ import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.EnumSet;
+import java.util.Objects;
 import java.util.ResourceBundle;
 //</editor-fold>
 
@@ -141,6 +149,7 @@ public class Newpatient implements Initializable {
         TextfieldlistenerEditor(JFXTextField jfxTextField, String string) {
 
             //jfxTextField.getDocument().addDocumentListener(new MyDocumentListener());
+            TextField textField = new TextField();
 
 
             jfxTextField.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
@@ -178,7 +187,6 @@ public class Newpatient implements Initializable {
         gender.getItems().addAll("Male","Female");
         gender.setValue("Male");
         age.setEditable(true);
-        age.setText("Enter Age or Select Birthday");
         registerationday.setEditable(false);
         LocalDate birthDate = LocalDate.of(2018,1,2);
         birthday.setValue(birthDate);
@@ -197,8 +205,6 @@ public class Newpatient implements Initializable {
         postalcode.setText("06100");
         */
         //</editor-fold>
-
-
 
 
 
