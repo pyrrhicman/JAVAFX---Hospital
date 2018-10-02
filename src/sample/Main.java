@@ -26,6 +26,7 @@ public class Main extends Application {
         scene.getStylesheets().add("/css/stylesheet.css");
         primaryStage.setScene(scene);
         primaryStage.setTitle("Hello World");
+
         primaryStage.show();
     }
 

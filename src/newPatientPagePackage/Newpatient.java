@@ -2,21 +2,20 @@ package newPatientPagePackage;
 
     //<editor-fold desc="IMPORTS">
 import com.jfoenix.controls.*;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.css.StyleClass;
+import css.CustomStyle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.DatabaseClass;
 import sample.Patient;
 
+<<<<<<< HEAD
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.DocumentEvent;
@@ -25,23 +24,34 @@ import javax.swing.text.Document;
 import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.io.IOException;
+=======
+>>>>>>> 5ae30e20677f98453c62d674f51099a408059564
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
+<<<<<<< HEAD
 import java.util.EnumSet;
 import java.util.Objects;
+=======
+>>>>>>> 5ae30e20677f98453c62d674f51099a408059564
 import java.util.ResourceBundle;
+
+import static css.CustomStyle.*;
 //</editor-fold>
 
 public class Newpatient implements Initializable {
 
     //<editor-fold desc="FXML Elements">
     @FXML
+    private AnchorPane anchorPane;
+    @FXML
     private JFXButton enter;
     @FXML
     private JFXButton cancel;
+    @FXML
+    private JFXButton settheme;
     @FXML
     private JFXTextField lastname;
     @FXML
@@ -68,89 +78,41 @@ public class Newpatient implements Initializable {
     private JFXTextField postalcode;
     @FXML
     private Text systext;
-    //</editor-fold>
-    private final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÅabcdefghijklmnopqrstuvwxyz";
-    private final static String NUMBERS = "0123456789";
-    private final static String SPACES = " ";
+    @FXML
+    private JFXColorPicker cp1;
+    @FXML
+    private JFXColorPicker cp2;
+    @FXML
+    private JFXColorPicker cp3;
+    @FXML
+    private JFXColorPicker cp4;
+    @FXML
+    private JFXColorPicker cp5;
+    @FXML
+    private JFXColorPicker cp6;
+    @FXML
+    private JFXColorPicker cp7;
+    @FXML
+    private JFXColorPicker cp8;
 
-    private final static String VALID_NAME_FORMAT =         ALPHABET + SPACES;
-    private final static String VALID_SOCIAL_ID_FORMAT =    NUMBERS + "-";
-    private final static String VALID_AGE_FORMAT =          NUMBERS;
-    private final static String VALID_PHONE_NUM_FORMAT =    NUMBERS + "-+";
-    private final static String VALID_ADDRESS_FORMAT =      ALPHABET + NUMBERS + SPACES;
-    private final static String VALID_POSTALCODE_FORMAT =   NUMBERS;
-
-    //<editor-fold desc="STYLES">
-    final String fxtextfieldNORMAL = "" +
-            " -fx-font-family: Segoe UI semibold ;" +
-            " -fx-style: Regular; " +
-            " -fx-base: #AE3522; " +
-            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68, white 75%);" +
-            "-jfx-focus-color: #FCFF31;" +
-            " -fx-text-fill: white; " +
-            " -fx-font-size: 16";
-
-    final String fxtextfieldERROR =  "" +
-            " -fx-font-family: Segoe UI semibold ;" +
-            " -fx-style: Regular; " +
-            " -fx-base: #AE3522; " +
-            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68 5% , #D1478D 75%);"+
-            "-jfx-focus-color: #FCFF31;" +
-            " -fx-text-fill: white; " +
-            " -fx-font-size: 16";
-
-
-    final String fxtextfieldCORRECT =  "" +
-            " -fx-font-family: Segoe UI semibold ;" +
-            " -fx-style: Regular; " +
-            " -fx-base: #AE3522; " +
-            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68 5%, #05FF00 75%);"+
-            "-jfx-focus-color: #FCFF31;" +
-            " -fx-text-fill: white; " +
-            " -fx-font-size: 16";
-
-
-    final String formatdatepicker = "" +
-            " -fx-font-family: Segoe UI semibold ;" +
-            " -fx-style: Regular; " +
-            //" -fx-base: #AE3522; " +
-            // " -fx-text-fill: white; " +
-            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68 5%, #05FF00 75%);"+
-            "-jfx-focus-color: linear-gradient(to left, #4B5D68 5%, #05FF00 75%);"+
-            " -fx-font-size: 16";
-
-
-    final String formatbutton = "" +
-            "-fx-font-family: Segoe UI semibold; " +
-            "-fx-style: Regular; " +
-            "-fx-base: #AE3522; " +
-            "-fx-text-fill: white; " +
-            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68 5%, #05FF00 75%);"+
-            "-jfx-focus-color: #FCFF31;" +
-            "-fx-font-size: 16";
-
-    final String formatcomboBox="" +
-            "-fx-font-family: Segoe UI semibold; " +
-            "-fx-style: Regular; " +
-            "-fx-base: #62929a; " +
-            "-fx-text-fill: #62929a; " +
-            "-jfx-unfocus-color: linear-gradient(to left, #4B5D68 5%, #05FF00 75%);"+
-            "-jfx-focus-color: linear-gradient(to left, #4B5D68 5%, #05FF00 75%);"+
-            "-fx-font-size: 16";
+    @FXML
+    private JFXColorPicker cp9;
     //</editor-fold>
 
-    public Newpatient() {
-        //Controller controller = new Controller();
-        //controller.newPatientForm();
-    }
 
-    class TextfieldlistenerEditor {
+    private double xOffset = 0;
+    private double yOffset = 0;
 
-        TextfieldlistenerEditor(JFXTextField jfxTextField, String string) {
 
+
+<<<<<<< HEAD
             //jfxTextField.getDocument().addDocumentListener(new MyDocumentListener());
             TextField textField = new TextField();
+=======
+    class TextfieldlistenerEditor {
+>>>>>>> 5ae30e20677f98453c62d674f51099a408059564
 
+        TextfieldlistenerEditor(JFXTextField jfxTextField, String string) {
 
             jfxTextField.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
                 if (newPropertyValue)
@@ -159,15 +121,16 @@ public class Newpatient implements Initializable {
                 }
                 else
                 {
+
                     System.out.println(jfxTextField.getId()+"  out focus");
 
                     if (isThisFieldCorrect(jfxTextField.getText(),string)) {
                         System.out.println(jfxTextField.getId()+"  is formatted");
-                        jfxTextField.setStyle(fxtextfieldCORRECT);
+                        jfxTextField.setStyle(textField_Style);
 
                     } else {
                         System.out.println(jfxTextField.getId()+"  is not formatted");
-                        jfxTextField.setStyle(fxtextfieldERROR);
+                        jfxTextField.setStyle(textField_Style_err);
                     }
 
 
@@ -176,10 +139,9 @@ public class Newpatient implements Initializable {
 
 
         }
-
-
-
     }
+
+
 
     public void initialize(URL location, ResourceBundle resources) {
         birthday.setDisable(true);
@@ -190,8 +152,8 @@ public class Newpatient implements Initializable {
         registerationday.setEditable(false);
         LocalDate birthDate = LocalDate.of(2018,1,2);
         birthday.setValue(birthDate);
-        customstylesetter();
 
+        customstylesetter();
 
         //<editor-fold desc="TEST DATA">
         /*
@@ -206,14 +168,16 @@ public class Newpatient implements Initializable {
         */
         //</editor-fold>
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> 5ae30e20677f98453c62d674f51099a408059564
         Date date1 = new Date();
         registerationday.setValue(date1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-
 
         EventHandler<ActionEvent> birthdaytonull = event ->{
             birthday.setOnAction(null);
@@ -222,7 +186,6 @@ public class Newpatient implements Initializable {
         age.setOnAction(birthdaytonull);
 
         EventHandler<ActionEvent> agecalculator = event -> {
-            System.out.print("Happened");
             int agebydate = calculateAge(birthday.getValue(), date1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             age.setOnAction(null);
             age.setText(String.valueOf(agebydate));
@@ -242,38 +205,124 @@ public class Newpatient implements Initializable {
         };
         enterbirthday.setOnAction(birthdayAvailable);
 
+        EventHandler<MouseEvent> mouseEvent = event -> {
 
+            System.out.println(event.toString());//36-42
+            String string = event.toString().substring(36, 42);
+            switch (string) {
+                case "id=cp1":
+                    systext.setText("fxFocusColor");
+                    break;
+                case "id=cp2":
+                    systext.setText("jfxUnfocusColor1");
+                    break;
+                case "id=cp3":
+                    systext.setText("jfxUnfocusColor2");
+                    break;
+                case "id=cp4":
+                    systext.setText("fxBase");
+                    break;
+                case "id=cp5":
+                    systext.setText("fxTextFill");
+                    break;
+                case "id=cp6":
+                    systext.setText("fxButtonColor");
+                    break;
+                case "id=cp7":
+                    systext.setText("fxButtonSideColor");
+                    break;
+                case "id=cp8":
+                    systext.setText("fxPromptTextColor");
+                    break;
+                case "id=cp9":
+                    systext.setText("fxAnchorBackgroundColor");
+                    break;
+            }
+        };
+
+
+        anchorPane.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+        anchorPane.setOnMouseDragged(event -> {
+            anchorPane.getScene().getWindow().setX(event.getScreenX() - xOffset);
+            anchorPane.getScene().getWindow().setY(event.getScreenY() - yOffset);
+            anchorPane.getScene().getWindow().setOpacity(0.8);
+        });
+        anchorPane.setOnMouseReleased(event -> {
+            anchorPane.getScene().getWindow().setOpacity(1);
+        });
+
+
+        cp1.setOnMouseEntered(mouseEvent);
+        cp2.setOnMouseEntered(mouseEvent);
+        cp3.setOnMouseEntered(mouseEvent);
+        cp4.setOnMouseEntered(mouseEvent);
+        cp5.setOnMouseEntered(mouseEvent);
+        cp6.setOnMouseEntered(mouseEvent);
+        cp7.setOnMouseEntered(mouseEvent);
+        cp8.setOnMouseEntered(mouseEvent);
+        cp9.setOnMouseEntered(mouseEvent);
         TextfieldlistenerEditor firstname_Listener  = new TextfieldlistenerEditor(firstname,VALID_NAME_FORMAT);
         TextfieldlistenerEditor lastname_Listener  = new TextfieldlistenerEditor(lastname,VALID_NAME_FORMAT);
         TextfieldlistenerEditor socialid_Listener  = new TextfieldlistenerEditor(socialid,VALID_SOCIAL_ID_FORMAT);
         TextfieldlistenerEditor age_Listener  = new TextfieldlistenerEditor(age,VALID_AGE_FORMAT);
-        TextfieldlistenerEditor phonenumber_Listener  = new TextfieldlistenerEditor(phonenumber,VALID_PHONE_NUM_FORMAT);
+        TextfieldlistenerEditor phonenumber_Listener  = new TextfieldlistenerEditor(phonenumber,VALID_AGE_FORMAT);
         TextfieldlistenerEditor city_Listener  = new TextfieldlistenerEditor(city,VALID_NAME_FORMAT);
         TextfieldlistenerEditor address_Listener  = new TextfieldlistenerEditor(address,VALID_ADDRESS_FORMAT);
         TextfieldlistenerEditor postalcode_Listener  = new TextfieldlistenerEditor(postalcode,VALID_POSTALCODE_FORMAT);
-    }
+        cp1.setValue(Color.valueOf(fxFocusColor));
+        cp2.setValue(Color.valueOf(jfxUnfocusColor1));
+        cp3.setValue(Color.valueOf(jfxUnfocusColor2));
+        cp4.setValue(Color.valueOf(fxBase));
+        cp5.setValue(Color.valueOf(fxTextFill));
+        cp6.setValue(Color.valueOf(fxButtonColor));
+        cp7.setValue(Color.valueOf(fxButtonSideColor));
+        cp8.setValue(Color.valueOf(fxPromptTextColor));
+        cp9.setValue(Color.valueOf(fxAnchorBackgroundColor));
 
+    }
 
     public void customstylesetter() {
 
-
         //<editor-fold desc="setSTYLE">
-        firstname.setStyle(fxtextfieldNORMAL);
-        lastname.setStyle(fxtextfieldNORMAL);
-        socialid.setStyle(fxtextfieldNORMAL);
-        gender.setStyle(formatcomboBox);
-        age.setStyle(fxtextfieldNORMAL);
-        registerationday.setStyle(formatdatepicker);
-        birthday.setStyle(formatdatepicker);
-        //birthday.setDefaultColor(Color.valueOf("#62929a"));
-        phonenumber.setStyle(fxtextfieldNORMAL);
-        city.setStyle(fxtextfieldNORMAL);
-        address.setStyle(fxtextfieldNORMAL);
-        postalcode.setStyle(fxtextfieldNORMAL);
-        systext.setText(fxtextfieldNORMAL);
-        enter.setStyle(formatbutton);
-        cancel.setStyle(formatbutton);
+        CustomStyle.updateCustomStyle();
+
+        //ANCHOR PANE
+        anchorPane.setStyle(anchorPane_Style);
+
+        //TEXT FIELDS
+        firstname.setStyle(textField_Style_Font + textField_Style);
+        lastname.setStyle(textField_Style_Font + textField_Style);
+        socialid.setStyle(textField_Style_Font + textField_Style);
+        age.setStyle(textField_Style_Font + textField_Style);
+        phonenumber.setStyle(textField_Style_Font + textField_Style);
+        city.setStyle(textField_Style_Font + textField_Style);
+        address.setStyle(textField_Style_Font + textField_Style);
+        postalcode.setStyle(textField_Style_Font + textField_Style);
+
+        //COMBO BOX
+        gender.setStyle(comboBox_Style_Font+comboBox_Style);
+
+        //DATE PICKER
+        registerationday.setStyle(datePicker_Style_Font+datePicker_Style);
+        birthday.setStyle(datePicker_Style_Font+datePicker_Style);
+
+        //BUTTONS
+        enter.setStyle(button_Style_Font + button_Style +"-fx-background-color: "+ fxButtonColor +";");
+        cancel.setStyle(button_Style_Font + button_Style +"-fx-background-color: "+ fxButtonColor +";");
+        settheme.setStyle(button_Style_Font + button_Style +"-fx-background-color: "+ fxButtonColor +";");
+
+        //TEXT
+        systext.setText(textField_Style);
+
+
+
         //</editor-fold>
+        //enter.setStyle("-fx-background-color: "+ fxButtonColor+";" + "-fx-border-color:transparent transparent transparent "+fxButtonSideColor +";");
+        //cancel.setStyle("-fx-background-color: "+ fxButtonColor+";");
+        //settheme.setStyle("-fx-background-color: "+ fxButtonColor+";");
 
     }
 
@@ -282,6 +331,41 @@ public class Newpatient implements Initializable {
         stage.close();
     }
 
+    public void setthemebutton() {
+        fxFocusColor = "#" + Integer.toHexString(cp1.getValue().hashCode());
+        fxFocusColor = fxFocusColor.substring(0, 7);
+
+        jfxUnfocusColor1 = "#" + Integer.toHexString(cp2.getValue().hashCode());
+        jfxUnfocusColor1 = jfxUnfocusColor1.substring(0, 7);
+
+        jfxUnfocusColor2 = "#" + Integer.toHexString(cp3.getValue().hashCode());
+        jfxUnfocusColor2 = jfxUnfocusColor2.substring(0, 7);
+
+        fxBase = "#" + Integer.toHexString(cp4.getValue().hashCode());
+        fxBase = fxBase.substring(0, 7);
+
+        fxTextFill = "#" + Integer.toHexString(cp5.getValue().hashCode());
+        fxTextFill = fxTextFill.substring(0, 7);
+
+        fxButtonColor = "#" + Integer.toHexString(cp6.getValue().hashCode());
+        fxButtonColor = fxButtonColor.substring(0, 7);
+
+        fxButtonSideColor = "#" + Integer.toHexString(cp7.getValue().hashCode());
+        fxButtonSideColor = fxButtonSideColor.substring(0, 7);
+
+        fxPromptTextColor = "#" + Integer.toHexString(cp8.getValue().hashCode());
+        fxPromptTextColor = fxPromptTextColor.substring(0, 7);
+
+        fxAnchorBackgroundColor = "#" + Integer.toHexString(cp9.getValue().hashCode());
+        fxAnchorBackgroundColor = fxAnchorBackgroundColor.substring(0, 7);
+
+
+        customstylesetter();
+        System.out.println("theme is set " + "fxFocusColor: " + fxFocusColor + " jfxUnfocusColor1: " + jfxUnfocusColor1 + " jfxUnfocusColor2: " + jfxUnfocusColor2 + " fxBase: " + fxBase);
+        System.out.println(textField_Style);
+
+
+    }
 
     public void enterButtonPressed() {
         if (customsPermission()) {
@@ -313,11 +397,6 @@ public class Newpatient implements Initializable {
 
     }
 
-    enum validInputFormats {
-        NAME_FORMAT,SOCIAL_ID_FORMAT,AGE_FORMAT,PHONE_NUM_FORMAT,ADDRESS_FORMAT,POSTALCODE_FORMAT
-    }
-
-
     private boolean isThisFieldCorrect(String string, String format) {
 
         if (string.isEmpty()) {
@@ -333,7 +412,6 @@ public class Newpatient implements Initializable {
 
         return true;
     }
-
 
     private boolean fieldsAreNotEmpty() {
         if (!(firstname.getText().isEmpty())) {
@@ -357,90 +435,6 @@ public class Newpatient implements Initializable {
         }
         return false;
     }
-/*
-    private boolean nameIsFormatted(String string) {
-        if (string.isEmpty()) {
-            return false;
-        }
-        char[] inputName = string.toCharArray();
-
-        for (char c : inputName) {
-            if (validName.indexOf(c) == -1) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    private boolean socialidisFormatted(String string) {
-        char[] inputsocialid = string.toCharArray();
-
-        for (char c : inputsocialid) {
-            if (validsocialid.indexOf(c) == -1) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private boolean ageisFormatted() {
-        String string = age.getText();
-        char[] inputsocialid = string.toCharArray();
-
-        for (char c : inputsocialid) {
-            if (agevalidinput.indexOf(c) == -1) {
-                return false;
-            }
-        }
-        int age = Integer.parseInt(this.age.getText());
-
-        if (age > 0 & age < 150) return true;
-        else return false;
-    }
-
-    private boolean phoneNumberIsFormatted() {
-        String string = phonenumber.getText();
-        char[] inputPhoneNumber = string.toCharArray();
-
-        for (char c : inputPhoneNumber) {
-            if (validPhoneNumber.indexOf(c) == -1) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    private boolean addressIsFormatted() {
-        String string = address.getText();
-        char[] inputaddress = string.toCharArray();
-
-        for (char c : inputaddress) {
-            if (validaddress.indexOf(c) == -1) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    private boolean postalcodeIsFormatted() {
-        String string = postalcode.getText();
-        char[] inputpostalcode = string.toCharArray();
-
-        for (char c : inputpostalcode) {
-            if (validpostalcode.indexOf(c) == -1) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-*/
-
-
-
 
     private boolean customsPermission() {
         if (fieldsAreNotEmpty()) {
@@ -481,6 +475,8 @@ public class Newpatient implements Initializable {
             return 0;
         }
     }
+
+
 
 
 }
