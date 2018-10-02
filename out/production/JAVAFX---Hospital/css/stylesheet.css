@@ -143,3 +143,11 @@
   .table-row-cell:focused {
       -fx-background-color:#7a919f;
   }
+.split-pane{
+    -fx-backgroud-insets : 0;
+}
+.split-pane *.split-pane-divider{
+    -fx-opacity: 0;
+
+}
+

@@ -57,17 +57,17 @@
                <children>
                   <TableView fx:id="mytable" depthTest="DISABLE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pickOnBounds="false" prefHeight="768.0" stylesheets="@../css/stylesheet.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                        <TableColumn fx:id="firstname" minWidth="5.0" prefWidth="40.0" text="First Name" />
-                        <TableColumn fx:id="lastname" editable="false" minWidth="5.0" prefWidth="40.0" text="Last Name" />
-                        <TableColumn fx:id="socialid" minWidth="5.0" prefWidth="40.0" text="Social ID" />
-                        <TableColumn fx:id="age" minWidth="1.0" prefWidth="1.0" text="Age" />
-                        <TableColumn fx:id="gender" minWidth="1.0" prefWidth="1.0" text="Gender" />
-                        <TableColumn fx:id="phonenumber" minWidth="5.0" prefWidth="40.0" text="Phone Number" />
-                        <TableColumn fx:id="birthday" minWidth="5.0" prefWidth="40.0" text="Birthday" />
-                        <TableColumn fx:id="dateofregistration" minWidth="5.0" prefWidth="40.0" text="D.Registration" />
-                        <TableColumn fx:id="address" minWidth="5.0" prefWidth="40.0" text="Address" />
-                        <TableColumn fx:id="city" minWidth="5.0" prefWidth="40.0" text="City" />
-                        <TableColumn fx:id="postalcode" minWidth="5.0" prefWidth="40.0" text="Postal Code" />
+                        <TableColumn fx:id="firstname" maxWidth="300.0" minWidth="50.0" prefWidth="100.0" text="First Name" />
+                        <TableColumn fx:id="lastname" editable="false" maxWidth="300.0" minWidth="50.0" prefWidth="100.0" text="Last Name" />
+                        <TableColumn fx:id="socialid" maxWidth="300.0" minWidth="50.0" prefWidth="100.0" text="Social ID" />
+                        <TableColumn fx:id="age" maxWidth="300.0" minWidth="50.0" prefWidth="50.0" text="Age" />
+                        <TableColumn fx:id="gender" maxWidth="300.0" minWidth="50.0" prefWidth="50.0" text="Gender" />
+                        <TableColumn fx:id="phonenumber" maxWidth="300.0" minWidth="50.0" prefWidth="100.0" text="Phone Number" />
+                        <TableColumn fx:id="birthday" maxWidth="300.0" minWidth="50.0" prefWidth="100.0" text="Birthday" />
+                        <TableColumn fx:id="dateofregistration" maxWidth="300.0" minWidth="50.0" prefWidth="100.0" text="D.Registration" />
+                        <TableColumn fx:id="address" maxWidth="300.0" minWidth="50.0" prefWidth="100.0" text="Address" />
+                        <TableColumn fx:id="city" maxWidth="300.0" minWidth="50.0" prefWidth="100.0" text="City" />
+                        <TableColumn fx:id="postalcode" maxWidth="300.0" minWidth="50.0" prefWidth="100.0" text="Postal Code" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
