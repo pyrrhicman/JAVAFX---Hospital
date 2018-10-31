@@ -1,29 +1,27 @@
 package sample;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import newPatientPagePackage.Newpatient;
+import org.w3c.dom.Element;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.annotation.ElementType;
 import java.net.URL;
-import java.text.DateFormat;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.ResourceBundle;
 
 
@@ -136,11 +134,30 @@ public class Controller implements Initializable {
     }
 
     public void getDatafromDatabase() {
-            DatabaseClass databaseClass = new DatabaseClass();
-            if (!databaseClass.isDataBaseConnected()) {
+            DatabaseClass dbc = new DatabaseClass();
+            if (!dbc.isDataBaseConnected()) {
+                try {
+
+                    List<String> listDB = dbc.getDatabasesList();
+                    List<String> listTABLES = dbc.getTablesList("mypatientlist");
+                    System.out.println("DATABASES: ");
+                    for (int i = 0; i < listDB.size(); i++) {
+                        System.out.println(listDB.get(i));
+                    }
+                    System.out.println("TABLES: ");
+                    for (int i = 0; i < listTABLES.size(); i++) {
+                        System.out.println(listTABLES.get(i));
+                    }
+                } catch (NoSuchElementException ex) {
+                    System.out.println(ex.getMessage());
+                }
                 mytable.getItems().removeAll(tableData.allPatientCahceList());
-                mytable.setItems(databaseClass.loadAllPatientList());
+                mytable.setItems(dbc.loadAllPatientList());
+
+
+
             }
+
     }
 
     public void exitButtonPressed() {

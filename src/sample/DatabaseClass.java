@@ -10,19 +10,31 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.ResourceBundle;
 //</editor-fold>
+
+
+
+
 
 public class DatabaseClass implements Initializable {
     private Connection connection;
     private ObservableList<Patient> data;
-
 
     //<editor-fold desc="#### >>>>>> Constructor <<<<<<< #####">
     public DatabaseClass() {    // Constructor Part
 
     }
     //</editor-fold>
+
+
+
+
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -36,12 +48,24 @@ public class DatabaseClass implements Initializable {
         }
     }
 
+
+
+
+
+
+
     public boolean isDataBaseConnected() {
         return this.connection != null;
     }
 
 
-    public boolean patientSearch(String lastname,String socialID) throws Exception {
+
+
+
+
+
+
+    public boolean patientSearch(String lastname, String socialID) throws Exception {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
@@ -68,9 +92,90 @@ public class DatabaseClass implements Initializable {
 
     }
 
+
+
+
+
+
+    public List<String> getDatabasesList() {
+        List<String> databaseList = new ArrayList<String>();
+
+        try {
+            connection = DatabaseConnection.getConnection();
+            this.data = FXCollections.observableArrayList();
+
+            assert connection != null;
+            ResultSet resultSet = connection.createStatement().executeQuery("show databases;");
+            while (resultSet.next()) {
+                String string = resultSet.getString(1);
+                databaseList.add(string);
+            }
+            connection.close();
+        } catch (SQLException | NullPointerException ex) {
+            ex.printStackTrace();
+        }
+        return databaseList;
+    }
+
+
+    public List<String> getTablesList(String nameOfDatabase) {
+        List<String> tableList = new ArrayList<>();
+        List<String> databaseList = getDatabasesList();
+        if (!(databaseList.contains(nameOfDatabase))) {
+            throw new NoSuchElementException("Selected Database Not found");
+        } else {
+
+        try {
+            connection = DatabaseConnection.getConnection();
+            this.data = FXCollections.observableArrayList();
+
+            assert connection != null;
+            connection.createStatement().executeQuery("use " + nameOfDatabase + ";");
+
+            ResultSet resultSet = connection.createStatement().executeQuery("show tables ;");
+            while (resultSet.next()) {
+                String string = resultSet.getString(1);
+                tableList.add(string);
+            }
+            connection.close();
+        } catch (SQLException | NullPointerException ex) {
+            ex.printStackTrace();
+        }
+            return tableList;
+        }
+
+    }
+
+
+
+
+
+
+    public boolean tablecheckMYSQL(String nameOftable) {
+
+        return true;
+    }
+
+
+
+
+
+
+
     public void addNewPatient(Patient patient) {
         System.out.println("Importing new Data...");
-        String sqlnewPatientInsert = "INSERT INTO Patientlist(firstname,lastname,socialID,sex,age,birthday,dateofregistration,phonenumber,city,address,postalcode) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        String sqlnewPatientInsert = "INSERT INTO patientstable(" +
+                "firstname," +
+                "lastname," +
+                "socialID," +
+                "sex," +
+                "age," +
+                "birthday," +
+                "dateofregistration," +
+                "phonenumber," +
+                "city," +
+                "address," +
+                "postalcode) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         java.util.Date utilDate = new java.util.Date();
         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
         System.out.println("utilDate:" + utilDate);
@@ -84,8 +189,10 @@ public class DatabaseClass implements Initializable {
             preparedStatement.setString(3, patient.getSocialid());
             preparedStatement.setString(4, patient.getGender());
             preparedStatement.setString(5, patient.getAge());
-            preparedStatement.setDate(6, java.sql.Date.valueOf(patient.getBirthday()));
-            preparedStatement.setDate(7, java.sql.Date.valueOf(patient.getDateofregistration()));
+            //preparedStatement.setDate(6, java.sql.Date.valueOf(patient.getBirthday()));
+            //preparedStatement.setDate(7, java.sql.Date.valueOf(patient.getDateofregistration()));
+            preparedStatement.setString(6, patient.getBirthday().toString());
+            preparedStatement.setString(7, patient.getDateofregistration().toString());
             preparedStatement.setString(8, patient.getPhonenumber());
             preparedStatement.setString(9, patient.getCity());
             preparedStatement.setString(10, patient.getAddress());
@@ -102,9 +209,15 @@ public class DatabaseClass implements Initializable {
     }
 
 
+
+
+
+
+
+
     public ObservableList<Patient> loadAllPatientList() {
         System.out.println("retrieving data from server...");
-        String TABLE_SELECT = "SELECT * FROM Patientlist"; //Table Name
+        String TABLE_SELECT = "SELECT * FROM patientstable"; //Table Name
 
         try {
             Connection connection = DatabaseConnection.getConnection();
@@ -116,17 +229,19 @@ public class DatabaseClass implements Initializable {
             while (resultSet.next()) {
                 this.data.add(
                         new Patient(
-                        resultSet.getString(1),
-                        resultSet.getString(2),
-                        resultSet.getString(3),
-                        resultSet.getString(4),
-                        resultSet.getString(5),
-                        resultSet.getDate(6).toLocalDate(),
-                        resultSet.getDate(7).toLocalDate(),
-                        resultSet.getString(8),
-                        resultSet.getString(9),
-                        resultSet.getString(10),
-                        resultSet.getString(11)));
+                                resultSet.getString(1),
+                                resultSet.getString(2),
+                                resultSet.getString(3),
+                                resultSet.getString(4),
+                                resultSet.getString(5),
+                                //resultSet.getDate(6).toLocalDate(),
+                                //resultSet.getDate(7).toLocalDate(),
+                                resultSet.getString(6),
+                                resultSet.getString(7),
+                                resultSet.getString(8),
+                                resultSet.getString(9),
+                                resultSet.getString(10),
+                                resultSet.getString(11)));
             }
             System.out.println("End of retrieving data from server.");
             return this.data;

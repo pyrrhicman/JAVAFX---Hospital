@@ -10,8 +10,8 @@ public class Patient {
     private SimpleStringProperty socialid;
     private SimpleStringProperty gender;
     private SimpleStringProperty age;
-    private LocalDate birthday;
-    private LocalDate dateofregistration;
+    private SimpleStringProperty birthday;
+    private SimpleStringProperty dateofregistration;
     private SimpleStringProperty phonenumber;
     private SimpleStringProperty city;
     private SimpleStringProperty address;
@@ -24,8 +24,8 @@ public class Patient {
                    String socialid,
                    String gender,
                    String age,
-                   LocalDate birthday,
-                   LocalDate dateofregistration,
+                   String birthday,
+                   String dateofregistration,
                    String phonenumber,
                    String city,
                    String address,
@@ -36,8 +36,8 @@ public class Patient {
         this.socialid = new SimpleStringProperty(socialid);
         this.gender = new SimpleStringProperty(gender);
         this.age = new SimpleStringProperty(age);
-        this.birthday = birthday;
-        this.dateofregistration = dateofregistration;
+        this.birthday = new SimpleStringProperty(birthday);
+        this.dateofregistration = new SimpleStringProperty(dateofregistration);
         this.phonenumber = new SimpleStringProperty(phonenumber);
         this.city = new SimpleStringProperty(city);
         this.address = new SimpleStringProperty(address);
@@ -55,20 +55,28 @@ public class Patient {
         this.age.set(age);
     }
 
-    public LocalDate getBirthday() {
+    public String getBirthday() {
+        return birthday.get();
+    }
+
+    public SimpleStringProperty birthdayProperty() {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
+    public void setBirthday(String birthday) {
+        this.birthday.set(birthday);
     }
 
-    public LocalDate getDateofregistration() {
+    public String getDateofregistration() {
+        return dateofregistration.get();
+    }
+
+    public SimpleStringProperty dateofregistrationProperty() {
         return dateofregistration;
     }
 
-    public void setDateofregistration(LocalDate dateofregistration) {
-        this.dateofregistration = dateofregistration;
+    public void setDateofregistration(String dateofregistration) {
+        this.dateofregistration.set(dateofregistration);
     }
 
     public String getPostalcode() {
