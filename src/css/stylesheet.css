@@ -1,35 +1,35 @@
-.parent {
-    -fx-background-color: #ffdfdf;
+/*.parent {
+    -fx-background-color: #F4F6F7;
 
-}
+}*/
 
-.background{-fx-background-color: #ffdfdf ;}
+.background{-fx-background-color: #FFF9EB ;}
 
 
-.sidebar {
-    -fx-background-color: #ffdfdf;
-    -fx-border-color:#ffdfdf;
-}
-
+/*.sidebar {
+    -fx-background-color: #F4F6F7;
+    -fx-border-color:#F4F6F7;
+}*/
 
 .button {
-    -fx-background-color: #ffdfd3;
-    -fx-text-fill: #efecec;
-    -fx-background-radius: 25;
+    -fx-background-color: #E7DCC4;
+    -fx-text-fill: black;
+    -fx-background-radius: 0;
 }
 .button:hover {
-    -fx-background-color: #363434;
+    -fx-background-color: #D3C9B3;
 }
 
+
 .jfx-button {
-    -fx-background-color: #596e79;
-    -fx-text-fill: #596e79;
+    -fx-background-color: #E7DCC4;
+    -fx-text-fill: black;
     -fx-background-radius: 0;
-    -fx-border-color:transparent transparent transparent #2b353b  ;
-    -fx-border-width:5.0;
+    -fx-border-color:transparent transparent transparent transparent  ;
+    -fx-border-width:0;
 }
 .jfx-button:hover {
-    -fx-background-color: #36424a;
+    -fx-background-color: #D3C9B3;
 }
 
 
@@ -40,10 +40,12 @@
 
 .jfx-text-field {
     -jfx-focus-color: #62929a;
-    -jfx-unfocus-color: linear-gradient(to left, #4B5D68, #62929a 50%, #edebeb 75%);
+    -jfx-unfocus-color: #D3C9B3;
     -jfx-background-color: transparent;
     -jfx-text-fill: white;
-    -jfx-prompt-text-fill: #b5c2c9;
+    /*-jfx-prompt-text-fill: white;*/
+    -fx-prompt-text-fill: #A3A3A3;
+
     -fx-border-color:transparent transparent transparent transparent  ;
 
 }
@@ -55,7 +57,7 @@
 }
 .jfx-combo-box{
     -jfx-focus-color: #62929a;
-    -jfx-unfocus-color: linear-gradient(to left, #4B5D68, #62929a 50%, #edebeb 75%);
+    -jfx-unfocus-color: #D3C9B3;
     -fx-background-color: transparent;
     -fx-text-fill: white;
     -fx-prompt-text-fill: #b5c2c9;
@@ -72,36 +74,36 @@
 
 
 .table-view{
-    -fx-background-color:  #4b5d68  ;
-    -fx-text-fill: #efecec;
-    -fx-border-color: #4b5d68  ;
+    -fx-background-color:  #FFE4A6  ;
+    -fx-text-fill: black;
+    -fx-border-color: transparent  ;
     -fx-background-radius: 0;
 }
 .table-view .table-column{
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 
     -fx-alignment:center;
 }
 .table-view .column-header{
-    -fx-background-color: #4B5D68  ;
+    -fx-background-color: #FFE4A6  ;
     -fx-background-radius: 0;
     -fx-text-fill: #efecec;
 }
 .table-view .column-header-background{
-    -fx-background-color:  #36424a;
+    -fx-background-color:  #FFE4A6;
     -fx-background-radius: 0;
-    -fx-text-fill: #efecec;
+    -fx-text-fill: black;
 }
 
 .table-view .column-header-background .label {
-    -fx-background-color:  #4b5d68 ;
-    -fx-text-fill: #efecec;
+    -fx-background-color:  #FFE4A6 ;
+    -fx-text-fill: black;
     -fx-background-radius: 0;
 
 }
 .table-view .table-cell{
 
-    -fx-text-fill: #efecec;
+    -fx-text-fill: black;
     -fx-font-size: 15px;
     -fx-background-radius: 0;/*the font size you asked in the comments below*/
     /* -fx-text-fill:orange; */
@@ -109,16 +111,16 @@
 }
 /*Style for each < non odd> row of table view*/
 .table-row-cell{
-    -fx-background-color: #404f59;
-    -fx-text-fill: #efecec;
+    -fx-background-color: #FFF8E8;
+    -fx-text-fill: transparent;
     /*-fx-background-insets: 0.0, 0.0 0.0 1.0 0.0;*/
     /*-fx-padding: 0.0em;*/
 }
 
 /*Style for each <odd> row of table view*/
 .table-row-cell:odd{
-    -fx-background-color: #566a76;
-    -fx-text-fill: #efecec;
+    -fx-background-color: #FFF1D1;
+    -fx-text-fill: transparent;
     /*-fx-background-insets: 0.0, 0.0 0.0 1.0 0.0;
     -fx-padding: 0.0em;*/
 }
@@ -126,22 +128,22 @@
 
 /*Style of each entire row in the table view*/
   .table-row-cell:selected {
-      -fx-background-color: #7a919f;
+      -fx-background-color: #FFE4A6;
       -fx-border-color:transparent transparent transparent transparent  ;
       /*-fx-border-width:2.0;*/
-      -fx-text-fill: #efecec;
+      -fx-text-fill: transparent;
   }
 
 
 /*Style of each entire row in the table view when is hovered*/
  .table-row-cell:hover {
-      -fx-background-color:#2b353b;
+      -fx-background-color:#FFE4A6;
       -fx-text-fill: #efecec;
   }
 
 /*Style of each entire row in the table view when is getting focused*/
   .table-row-cell:focused {
-      -fx-background-color:#7a919f;
+      -fx-background-color:#FFE4A6;
   }
 .split-pane{
     -fx-backgroud-insets : 0;

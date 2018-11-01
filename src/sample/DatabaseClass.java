@@ -17,23 +17,9 @@ import java.util.ResourceBundle;
 //</editor-fold>
 
 
-
-
-
 public class DatabaseClass implements Initializable {
     private Connection connection;
     private ObservableList<Patient> data;
-
-    //<editor-fold desc="#### >>>>>> Constructor <<<<<<< #####">
-    public DatabaseClass() {    // Constructor Part
-
-    }
-    //</editor-fold>
-
-
-
-
-
 
 
     @Override
@@ -48,18 +34,9 @@ public class DatabaseClass implements Initializable {
         }
     }
 
-
-
-
-
-
-
     public boolean isDataBaseConnected() {
         return this.connection != null;
     }
-
-
-
 
 
 
@@ -91,10 +68,6 @@ public class DatabaseClass implements Initializable {
         }
 
     }
-
-
-
-
 
 
     public List<String> getDatabasesList() {
@@ -147,11 +120,7 @@ public class DatabaseClass implements Initializable {
     }
 
 
-
-
-
-
-    public boolean tablecheckMYSQL(String nameOftable) {
+    public boolean tableExistenceCheck(String nameOftable) {
 
         return true;
     }
@@ -163,8 +132,9 @@ public class DatabaseClass implements Initializable {
 
 
     public void addNewPatient(Patient patient) {
+
         System.out.println("Importing new Data...");
-        String sqlnewPatientInsert = "INSERT INTO patientstable(" +
+        String sqlnewPatientInsert = "INSERT INTO "+ DatabaseConnection.getMysqlGoogleTableName() +  "(" +
                 "firstname," +
                 "lastname," +
                 "socialID," +
@@ -217,7 +187,7 @@ public class DatabaseClass implements Initializable {
 
     public ObservableList<Patient> loadAllPatientList() {
         System.out.println("retrieving data from server...");
-        String TABLE_SELECT = "SELECT * FROM patientstable"; //Table Name
+        String TABLE_SELECT = "SELECT * FROM " + DatabaseConnection.getMysqlGoogleTableName(); //Table Name
 
         try {
             Connection connection = DatabaseConnection.getConnection();

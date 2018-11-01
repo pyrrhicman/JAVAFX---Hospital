@@ -5,16 +5,24 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-
+    public static final String MYSQL_GOOGLE_TABLE_NAME = "PatientsTable";
     private static final String MYSQL_GOOGLE_SERVER_NAME = " ";
-    private static final String MYSQL_GOOGLE_DATABASE_NAME = "patientlist";
+    public static final String MYSQL_GOOGLE_DATABASE_NAME = "hospital";
     private static final String MYSQL_GOOGLE_PRIMARY_IP_ADDRESS = "35.228.119.107";
     private static final String MYSQL_GOOGLE_INSTANCE_CONN_NAME = "second-jet-216010:europe-north1:mhdaska";
     private static final String MYSQL_GOOGLE_USERNAME = "root";
     private static final String MYSQL_GOOGLE_PASSWORD = "Hashem741";
     private static final String MYSQL_GOOGLE_MINE = "jdbc:mysql://" + MYSQL_GOOGLE_PRIMARY_IP_ADDRESS + "/" + MYSQL_GOOGLE_DATABASE_NAME + "?useSSL=false";
 
-    private static final String MYSQL_LOCAL_DATABASE_NAME = "mypatientlist";
+    public static String getMysqlGoogleTableName() {
+        return MYSQL_GOOGLE_TABLE_NAME;
+    }
+
+    public static String getMysqlGoogleDatabaseName() {
+        return MYSQL_GOOGLE_DATABASE_NAME;
+    }
+
+    private static final String MYSQL_LOCAL_DATABASE_NAME = "patientsTable";
     private static final String MYSQL_LOCAL_USERNAME = "root";
     private static final String MYSQL_LOCAL_PASSWORD = "Hashem741";
     private static final String MYSQL_LOCAL_CONNECTION = "jdbc:mysql://localhost:3306/" + MYSQL_LOCAL_DATABASE_NAME + "?autoReconnect=true&useSSL=false";
@@ -37,4 +45,6 @@ public class DatabaseConnection {
         }
         return null;
     }
+
+
 }

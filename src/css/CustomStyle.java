@@ -23,14 +23,16 @@ public class CustomStyle {
     public  static String fxTextFill = "white";
     public  static String fxBase = "#AE3522";
     public  static String jfxUnfocusColor1 = "#4B5D68";
-    public  static String jfxUnfocusColor2 = "white";
+    //public  static String jfxUnfocusColor2 = "white";
     public  static String fxFocusColor = "#FCFF31";
     public  static String jfxErrorUnfocusColor1 = "#4B5D68";
-    public  static String jfxErrorUnfocusColor2 = "white";
+    //public  static String jfxErrorUnfocusColor2 = "white";
     public  static String fxButtonColor = "#4B5D68";
     public  static String fxButtonSideColor = "#4B5D68";
-    public  static String fxPromptTextColor = "#4B5D68";
+    //public  static String fxPromptTextColor = "#A3A3A3";
     public  static String fxAnchorBackgroundColor = "#4B5D68";
+
+
     public  static String textField_Style_Font;
     public  static String textField_Style;
     public  static String textField_Style_err;
@@ -52,19 +54,20 @@ public class CustomStyle {
         String textField_Style_Font = ""+
                 "-fx-font-family: "+ fxFontFamily +";" +
                 "-fx-style:"+ fxStyle + ";" +
+                //"-fx-prompt-text-fill: "+ fxPromptTextColor + ";"+
                 "-fx-font-size:"+ fxFontSize +";";
 
         String textField_Style = ""+
                 "-fx-base:" + fxBase + ";"+
-                "-jfx-unfocus-color: linear-gradient(to left, "  + jfxUnfocusColor1 + " 10%" +   ","   + jfxUnfocusColor2 +   " 75%);" +
+                "-jfx-unfocus-color:"+ jfxUnfocusColor1 + ";" +
                 "-jfx-focus-color: " + fxFocusColor +";"+
                 "-fx-text-fill: "+ fxTextFill +";" +
                 "-fx-border-color: transparent transparent transparent transparent"+";" +
-                "-fx-prompt-text-fill: "+ fxPromptTextColor + ";";
+                "-fx-font-size:"+ fxFontSize +";";
 
         String textField_Style_err = ""+
                 "-fx-base:" + fxBase + ";"+
-                "-jfx-unfocus-color: linear-gradient(to left, "  + jfxErrorUnfocusColor1 + " 10%" +   ","   + jfxErrorUnfocusColor2 +   " 75%);" +
+                "-jfx-unfocus-color: "  + jfxErrorUnfocusColor1 +";" +
                 "-jfx-focus-color: " + fxFocusColor +";"+
                 "-fx-text-fill: "+ fxTextFill +";" +
                 "-fx-font-family: "+ fxFontFamily +";" +
@@ -81,15 +84,15 @@ public class CustomStyle {
 
         String comboBox_Style = ""+
                 "-fx-base:" + fxBase + ";"+
-                "-jfx-unfocus-color: linear-gradient(to left, "  + jfxUnfocusColor1 + " 10%" +   ","   + jfxUnfocusColor2 +   " 75%);" +
+                "-jfx-unfocus-color:"+ jfxUnfocusColor1 + ";" +
                 "-jfx-focus-color: " + fxFocusColor +";"+
                 "-fx-text-fill: "+ fxTextFill +";" +
-                "-fx-border-color: transparent transparent transparent transparent"+";" +
-                "-fx-prompt-text-fill: "+ fxPromptTextColor + ";";
+                "-fx-border-color: transparent transparent transparent transparent"+";";
+                //"-fx-prompt-text-fill: "+ fxPromptTextColor + ";";
 
         String comboBox_Style_err = ""+
                 "-fx-base:" + fxBase + ";"+
-                "-jfx-unfocus-color: linear-gradient(to left, "  + jfxErrorUnfocusColor1 + " 10%" +   ","   + jfxErrorUnfocusColor2 +   " 75%);" +
+                "-jfx-unfocus-color: "  + jfxErrorUnfocusColor1 +";" +
                 "-jfx-focus-color: " + fxFocusColor +";"+
                 "-fx-text-fill: "+ fxTextFill +";" +
                 "-fx-font-family: "+ fxFontFamily +";" +
@@ -104,18 +107,18 @@ public class CustomStyle {
                 "-fx-font-size:"+ fxFontSize +";";
         String datePicker_Style = ""+
                 "-fx-base:" + fxBase + ";"+
-                "-jfx-unfocus-color: linear-gradient(to left, "  + jfxUnfocusColor1 + " 10%" +   ","   + jfxUnfocusColor2 +   " 75%);" +
+                "-jfx-unfocus-color: "  + jfxUnfocusColor1 + ";" +
                 "-jfx-focus-color: " + fxFocusColor +";"+
                 "-fx-text-fill: "+ fxTextFill +";" +
                 "-fx-font-family: "+ fxFontFamily +";" +
                 "-fx-style:"+ fxStyle + ";" +
                 "-fx-font-size:"+ fxFontSize +";" +
-                "-fx-border-color: transparent transparent transparent transparent"+";" +
-                "-fx-prompt-text-fill: "+ fxPromptTextColor + ";";
+                "-fx-border-color: transparent transparent transparent transparent"+";";
+                //"-fx-prompt-text-fill: "+ fxPromptTextColor + ";";
 
         String datePicker_Style_err = ""+
                 "-fx-base:" + fxBase + ";"+
-                "-jfx-unfocus-color: linear-gradient(to left, "  + jfxErrorUnfocusColor1 + " 10%" +   ","   + jfxErrorUnfocusColor2 +   " 75%);" +
+                "-jfx-unfocus-color: "  + jfxErrorUnfocusColor1 +";" +
                 "-jfx-focus-color: " + fxFocusColor +";"+
                 "-fx-text-fill: "+ fxTextFill +";" +
                 "-fx-font-family: "+ fxFontFamily +";" +
@@ -125,26 +128,26 @@ public class CustomStyle {
 
         //<editor-fold desc="BUTTON STYLE">
         String button_Style_Font = ""+
-                "-fx-font-family: "+ fxFontFamily +";" +
-                "-fx-style:"+ fxStyle + ";" +
-                "-fx-font-size:"+ fxFontSize +";";
+                "-jfx-font-family: "+ fxFontFamily +";" +
+                "-jfx-style:"+ fxStyle + ";" +
+                "-jfx-font-size:"+ fxFontSize +";";
 
         String button_Style = ""+
-                "-fx-base:" + fxBase + ";"+
-                "-jfx-unfocus-color: linear-gradient(to left, "  + jfxUnfocusColor1 + " 10%" +   ","   + jfxUnfocusColor2 +   " 75%);" +
+                "-jfx-base:" + fxBase + ";"+
+                "-jfx-unfocus-color: "  + jfxUnfocusColor1 + ";" +
                 "-jfx-focus-color: " + fxFocusColor +";"+
-                "-fx-text-fill: "+ fxTextFill +";" +
-                "-fx-border-color: transparent transparent transparent "+ fxButtonSideColor +";" +
-                "-fx-prompt-text-fill: "+ fxPromptTextColor + ";";
+                "-jfx-text-fill: "+ fxTextFill +";" +
+                "-jfx-border-color: transparent transparent transparent "+ fxButtonSideColor +";" ;
+                //"-jfx-prompt-text-fill: "+ fxPromptTextColor + ";";
 
         String button_Style_err = ""+
-                "-fx-base:" + fxBase + ";"+
-                "-jfx-unfocus-color: linear-gradient(to left, "  + jfxErrorUnfocusColor1 + " 10%" +   ","   + jfxErrorUnfocusColor2 +   " 75%);" +
+                "-jfx-base:" + fxBase + ";"+
+                "-jfx-unfocus-color: "  + jfxErrorUnfocusColor1 +";" +
                 "-jfx-focus-color: " + fxFocusColor +";"+
-                "-fx-text-fill: "+ fxTextFill +";" +
-                "-fx-font-family: "+ fxFontFamily +";" +
-                "-fx-style:"+ fxStyle + ";" +
-                "-fx-font-size:"+ fxFontSize +";";
+                "-jfx-text-fill: "+ fxTextFill +";" +
+                "-jfx-font-family: "+ fxFontFamily +";" +
+                "-jfx-style:"+ fxStyle + ";" +
+                "-jfx-font-size:"+ fxFontSize +";";
         //</editor-fold>
 
         //<editor-fold desc="ANCHOR PANE">

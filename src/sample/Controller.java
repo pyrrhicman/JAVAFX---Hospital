@@ -136,10 +136,10 @@ public class Controller implements Initializable {
     public void getDatafromDatabase() {
             DatabaseClass dbc = new DatabaseClass();
             if (!dbc.isDataBaseConnected()) {
-                try {
+                /*try {
 
                     List<String> listDB = dbc.getDatabasesList();
-                    List<String> listTABLES = dbc.getTablesList("mypatientlist");
+                    List<String> listTABLES = dbc.getTablesList("hospital");
                     System.out.println("DATABASES: ");
                     for (int i = 0; i < listDB.size(); i++) {
                         System.out.println(listDB.get(i));
@@ -150,7 +150,9 @@ public class Controller implements Initializable {
                     }
                 } catch (NoSuchElementException ex) {
                     System.out.println(ex.getMessage());
-                }
+                }*/
+
+
                 mytable.getItems().removeAll(tableData.allPatientCahceList());
                 mytable.setItems(dbc.loadAllPatientList());
 

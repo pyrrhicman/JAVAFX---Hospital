@@ -8,16 +8,25 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="ds">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PatientList.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/PatientList.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/css/dark.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/css/errorstylesheet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/css/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/loginpackage/dbUtil/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/loginpackage/dbUtil/DatabaseConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/newPatientPagePackage/Newpatient$TextfieldlistenerEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/newPatientPagePackage/Newpatient$TextfieldlistenerEditor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/newPatientPagePackage/Newpatient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/newPatientPagePackage/Newpatient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/sample/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/sample/DatabaseClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/sample/DatabaseClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/sample/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/sample/Patient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JAVAFX---Hospital/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/CustomStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/CustomStyle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/dark.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/errorstylesheet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/loginpackage/dbUtil/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/loginpackage/dbUtil/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/newPatientPagePackage/newpatient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/newPatientPagePackage/newpatient.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/DatabaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/DatabaseClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -175,11 +184,11 @@
     <session id="-1274888356">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="31" />
+          <entry key="project.closed" value="32" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="2" />
-          <entry key="project.open.time.12" value="5" />
+          <entry key="project.open.time.12" value="6" />
           <entry key="project.open.time.13" value="4" />
           <entry key="project.open.time.14" value="7" />
           <entry key="project.open.time.18" value="2" />
@@ -187,16 +196,16 @@
           <entry key="project.open.time.3" value="4" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="33" />
+          <entry key="project.opened" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="5" />
           <entry key="columns_priv" value="1" />
-          <entry key="css" value="4" />
-          <entry key="fxml" value="6" />
-          <entry key="java" value="65" />
+          <entry key="css" value="6" />
+          <entry key="fxml" value="7" />
+          <entry key="java" value="68" />
           <entry key="password_history" value="1" />
           <entry key="patientstable" value="2" />
           <entry key="sql" value="7" />
@@ -206,26 +215,26 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="5" />
-          <entry key="CSS" value="4" />
+          <entry key="CSS" value="6" />
           <entry key="Database Element" value="5" />
-          <entry key="JAVA" value="65" />
+          <entry key="JAVA" value="68" />
           <entry key="Scratch" value="7" />
-          <entry key="XML" value="6" />
+          <entry key="XML" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="475" />
+          <entry key="css" value="543" />
           <entry key="fxml" value="6" />
-          <entry key="java" value="8803" />
+          <entry key="java" value="9383" />
           <entry key="sql" value="94" />
           <entry key="txt" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="490" />
-          <entry key="JAVA" value="8776" />
+          <entry key="CSS" value="558" />
+          <entry key="JAVA" value="9356" />
           <entry key="PLAIN_TEXT" value="39" />
           <entry key="SQL" value="94" />
           <entry key="Scratch" value="12" />
@@ -299,12 +308,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="482">
+              <caret line="92" column="36" lean-forward="true" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="n#!!doc;n#mytable#0;n#Controller#0" />
+                <element signature="e#2013#2121#0" />
               </folding>
             </state>
           </provider>
@@ -313,15 +323,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="303" column="5" lean-forward="true" selection-start-line="303" selection-start-column="5" selection-end-line="303" selection-end-column="5" />
+            <state relative-caret-position="252">
+              <caret line="232" column="81" selection-start-line="232" selection-start-column="58" selection-end-line="232" selection-end-column="81" />
               <folding>
                 <element signature="e#36#66#0" />
-                <element signature="n#!!doc;n#anchorPane#0;n#Newpatient#0" />
-                <element signature="class#TextfieldlistenerEditor#0;class#Newpatient#0" />
-                <element signature="method#TextfieldlistenerEditor#0;class#TextfieldlistenerEditor#0;class#Newpatient#0" />
-                <element signature="e#2195#2974#0" />
-                <element signature="method#initialize#0;class#Newpatient#0" />
                 <element signature="e#3483#3515#0" />
                 <element signature="e#4041#4142#0" />
                 <element signature="e#4236#4515#0" />
@@ -330,11 +335,8 @@
                 <element signature="e#6234#6336#0" />
                 <element signature="e#6376#6623#0" />
                 <element signature="e#6664#6745#0" />
-                <element signature="method#customstylesetter#0;class#Newpatient#0" />
-                <element signature="e#8557#8588#0" />
                 <element signature="e#9931#10074#0" />
                 <element signature="method#cancelButtonPressed#0;class#Newpatient#0" />
-                <element signature="method#setthemebutton#0;class#Newpatient#0" />
                 <element signature="method#enterButtonPressed#0;class#Newpatient#0" />
                 <element signature="method#isThisFieldCorrect#0;class#Newpatient#0" />
                 <element signature="method#fieldsAreNotEmpty#0;class#Newpatient#0" />
@@ -346,60 +348,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/loginpackage/dbUtil/DatabaseConnection.java">
+        <entry file="file://$PROJECT_DIR$/src/css/CustomStyle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="101">
+              <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+        <entry file="file://$PROJECT_DIR$/src/css/stylesheet.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="141" column="67" selection-start-line="141" selection-start-column="67" selection-end-line="141" selection-end-column="67" />
+            <state relative-caret-position="336">
+              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/DatabaseClass.java">
+        <entry file="file://$PROJECT_DIR$/src/newPatientPagePackage/newpatient.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
-              <caret line="99" column="40" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="40" />
-              <folding>
-                <element signature="method#patientSearch#0;class#DatabaseClass#0" />
-                <element signature="e#2204#2212#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="294">
+              <caret line="14" column="116" selection-start-line="14" selection-start-column="116" selection-end-line="14" selection-end-column="116" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Patient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-210">
-              <caret line="22" column="34" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="34" />
-              <folding>
-                <element signature="e#1918#1919#0" expanded="true" />
-                <element signature="e#1955#1956#0" expanded="true" />
-                <element signature="e#2009#2010#0" expanded="true" />
-                <element signature="e#2040#2041#0" expanded="true" />
-                <element signature="e#2088#2089#0" expanded="true" />
-                <element signature="e#2131#2132#0" expanded="true" />
-                <element signature="e#2176#2177#0" expanded="true" />
-                <element signature="e#2223#2224#0" expanded="true" />
-                <element signature="e#2287#2288#0" expanded="true" />
-                <element signature="e#2328#2329#0" expanded="true" />
-                <element signature="e#2396#2397#0" expanded="true" />
-                <element signature="e#2459#2460#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -425,6 +398,7 @@
       <find>css</find>
       <find>set</find>
       <find>data</find>
+      <find>#4C4E4F</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -455,14 +429,14 @@
         <option value="$PROJECT_DIR$/src/css/errorstylesheet.css" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/newPatientPagePackage/newpatient.fxml" />
-        <option value="$PROJECT_DIR$/src/css/CustomStyle.java" />
-        <option value="$PROJECT_DIR$/src/css/stylesheet.css" />
         <option value="$PROJECT_DIR$/src/sample/Patient.java" />
-        <option value="$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/9854ed75-f80f-4cfa-811b-03813cf96dca/console.sql" />
-        <option value="$PROJECT_DIR$/src/sample/DatabaseClass.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/loginpackage/dbUtil/DatabaseConnection.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
+        <option value="$PROJECT_DIR$/src/sample/DatabaseClass.java" />
+        <option value="$PROJECT_DIR$/src/css/CustomStyle.java" />
+        <option value="$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java" />
+        <option value="$PROJECT_DIR$/src/css/stylesheet.css" />
       </list>
     </option>
   </component>
@@ -479,11 +453,10 @@
     </treeState>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-270" />
-    <option name="y" value="-38" />
-    <option name="width" value="1944" />
-    <option name="height" value="1026" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-11" />
+    <option name="width" value="2969" />
+    <option name="height" value="2124" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -496,7 +469,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -548,6 +520,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -565,7 +538,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541010826369" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541115059991" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.12.jar" />
@@ -775,6 +748,7 @@
       <workItem from="1540649165494" duration="2771000" />
       <workItem from="1540943465954" duration="2580000" />
       <workItem from="1541003095115" duration="8009000" />
+      <workItem from="1541106544785" duration="8482000" />
     </task>
     <task id="LOCAL-00001" summary="ds">
       <created>1537292360276</created>
@@ -787,13 +761,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="228905000" />
+    <option name="totallyTimeSpent" value="237387000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2575" height="1424" extended-state="6" />
+    <frame x="-7" y="0" width="1979" height="1416" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.14751491" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.13392392" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -802,7 +776,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329653" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3548896" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35714287" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -813,7 +787,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.3278328" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.31624606" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.31587303" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Terminal" order="15" />
       <window_info active="true" anchor="bottom" id="Database Console" order="16" visible="true" weight="0.7931689" />
@@ -821,7 +795,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="JetGradle" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.085487075" />
+      <window_info anchor="right" id="Database" order="4" weight="0.16538462" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" weight="0.16457081" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
@@ -975,14 +949,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/newPatientPagePackage/newpatient.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="685">
-          <caret line="98" column="143" selection-start-line="98" selection-start-column="143" selection-end-line="98" selection-end-column="143" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/javafx.controls/javafx/scene/control/TextField.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="509">
@@ -1032,24 +998,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/errorstylesheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/javafx.base/javafx/event/EventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/stylesheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1063,20 +1015,13 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/12559906-dbe0-41e7-a16d-92e8b312f0b7/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/CustomStyle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="36" column="45" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1287">
           <caret line="75" column="26" lean-forward="true" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/16feaa75-7248-4fea-8ed5-1e2d317a2a6d/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1102,6 +1047,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/51aedcd9-3c79-4e0b-9c38-b1d6f4d74b63/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -1112,43 +1060,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/DatabaseClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="303" column="5" lean-forward="true" selection-start-line="303" selection-start-column="5" selection-end-line="303" selection-end-column="5" />
+        <state relative-caret-position="433">
+          <caret line="159" column="54" selection-start-line="159" selection-start-column="54" selection-end-line="159" selection-end-column="54" />
           <folding>
-            <element signature="e#36#66#0" />
-            <element signature="n#!!doc;n#anchorPane#0;n#Newpatient#0" />
-            <element signature="class#TextfieldlistenerEditor#0;class#Newpatient#0" />
-            <element signature="method#TextfieldlistenerEditor#0;class#TextfieldlistenerEditor#0;class#Newpatient#0" />
-            <element signature="e#2195#2974#0" />
-            <element signature="method#initialize#0;class#Newpatient#0" />
-            <element signature="e#3483#3515#0" />
-            <element signature="e#4041#4142#0" />
-            <element signature="e#4236#4515#0" />
-            <element signature="e#4617#4883#0" />
-            <element signature="e#4986#6193#0" />
-            <element signature="e#6234#6336#0" />
-            <element signature="e#6376#6623#0" />
-            <element signature="e#6664#6745#0" />
-            <element signature="method#customstylesetter#0;class#Newpatient#0" />
-            <element signature="e#8557#8588#0" />
-            <element signature="e#9931#10074#0" />
-            <element signature="method#cancelButtonPressed#0;class#Newpatient#0" />
-            <element signature="method#setthemebutton#0;class#Newpatient#0" />
-            <element signature="method#enterButtonPressed#0;class#Newpatient#0" />
-            <element signature="method#isThisFieldCorrect#0;class#Newpatient#0" />
-            <element signature="method#fieldsAreNotEmpty#0;class#Newpatient#0" />
-            <element signature="method#customsPermission#0;class#Newpatient#0" />
-            <element signature="method#calculateAge#0;class#Newpatient#0" />
+            <element signature="method#patientSearch#0;class#DatabaseClass#0" />
+            <element signature="method#getDatabasesList#0;class#DatabaseClass#0" />
+            <element signature="method#getTablesList#0;class#DatabaseClass#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="34" />
+        <state relative-caret-position="252">
+          <caret line="14" column="45" lean-forward="true" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
           <folding>
             <element signature="e#1918#1919#0" expanded="true" />
             <element signature="e#1955#1956#0" expanded="true" />
@@ -1162,38 +1089,88 @@
             <element signature="e#2328#2329#0" expanded="true" />
             <element signature="e#2396#2397#0" expanded="true" />
             <element signature="e#2459#2460#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3543#3544#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/51aedcd9-3c79-4e0b-9c38-b1d6f4d74b63/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DatabaseClass.java">
+    <entry file="file://$PROJECT_DIR$/src/css/errorstylesheet.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="99" column="40" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="40" />
+        <state relative-caret-position="525">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="92" column="36" lean-forward="true" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
           <folding>
-            <element signature="method#patientSearch#0;class#DatabaseClass#0" />
-            <element signature="e#2204#2212#0" expanded="true" />
+            <element signature="n#!!doc;n#mytable#0;n#Controller#0" />
+            <element signature="e#2013#2121#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/loginpackage/dbUtil/DatabaseConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="-183">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#898#899#0" expanded="true" />
+            <element signature="e#944#945#0" expanded="true" />
+            <element signature="e#1001#1002#0" expanded="true" />
+            <element signature="e#1050#1051#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/newPatientPagePackage/newpatient.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="141" column="67" selection-start-line="141" selection-start-column="67" selection-end-line="141" selection-end-column="67" />
+        <state relative-caret-position="294">
+          <caret line="14" column="116" selection-start-line="14" selection-start-column="116" selection-end-line="14" selection-end-column="116" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/newPatientPagePackage/Newpatient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="232" column="81" selection-start-line="232" selection-start-column="58" selection-end-line="232" selection-end-column="81" />
+          <folding>
+            <element signature="e#36#66#0" />
+            <element signature="e#3483#3515#0" />
+            <element signature="e#4041#4142#0" />
+            <element signature="e#4236#4515#0" />
+            <element signature="e#4617#4883#0" />
+            <element signature="e#4986#6193#0" />
+            <element signature="e#6234#6336#0" />
+            <element signature="e#6376#6623#0" />
+            <element signature="e#6664#6745#0" />
+            <element signature="e#9931#10074#0" />
+            <element signature="method#cancelButtonPressed#0;class#Newpatient#0" />
+            <element signature="method#enterButtonPressed#0;class#Newpatient#0" />
+            <element signature="method#isThisFieldCorrect#0;class#Newpatient#0" />
+            <element signature="method#fieldsAreNotEmpty#0;class#Newpatient#0" />
+            <element signature="method#customsPermission#0;class#Newpatient#0" />
+            <element signature="method#calculateAge#0;class#Newpatient#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/CustomStyle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/stylesheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
         </state>
       </provider>
     </entry>

@@ -15,6 +15,10 @@ import javafx.stage.Stage;
 import sample.DatabaseClass;
 import sample.Patient;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Period;
@@ -34,8 +38,8 @@ public class Newpatient implements Initializable {
     private JFXButton enter;
     @FXML
     private JFXButton cancel;
-    @FXML
-    private JFXButton settheme;
+    /*@FXML
+    private JFXButton settheme;*/
     @FXML
     private JFXTextField lastname;
     @FXML
@@ -62,7 +66,7 @@ public class Newpatient implements Initializable {
     private JFXTextField postalcode;
     @FXML
     private Text systext;
-    @FXML
+    /*@FXML
     private JFXColorPicker cp1;
     @FXML
     private JFXColorPicker cp2;
@@ -80,7 +84,7 @@ public class Newpatient implements Initializable {
     private JFXColorPicker cp8;
 
     @FXML
-    private JFXColorPicker cp9;
+    private JFXColorPicker cp9;*/
     //</editor-fold>
 
 
@@ -92,11 +96,11 @@ public class Newpatient implements Initializable {
     class TextfieldlistenerEditor {
 
         TextfieldlistenerEditor(JFXTextField jfxTextField, String string) {
-
+            CustomStyle.updateCustomStyle();
             jfxTextField.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
                 if (newPropertyValue)
                 {
-                    System.out.println(jfxTextField.getId()+ "  on focus");
+                    //System.out.println(jfxTextField.getId()+ "  on focus");
                 }
                 else
                 {
@@ -226,16 +230,6 @@ public class Newpatient implements Initializable {
             anchorPane.getScene().getWindow().setOpacity(1);
         });
 
-
-        cp1.setOnMouseEntered(mouseEvent);
-        cp2.setOnMouseEntered(mouseEvent);
-        cp3.setOnMouseEntered(mouseEvent);
-        cp4.setOnMouseEntered(mouseEvent);
-        cp5.setOnMouseEntered(mouseEvent);
-        cp6.setOnMouseEntered(mouseEvent);
-        cp7.setOnMouseEntered(mouseEvent);
-        cp8.setOnMouseEntered(mouseEvent);
-        cp9.setOnMouseEntered(mouseEvent);
         TextfieldlistenerEditor firstname_Listener  = new TextfieldlistenerEditor(firstname,VALID_NAME_FORMAT);
         TextfieldlistenerEditor lastname_Listener  = new TextfieldlistenerEditor(lastname,VALID_NAME_FORMAT);
         TextfieldlistenerEditor socialid_Listener  = new TextfieldlistenerEditor(socialid,VALID_SOCIAL_ID_FORMAT);
@@ -244,16 +238,6 @@ public class Newpatient implements Initializable {
         TextfieldlistenerEditor city_Listener  = new TextfieldlistenerEditor(city,VALID_NAME_FORMAT);
         TextfieldlistenerEditor address_Listener  = new TextfieldlistenerEditor(address,VALID_ADDRESS_FORMAT);
         TextfieldlistenerEditor postalcode_Listener  = new TextfieldlistenerEditor(postalcode,VALID_POSTALCODE_FORMAT);
-        cp1.setValue(Color.valueOf(fxFocusColor));
-        cp2.setValue(Color.valueOf(jfxUnfocusColor1));
-        cp3.setValue(Color.valueOf(jfxUnfocusColor2));
-        cp4.setValue(Color.valueOf(fxBase));
-        cp5.setValue(Color.valueOf(fxTextFill));
-        cp6.setValue(Color.valueOf(fxButtonColor));
-        cp7.setValue(Color.valueOf(fxButtonSideColor));
-        cp8.setValue(Color.valueOf(fxPromptTextColor));
-        cp9.setValue(Color.valueOf(fxAnchorBackgroundColor));
-
     }
 
     public void customstylesetter() {
@@ -284,7 +268,7 @@ public class Newpatient implements Initializable {
         //BUTTONS
         enter.setStyle(button_Style_Font + button_Style +"-fx-background-color: "+ fxButtonColor +";");
         cancel.setStyle(button_Style_Font + button_Style +"-fx-background-color: "+ fxButtonColor +";");
-        settheme.setStyle(button_Style_Font + button_Style +"-fx-background-color: "+ fxButtonColor +";");
+        //settheme.setStyle(button_Style_Font + button_Style +"-fx-background-color: "+ fxButtonColor +";");
 
         //TEXT
         systext.setText(textField_Style);
@@ -301,42 +285,6 @@ public class Newpatient implements Initializable {
     public void cancelButtonPressed() {
         Stage stage = (Stage) this.cancel.getScene().getWindow();
         stage.close();
-    }
-
-    public void setthemebutton() {
-        fxFocusColor = "#" + Integer.toHexString(cp1.getValue().hashCode());
-        fxFocusColor = fxFocusColor.substring(0, 7);
-
-        jfxUnfocusColor1 = "#" + Integer.toHexString(cp2.getValue().hashCode());
-        jfxUnfocusColor1 = jfxUnfocusColor1.substring(0, 7);
-
-        jfxUnfocusColor2 = "#" + Integer.toHexString(cp3.getValue().hashCode());
-        jfxUnfocusColor2 = jfxUnfocusColor2.substring(0, 7);
-
-        fxBase = "#" + Integer.toHexString(cp4.getValue().hashCode());
-        fxBase = fxBase.substring(0, 7);
-
-        fxTextFill = "#" + Integer.toHexString(cp5.getValue().hashCode());
-        fxTextFill = fxTextFill.substring(0, 7);
-
-        fxButtonColor = "#" + Integer.toHexString(cp6.getValue().hashCode());
-        fxButtonColor = fxButtonColor.substring(0, 7);
-
-        fxButtonSideColor = "#" + Integer.toHexString(cp7.getValue().hashCode());
-        fxButtonSideColor = fxButtonSideColor.substring(0, 7);
-
-        fxPromptTextColor = "#" + Integer.toHexString(cp8.getValue().hashCode());
-        fxPromptTextColor = fxPromptTextColor.substring(0, 7);
-
-        fxAnchorBackgroundColor = "#" + Integer.toHexString(cp9.getValue().hashCode());
-        fxAnchorBackgroundColor = fxAnchorBackgroundColor.substring(0, 7);
-
-
-        customstylesetter();
-        System.out.println("theme is set " + "fxFocusColor: " + fxFocusColor + " jfxUnfocusColor1: " + jfxUnfocusColor1 + " jfxUnfocusColor2: " + jfxUnfocusColor2 + " fxBase: " + fxBase);
-        System.out.println(textField_Style);
-
-
     }
 
     public void enterButtonPressed() {
