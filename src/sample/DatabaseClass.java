@@ -39,9 +39,6 @@ public class DatabaseClass implements Initializable {
     }
 
 
-
-
-
     public boolean patientSearch(String lastname, String socialID) throws Exception {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -133,8 +130,9 @@ public class DatabaseClass implements Initializable {
 
     public void addNewPatient(Patient patient) {
 
+
         System.out.println("Importing new Data...");
-        String sqlnewPatientInsert = "INSERT INTO "+ DatabaseConnection.getMysqlGoogleTableName() +  "(" +
+        String sqlnewPatientInsert = "INSERT INTO "+ DatabaseConnection.getMysqlTableName() +  "(" +
                 "firstname," +
                 "lastname," +
                 "socialID," +
@@ -187,7 +185,7 @@ public class DatabaseClass implements Initializable {
 
     public ObservableList<Patient> loadAllPatientList() {
         System.out.println("retrieving data from server...");
-        String TABLE_SELECT = "SELECT * FROM " + DatabaseConnection.getMysqlGoogleTableName(); //Table Name
+        String TABLE_SELECT = "SELECT * FROM " + DatabaseConnection.getMysqlTableName(); //Table Name
 
         try {
             Connection connection = DatabaseConnection.getConnection();

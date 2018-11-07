@@ -1,10 +1,12 @@
 package sample;
 
 import com.jfoenix.controls.JFXButton;
+import css.CustomStyle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -52,14 +54,17 @@ public class Controller implements Initializable {
     private TableColumn<Patient, String> address;
     @FXML
     private TableColumn<Patient, String> postalcode;
+
+
+
     @FXML
-    private JFXButton b1;
+    private Button b1;
     @FXML
-    private JFXButton b2;
+    private Button b2;
     @FXML
-    private JFXButton b3;
+    private Button b3;
     @FXML
-    private JFXButton b4;
+    private Button b4;
     @FXML
     private Text text;
     //</editor-fold>
@@ -67,6 +72,7 @@ public class Controller implements Initializable {
     private double yOffset = 0;
 
     TableData tableData = new TableData();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -85,17 +91,12 @@ public class Controller implements Initializable {
         //</editor-fold>
         mytable.setItems(tableData.allPatientCahceList());
 
-        final String formatbutton = "" +
-                "-fx-font-family: Segoe UI semibold; " +
-                "-fx-style: Regular; " +
-                "-fx-base: #AE3522; " +
-                "-fx-text-fill: white; " +
-                "-fx-font-size: 16";
 
-        b1.setStyle(formatbutton);
-        b2.setStyle(formatbutton);
-        b3.setStyle(formatbutton);
-        b4.setStyle(formatbutton);
+
+        b1.setStyle(CustomStyle.getFormatbutton());
+        b2.setStyle(CustomStyle.getFormatbutton());
+        b3.setStyle(CustomStyle.getFormatbutton());
+        b4.setStyle(CustomStyle.getFormatbutton());
         getDatafromDatabase();
     }
     public void newPatientButtonPressed() {
