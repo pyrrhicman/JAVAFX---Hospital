@@ -326,7 +326,33 @@ public class Newpatient implements Initializable {
                                     if (isThisFieldCorrect(city.getText(), VALID_NAME_FORMAT)) {
                                         if (isThisFieldCorrect(address.getText(), VALID_ADDRESS_FORMAT)) {
                                             if (isThisFieldCorrect(postalcode.getText(), VALID_POSTALCODE_FORMAT)) {
-                                                return true;
+                                                if (enterbirthday.isSelected()) {
+
+                                                }
+                                                if (isThisFieldCorrect(daybirth.getText(), VALID_AGE_FORMAT)) {
+
+                                                    if (Integer.parseInt(daybirth.getText()) >= 1 & Integer.parseInt(daybirth.getText()) <= 31) {
+                                                        if (Integer.parseInt(monthbirth.getText()) >= 1 & Integer.parseInt(monthbirth.getText()) <= 12) {
+                                                            if (Integer.parseInt(yearbirth.getText()) >= 1800 & Integer.parseInt(yearbirth.getText()) <= 2100) {
+                                                                return true;
+                                                            } else {
+                                                                systext.setText("Please Check the Birthday");
+
+                                                            }
+                                                        } else {
+                                                            systext.setText("Please Check the Birthday");
+
+                                                        }
+                                                    } else {
+                                                        systext.setText("Please Check the Birthday");
+
+                                                    }
+
+
+                                                } else {
+                                                    systext.setText("Please Check the Postal Code");
+                                                }
+
 
                                             } else {
                                                 systext.setText("Please Check the Postal Code");
