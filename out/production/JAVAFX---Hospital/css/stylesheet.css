@@ -1,9 +1,12 @@
-/*.parent {
-    -fx-background-color: #F4F6F7;
+.parent {
+    /*-fx-background-image: url("b1.jpg");*/
+    -fx-background-color: #FFF9EB ;
 
-}*/
+}
 
-.background{-fx-background-color: #FFF9EB ;}
+.background{
+    /*-fx-background-image: url("b1.jpg");*/
+    -fx-background-color: #FFF9EB ;}
 
 
 /*.sidebar {

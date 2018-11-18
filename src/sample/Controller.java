@@ -55,8 +55,6 @@ public class Controller implements Initializable {
     @FXML
     private TableColumn<Patient, String> postalcode;
 
-
-
     @FXML
     private Button b1;
     @FXML
@@ -65,6 +63,9 @@ public class Controller implements Initializable {
     private Button b3;
     @FXML
     private Button b4;
+    @FXML
+    private Button editbutton;
+
     @FXML
     private Text text;
     //</editor-fold>

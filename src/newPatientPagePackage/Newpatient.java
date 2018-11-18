@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.DatabaseClass;
 import sample.Patient;
+import tools.FieldCheck;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -31,6 +32,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import static css.CustomStyle.*;
+import static tools.FieldCheck.*;
 
 
 public class Newpatient implements Initializable {
@@ -171,8 +173,8 @@ public class Newpatient implements Initializable {
 
 
         age.setDisable(true);
-        age.setText("Enter Age or Select Birthday");
-
+        //age.setText("Enter Age or Select Birthday");
+        age.setPromptText("Enter Age");
         enter.setStyle(CustomStyle.getFormatbutton());
         cancel.setStyle(CustomStyle.getFormatbutton());
 
@@ -221,11 +223,17 @@ public class Newpatient implements Initializable {
         anchorPane.setOnMouseReleased(event -> {
             anchorPane.getScene().getWindow().setOpacity(1);
         });
+        //TextfieldlistenerEditor firstname_Listener = new TextfieldlistenerEditor(firstname, VALID_NAME_FORMAT);
+        //FieldCheck fc_FIRSTNAME = new FieldCheck();
+        fieldCheck(firstname, VALID_NAME_FORMAT);
+        fieldCheck(lastname, VALID_NAME_FORMAT);
+        fieldCheck(socialid, VALID_SOCIAL_ID_FORMAT);
+        fieldCheck(age, VALID_AGE_FORMAT);
+        fieldCheck(phonenumber, VALID_AGE_FORMAT);
+        fieldCheck(address, VALID_ADDRESS_FORMAT);
+        fieldCheck(postalcode, VALID_POSTALCODE_FORMAT);
+        fieldCheck(age, VALID_AGE_FORMAT);
 
-        TextfieldlistenerEditor firstname_Listener = new TextfieldlistenerEditor(firstname, VALID_NAME_FORMAT);
-        TextfieldlistenerEditor lastname_Listener = new TextfieldlistenerEditor(lastname, VALID_NAME_FORMAT);
-        TextfieldlistenerEditor socialid_Listener = new TextfieldlistenerEditor(socialid, VALID_SOCIAL_ID_FORMAT);
-        TextfieldlistenerEditor age_Listener = new TextfieldlistenerEditor(age, VALID_AGE_FORMAT);
         TextfieldlistenerEditor phonenumber_Listener = new TextfieldlistenerEditor(phonenumber, VALID_AGE_FORMAT);
         TextfieldlistenerEditor city_Listener = new TextfieldlistenerEditor(city, VALID_NAME_FORMAT);
         TextfieldlistenerEditor address_Listener = new TextfieldlistenerEditor(address, VALID_ADDRESS_FORMAT);
